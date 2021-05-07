@@ -1,0 +1,20 @@
+:root {
+  --primary-green: #28c47d;
+  --secondary-green: #1b512d;
+  --text-color: #f0f0f0;
+}
+
+.landing-container {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  margin-top: 10em;
+}
+
+.main-info {
+  background-image: url(../images/dental-office.jpeg);
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 50vh;
+}
