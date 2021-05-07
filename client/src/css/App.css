@@ -1,0 +1,22 @@
+* {
+  background-color: #F6FEFF;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  border: none;
+  /* font-family: "Roboto", san-serf; */
+  font-weight: 400;
+  box-sizing: border-box;
+}
+
+.button {
+  background-color: #1B512D;
+  color: #F0F0F0;
+}
+
+.form-button {
+  padding: 10px;
+  margin: 0 100px;
+}
+
+@import url("search-form.css");
