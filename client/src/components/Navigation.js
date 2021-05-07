@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import logo from '../images/DentalWerk.png';
+import clinic from '../images/GREEN-clinic-search.png';
+import search from '../images/GREEN-search.png';
 
 const Navigation = () => {
   return (
@@ -12,6 +14,12 @@ const Navigation = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
+          <Link className="nav-link" to="/clinic-search">
+            <img src={clinic} alt="clinic search icon" />
+          </Link>
+          <Link className="nav-link" to="/job-search">
+            <img src={search} alt="job search icon" />
+          </Link>
           <NavDropdown title="Menu" id="basic-nav-dropdown">
             <NavDropdown.Item href="/job-search">Job Search</NavDropdown.Item>
             <NavDropdown.Item href="/clinic-search">
