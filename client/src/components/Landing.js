@@ -5,19 +5,19 @@ import search from '../images/WHITE-Search.png';
 
 const Landing = () => {
   return (
-    <div className="landing-container">
-      <div className="main-info">
-        <button className="search-button">
-          <Link className="link" to="/clinic-search">
+    <div className='landing-container'>
+      <div className='main-info'>
+        <button className='search-button'>
+          <Link className='link' to='/clinic-search'>
             Office Search
           </Link>
-          <img src={clinic} alt="clinic search icon" />
+          <img src={clinic} alt='clinic search icon' />
         </button>
-        <button className="search-button">
-          <Link className="link" to="/job-search">
+        <button className='search-button'>
+          <Link className='link' to='/job-search'>
             Job Search
           </Link>
-          <img src={search} alt="job search icon" />
+          <img src={search} alt='job search icon' />
         </button>
       </div>
     </div>

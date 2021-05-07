@@ -5,7 +5,7 @@ import Landing from '../src/components/Landing';
 function Router() {
   return (
     <Switch>
-      <Route exact path="/" component={Landing}></Route>
+      <Route exact path='/' component={Landing}></Route>
     </Switch>
   );
 }
