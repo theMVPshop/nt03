@@ -5,9 +5,10 @@
   --primary-green: #28c47d;
   --secondary-green: #1b512d;
   --text-color: #f0f0f0;
+  --background: #f6feff;
 }
 * {
-  background-color: #f6feff;
+  /* background-color: #f6feff; */
   margin: 0;
   padding: 0;
   text-decoration: none;
@@ -15,6 +16,10 @@
   /* font-family: "Roboto", san-serf; */
   font-weight: 400;
   box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background);
 }
 
 .button {
