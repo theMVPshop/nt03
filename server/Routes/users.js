@@ -1,20 +1,20 @@
 // express imports
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+const router = express.Router();
 
 // COntrollers imports
-const users = require('../Controllers/users')
+const users = require('../Controllers/users');
 
 // All users
-router.get('/users', users.allUsers)
+router.get('/users', users.allUsers);
 
 // Specific User
-router.get('/users/:id', users.userByID)
+router.get('/users/:id', users.userByID);
 
 // Created new user
-router.post('/users', users.createUser)
+router.post('/users', users.createUser);
 
 // Update user
-router.put('/users/:id', users.updateUser)
+router.put('/users/:id', users.updateUser);
 
-module.exports = router
+module.exports = router;
