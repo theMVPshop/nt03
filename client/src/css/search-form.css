@@ -1,14 +1,19 @@
 .search-form-container {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
-
-.search-form {
-  background-color: #B8EDD8;
+  background-color: var(--accent-green);
   width: 50%;
   min-width: 300px;
   max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.search-form-icon {
+  width: 100px;
+  margin: 0 auto;
+}
+
+.search-form {
   padding: 50px;
   display: flex;
   flex-direction: column;

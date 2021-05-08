@@ -30,7 +30,7 @@
 
 .link {
   text-decoration: none;
-  color: var(--text-color);
+  color: var(--primary-text-color);
   font-size: 50px;
 }
 
