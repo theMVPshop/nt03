@@ -9,13 +9,13 @@ const Landing = () => {
       <div className='main-info'>
         <button className='search-button'>
           <Link className='link' to='/clinic-search'>
-            Office Search
+            Clinic Phone Book
           </Link>
           <img src={clinic} alt='clinic search icon' />
         </button>
         <button className='search-button'>
           <Link className='link' to='/job-search'>
-            Job Search
+            Search For Jobs
           </Link>
           <img src={search} alt='job search icon' />
         </button>
