@@ -1,0 +1,35 @@
+@import url('./Navigation.css');
+@import url('./Landing.css');
+
+:root {
+  --primary-green: #28c47d;
+  --secondary-green: #1b512d;
+  --text-color: #f0f0f0;
+  --background: #f6feff;
+}
+* {
+  /* background-color: #f6feff; */
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  border: none;
+  /* font-family: "Roboto", san-serf; */
+  font-weight: 400;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background);
+}
+
+.button {
+  background-color: #1b512d;
+  color: #f0f0f0;
+}
+
+.form-button {
+  padding: 10px;
+  margin: 0 100px;
+}
+
+@import url('search-form.css');

@@ -1,0 +1,39 @@
+.landing-container {
+  margin: auto;
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+  margin-top: 10em;
+}
+
+.main-info {
+  background-image: url(../images/dental-office.jpeg);
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 600px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.search-button {
+  background-color: var(--secondary-green);
+  border: none;
+  height: 225px;
+  width: 750px;
+  margin-right: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 50px;
+}
+
+.search-button > img {
+  height: 200px;
+}

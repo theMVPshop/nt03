@@ -1,0 +1,20 @@
+.search-form-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.search-form {
+  background-color: #B8EDD8;
+  width: 50%;
+  min-width: 300px;
+  max-width: 500px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-input {
+  padding: 10px;
+  margin: 0 50px 20px;
+}
