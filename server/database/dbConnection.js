@@ -12,10 +12,9 @@ class Connection {
         password: process.env.DB_PASSWORD,
         database: process.env.DB_DEFAULT_SCHEMA,
       });
-
+      console.log('mysql connected');
       return this.pool;
     }
-
     return this.pool;
   }
 }
