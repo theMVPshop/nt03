@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @import url('./Navigation.css');
 @import url('./Landing.css');
 
@@ -7,9 +6,8 @@
   --secondary-green: #1b512d;
   --text-color: #f0f0f0;
 }
-=======
 * {
-  background-color: #F6FEFF;
+  background-color: #f6feff;
   margin: 0;
   padding: 0;
   text-decoration: none;
@@ -20,8 +18,8 @@
 }
 
 .button {
-  background-color: #1B512D;
-  color: #F0F0F0;
+  background-color: #1b512d;
+  color: #f0f0f0;
 }
 
 .form-button {
@@ -29,5 +27,4 @@
   margin: 0 100px;
 }
 
-@import url("search-form.css");
->>>>>>> origin/search-pages
+@import url('search-form.css');
