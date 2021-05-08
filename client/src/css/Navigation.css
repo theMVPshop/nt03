@@ -1,0 +1,7 @@
+.navbar {
+  background-color: var(--primary-green);
+}
+
+.nav-link > img {
+  height: 50px;
+}
