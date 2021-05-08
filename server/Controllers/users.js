@@ -1,4 +1,6 @@
 // DB Connection code
+const db = require('../database/dbConnection')
+const mysql = require(`mysql`)
 
 // All users
 const allUsers = (req, res) => {
@@ -9,7 +11,18 @@ const allUsers = (req, res) => {
 const userByID = (req, res) => {
   let userID = req.params.id;
 
-  res.json({ action: `Requested user ID ${userID}` });
+  sql = "SELECT * FROM users WHERE id = ?"
+
+  sql = mysql.format(sql, [userID])
+
+  db.query(sql, (error, result) => {
+    if (error) {
+      console.error(error)
+      return res.sendStatus(500)
+    }
+
+    res.json(result)
+  })
 };
 
 // Update a specific user
@@ -21,11 +34,22 @@ const updateUser = (req, res) => {
 
 // Create a new user
 const createUser = (req, res) => {
-  let newUser = req.body;
+  let newUser = Object.values(req.body)
 
-  res.json({
-    User_Created: newUser,
-  });
+  let sql = "INSERT INTO users (username, first_name, last_name) values (?)"
+
+  sql = mysql.format(sql, [newUser])
+
+
+  db.query(sql, (error, result) => {
+    if (error) {
+      console.error(error)
+      return res.sendStatus(500)
+    }
+
+    console.log(result)
+    res.json(`User ${req.body.username} was succesfully created!`)
+  })
 };
 
 module.exports = { allUsers, userByID, updateUser, createUser };
