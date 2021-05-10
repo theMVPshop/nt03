@@ -19,7 +19,8 @@ app.use(express.json());
 app.use(usersRoute);
 
 app.get('/test', (req, res) => {
-  res.json('API is Running!');
+  console.log('basic server up running');
+  res.json({ response: 'basic server up' });
 });
 
 app.listen(port, () => console.log(`API Server running on port ${port}`));
