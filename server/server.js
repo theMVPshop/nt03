@@ -11,7 +11,7 @@ const usersRoute = require('./Routes/users');
 const jobsRouter = require('./Routes/jobs');
 
 // set port for api server
-let port = process.env.PORT || 3000;
+let port = process.env.PORT || 4000;
 
 // json bodyparser
 app.use(express.json());

@@ -4,7 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev:server": "nodemon ./server/server.js"
+    "dev:server": "nodemon ./server/server.js",
+    "dev:front": "cd client && npm start",
+    "dev": "concurrently \"nodemon ./server/server.js\" \"cd client && npm start\""
   },
   "repository": {
     "type": "git",
@@ -24,6 +26,7 @@
     "mysql": "^2.18.1"
   },
   "devDependencies": {
+    "concurrently": "^6.1.0",
     "nodemon": "^2.0.7"
   }
 }
