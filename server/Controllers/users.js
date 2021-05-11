@@ -19,12 +19,12 @@ const allUsers = (req, res) => {
 
 //@GET
 // get a specific user by ID
-const userByID = (req, res) => {
-  let userID = req.params.id;
+const userByUsername = (req, res) => {
+  let username = req.params.username;
 
-  sql = 'SELECT * FROM users WHERE id = ?';
+  sql = 'SELECT * FROM users WHERE username = ?';
 
-  sql = mysql.format(sql, [userID]);
+  sql = mysql.format(sql, [username]);
 
   db.query(sql, (error, result) => {
     if (error) {
@@ -39,9 +39,9 @@ const userByID = (req, res) => {
 //@PUT
 // Update a specific user
 const updateUser = (req, res) => {
-  let userID = req.params.id;
+  let username = req.params.username;
 
-  res.json({ action: `User ID ${userID} was updated` });
+  res.json({ action: `User ${username} was updated` });
 };
 
 //@POST
@@ -64,4 +64,4 @@ const createUser = (req, res) => {
   });
 };
 
-module.exports = { allUsers, userByID, updateUser, createUser };
+module.exports = { allUsers, userByUsername, updateUser, createUser };

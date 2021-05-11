@@ -1,0 +1,5 @@
+#### User Info
+
+/users - Get all users in DB
+
+/users/:username - Get specific user by username 

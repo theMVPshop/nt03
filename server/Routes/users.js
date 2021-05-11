@@ -9,12 +9,12 @@ const users = require('../Controllers/users');
 router.get('/users', users.allUsers);
 
 // Specific User
-router.get('/users/:id', users.userByID);
+router.get('/users/:username', users.userByUsername);
 
 // Created new user
 router.post('/users', users.createUser);
 
 // Update user
-router.put('/users/:id', users.updateUser);
+router.put('/users/:username', users.updateUser);
 
 module.exports = router;
