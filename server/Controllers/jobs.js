@@ -58,11 +58,12 @@ const updateJob = (req, res) => {
 //@POST
 // Save a new job to user
 const saveJob = (req, res) => {
-  let newUser = Object.values(req.body);
+  let newJobUrl = req.body.url;
+  let userID = req.body.user_id;
 
-  let sql = 'INSERT INTO saved_jobs (job_url, user_id) values (?)';
+  let sql = 'INSERT INTO saved_jobs (job_url, user_id) values (?, ?)';
 
-  sql = mysql.format(sql, [newUser]);
+  sql = mysql.format(sql, [newJobUrl, userID]);
 
   db.query(sql, (error, result) => {
     if (error) {

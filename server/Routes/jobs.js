@@ -8,7 +8,7 @@ const jobs = require('../Controllers/jobs');
 // All jobs
 router.get('/jobs', jobs.allJobs);
 
-// Specific job by user
+// List of saved jobs by user
 router.get('/jobs/:id', jobs.jobByID);
 
 // Save new job to user

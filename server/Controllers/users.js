@@ -47,11 +47,13 @@ const updateUser = (req, res) => {
 //@POST
 // Create a new user
 const createUser = (req, res) => {
-  let newUser = Object.values(req.body);
+  let newUsername = req.body.username;
+  let newUserFirstName = req.body.first_name;
+  let newUserLastName = req.body.last_name;
 
-  let sql = 'INSERT INTO users (username, first_name, last_name) values (?)';
+  let sql = 'INSERT INTO users (username, first_name, last_name) values (?, ?, ?)';
 
-  sql = mysql.format(sql, [newUser]);
+  sql = mysql.format(sql, [newUsername, newUserFirstName, newUserLastName]);
 
   db.query(sql, (error, result) => {
     if (error) {
