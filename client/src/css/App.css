@@ -4,11 +4,12 @@
 :root {
   --primary-green: #28c47d;
   --secondary-green: #1b512d;
-  --text-color: #f0f0f0;
+  --accent-green: #b8edd8;
+  --primary-text-color: #f0f0f0;
+  --secondary-text-color: #323232;
   --background: #f6feff;
 }
 * {
-  /* background-color: #f6feff; */
   margin: 0;
   padding: 0;
   text-decoration: none;
@@ -23,13 +24,13 @@ body {
 }
 
 .button {
-  background-color: #1b512d;
-  color: #f0f0f0;
+  background-color: var(--secondary-green);
+  color: var(--primary-text-color);
 }
 
 .form-button {
   padding: 10px;
-  margin: 0 100px;
+  margin: 0 auto;
 }
 
 @import url('search-form.css');
