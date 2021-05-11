@@ -1,5 +1,6 @@
 @import url('./Navigation.css');
 @import url('./Landing.css');
+@import url('./SignIn.css');
 
 :root {
   --primary-green: #28c47d;
@@ -9,6 +10,10 @@
   --secondary-text-color: #323232;
   --background: #f6feff;
 }
+#root {
+  height: 100vh;
+}
+
 * {
   margin: 0;
   padding: 0;
