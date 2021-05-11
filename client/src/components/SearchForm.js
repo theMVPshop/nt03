@@ -1,21 +1,31 @@
-import clinic from '../images/GREEN-search.png';
 
-const SearchForm = () => {
+const SearchForm = (props) => {
+
+  const handleTextChange = (e) => {
+
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  }
 
   return (
     <div className='search-form-container'>
-      <img className='search-form-icon' src={clinic} alt='clinic search icon' />
-      <form className='search-form'>
+      <img className='search-form-icon' src={props.icon} alt={props.alt} />
+      <form className='search-form' onSubmit={handleSubmit}>
         <input
           className='search-input'
           type='text'
-          placeholder='position'
+          placeholder={props.placeholder1}
+          onChange={handleTextChange}
         />
+        {props.placeholder2 === undefined ? null :
         <input
           className='search-input'
           type='text'
-          placeholder='location'
-        />
+          placeholder={props.placeholder2}
+          onChange={handleTextChange}
+        />}
         <button className='button form-button' type='submit'>SEARCH</button>
       </form>
     </div>
