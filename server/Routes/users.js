@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 
-// COntrollers imports
+// Controllers imports
 const users = require('../Controllers/users');
 
 // All users

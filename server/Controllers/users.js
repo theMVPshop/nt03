@@ -5,7 +5,16 @@ const mysql = require(`mysql`);
 //@GET
 // All users
 const allUsers = (req, res) => {
-  res.json({ action: 'Get all Users' });
+  let sql = "SELECT * FROM users"
+
+  db.query(sql, (error, result) => {
+    if (error) {
+      console.error(error);
+      return res.sendStatus(500)
+    }
+
+    res.json(result);
+  })
 };
 
 //@GET
