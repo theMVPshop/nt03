@@ -1,5 +1,14 @@
+.sign-in-container {
+  position: relative;
+  height: 60vh;
+}
+
 .login-form {
-  margin: 8em auto;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
