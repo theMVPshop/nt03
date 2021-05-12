@@ -1,9 +1,13 @@
 @import url('./Navigation.css');
 @import url('./Landing.css');
+@import url('./SearchForm.css');
+@import url('./JobPostings.css');
+@import url('./JobCard.css');
 
 :root {
   --primary-green: #28c47d;
   --secondary-green: #1b512d;
+  --secondary-green-opacity:  rgba(33, 81, 45, 0.3); 
   --accent-green: #b8edd8;
   --primary-text-color: #f0f0f0;
   --secondary-text-color: #323232;
@@ -32,5 +36,3 @@ body {
   padding: 10px;
   margin: 0 auto;
 }
-
-@import url('search-form.css');
