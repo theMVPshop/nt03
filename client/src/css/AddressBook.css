@@ -1,0 +1,23 @@
+.table-container {
+  width: 90vw;
+  height: 80vh;
+  margin: 0 auto;
+  top: 5%;
+  position: relative;
+  padding-top: 25px;
+  background-color: var(--accent-green);
+}
+
+.table {
+  width: 87vw;
+  margin: 0 auto;
+  background-color: var(--background);
+}
+
+.contacted {
+  width: 100px;
+}
+
+.notes {
+  width: 550px;
+}

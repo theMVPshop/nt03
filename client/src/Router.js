@@ -5,6 +5,7 @@ import JobSearch from '../src/components/JobSearch';
 import ClinicSearch from '../src/components/ClinicSearch';
 import SignIn from '../src/components/SignIn';
 import SignUp from '../src/components/SignUp';
+import AddressBook from './components/AddressBook';
 
 function Router() {
   return (
@@ -14,6 +15,7 @@ function Router() {
       <Route path='/clinic-search' component={ClinicSearch}></Route>
       <Route path='/sign-in' component={SignIn}></Route>
       <Route path='/sign-up' component={SignUp}></Route>
+      <Route path='/address-book' component={AddressBook}></Route>
     </Switch>
   );
 }
