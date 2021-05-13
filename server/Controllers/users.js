@@ -5,17 +5,26 @@ const mysql = require(`mysql`);
 //@GET
 // All users
 const allUsers = (req, res) => {
-  res.json({ action: 'Get all Users' });
+  let sql = "SELECT * FROM users"
+
+  db.query(sql, (error, result) => {
+    if (error) {
+      console.error(error);
+      return res.sendStatus(500)
+    }
+
+    res.json(result);
+  })
 };
 
 //@GET
 // get a specific user by ID
-const userByID = (req, res) => {
-  let userID = req.params.id;
+const userByUsername = (req, res) => {
+  let username = req.params.username;
 
-  sql = 'SELECT * FROM users WHERE id = ?';
+  sql = 'SELECT * FROM users WHERE username = ?';
 
-  sql = mysql.format(sql, [userID]);
+  sql = mysql.format(sql, [username]);
 
   db.query(sql, (error, result) => {
     if (error) {
@@ -30,19 +39,21 @@ const userByID = (req, res) => {
 //@PUT
 // Update a specific user
 const updateUser = (req, res) => {
-  let userID = req.params.id;
+  let username = req.params.username;
 
-  res.json({ action: `User ID ${userID} was updated` });
+  res.json({ action: `User ${username} was updated` });
 };
 
 //@POST
 // Create a new user
 const createUser = (req, res) => {
-  let newUser = Object.values(req.body);
+  let newUsername = req.body.username;
+  let newUserFirstName = req.body.first_name;
+  let newUserLastName = req.body.last_name;
 
-  let sql = 'INSERT INTO users (username, first_name, last_name) values (?)';
+  let sql = 'INSERT INTO users (username, first_name, last_name) values (?, ?, ?)';
 
-  sql = mysql.format(sql, [newUser]);
+  sql = mysql.format(sql, [newUsername, newUserFirstName, newUserLastName]);
 
   db.query(sql, (error, result) => {
     if (error) {
@@ -55,4 +66,4 @@ const createUser = (req, res) => {
   });
 };
 
-module.exports = { allUsers, userByID, updateUser, createUser };
+module.exports = { allUsers, userByUsername, updateUser, createUser };

@@ -8,15 +8,17 @@ const app = express();
 
 // routers import
 const usersRoute = require('./Routes/users');
+const jobsRouter = require('./Routes/jobs');
 
 // set port for api server
-let port = process.env.PORT || 3000;
+let port = process.env.PORT || 4000;
 
 // json bodyparser
 app.use(express.json());
 
 // Routers endpoints
 app.use(usersRoute);
+app.use(jobsRouter);
 
 app.get('/test', (req, res) => {
   console.log('basic server up running');
