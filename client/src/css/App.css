@@ -27,12 +27,23 @@ body {
   background-color: var(--background);
 }
 
-.button {
+/* BUTTONS */
+.btn {
+  font-size: 15px;
+  font-weight: bold;
+  width: 300px;
+  border: none;
   background-color: var(--secondary-green);
+  text-transform: uppercase;
   color: var(--primary-text-color);
 }
 
-.form-button {
-  padding: 10px;
-  margin: 0 auto;
+.btn:hover {
+  background-color: var(--primary-green);
+}
+
+.button-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
