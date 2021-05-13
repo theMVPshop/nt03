@@ -1,6 +1,8 @@
 @import url('./Navigation.css');
 @import url('./Landing.css');
-@import url('SearchForm.css');
+@import url('./SearchForm.css');
+@import url('./JobPostings.css');
+@import url('./JobCard.css');
 
 :root {
   --primary-green: #28c47d;
@@ -44,10 +46,4 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.form-btn {
-  min-height: 38px;
-  border-radius: 2px;
-  margin: 0 0 15px;
 }
