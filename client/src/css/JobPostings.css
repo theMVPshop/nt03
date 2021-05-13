@@ -1,0 +1,5 @@
+.job-postings-container {
+  width: 60%;
+  background-color: var(--secondary-green-opacity);
+  padding: 5px;
+}
