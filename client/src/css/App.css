@@ -45,12 +45,6 @@ body {
   justify-content: center;
 }
 
-/* FORMS */
-.form-group > input {
-  width: 350px;
-  margin: 15px;
-}
-
 .form-btn {
   min-height: 38px;
   border-radius: 2px;

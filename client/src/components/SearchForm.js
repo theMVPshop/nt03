@@ -14,27 +14,21 @@ const SearchForm = (props) => {
       <div className='search-form'>
         <img className='search-form-icon' src={props.icon} alt={props.alt} />
         <form className='search-form' onSubmit={handleSubmit}>
-          <div className='form-group'>
-            <input
-              className='search-input'
-              type='text'
-              placeholder={props.placeholder1}
-              onChange={handleTextChange}
-            />
-          </div>
+          <input
+            className='search-input'
+            type='text'
+            placeholder={props.placeholder1}
+            onChange={handleTextChange}
+          />
           {props.placeholder2 === undefined ? null :
-            <div className='form-group'>
-              <input
-                className='search-input'
-                type='text'
-                placeholder={props.placeholder2}
-                onChange={handleTextChange}
-              />
-            </div>
+          <input
+            className='search-input'
+            type='text'
+            placeholder={props.placeholder2}
+            onChange={handleTextChange}
+          />
           }
-          <div className='form-group button-box'>
-            <button className='btn form-btn' type='submit'>SEARCH</button>
-          </div>
+          <button className='btn form-btn' type='submit'>SEARCH</button>
         </form>
       </div>
     </div>
