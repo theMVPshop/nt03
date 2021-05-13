@@ -1,5 +1,7 @@
 import React from 'react';
+import DeleteIcon from '@material-ui/icons/Delete';
 import { Table } from 'react-bootstrap';
+import { contacts } from '../DummyData';
 
 const AddressBook = () => {
   return (
@@ -14,45 +16,23 @@ const AddressBook = () => {
           <th className='notes'>Notes</th>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Dental Office</td>
-            <td>787 Dental Avenue, Austin TX</td>
-            <td>(817)-555-5555</td>
-            <td>
-              <input type='checkbox' />
-            </td>
-            <td>
-              {' '}
-              <input type='text' className='form-control' />
-            </td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Dental Office</td>
-            <td>787 Dental Avenue, Austin TX</td>
-            <td>(817)-555-5555</td>
-            <td>
-              <input type='checkbox' />
-            </td>
-            <td>
-              {' '}
-              <input type='text' className='form-control' />
-            </td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Dental Office</td>
-            <td>787 Dental Avenue, Austin TX</td>
-            <td>(817)-555-5555</td>
-            <td>
-              <input type='checkbox' />
-            </td>
-            <td>
-              {' '}
-              <input type='text' className='form-control' />
-            </td>
-          </tr>
+          {contacts.map((contact, index) => (
+            <tr key={index}>
+              <td>
+                <DeleteIcon />
+              </td>
+              <td>{contact['officeName']}</td>
+              <td>{contact['address']}</td>
+              <td>{contact['phoneNumber']}</td>
+              <td>
+                <input type='checkbox' />
+              </td>
+              <td>
+                {' '}
+                <input type='text' className='form-control' />
+              </td>
+            </tr>
+          ))}
         </tbody>
       </Table>
     </div>
