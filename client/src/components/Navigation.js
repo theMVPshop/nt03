@@ -4,6 +4,7 @@ import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import logo from '../images/DentalWerk.png';
 import clinic from '../images/GREEN-clinic-search.png';
 import search from '../images/GREEN-search.png';
+import LogInButton from './LogInButton';
 
 const Navigation = () => {
   return (
