@@ -36,6 +36,7 @@ const Navigation = () => {
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>
+      <LogInButton />
     </Navbar>
   );
 };
