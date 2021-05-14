@@ -3,7 +3,7 @@ import React from 'react';
 const NewsArticles = (props) => {
   
   return (
-    <div className='news-container'>
+    <div className='news-container' id='divRss'>
       <p>News Articles</p>
     </div>
   )
