@@ -43,9 +43,11 @@ body {
 
 .sm-btn {
   width: 100px;
+  padding: 5px;
+  margin: 10px;
 }
 
-.btn:hover {
+.lg-btn:hover {
   background-color: var(--primary-green);
 }
 
