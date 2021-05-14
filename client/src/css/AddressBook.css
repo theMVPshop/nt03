@@ -21,3 +21,18 @@
 .notes {
   width: 550px;
 }
+
+/* Notes Component */
+.note-input {
+  width: 80%;
+  margin-right: 15px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.add-note {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: var(--secondary-green);
+  color: var(--primary-text-color);
+}

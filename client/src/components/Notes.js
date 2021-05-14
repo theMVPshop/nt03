@@ -22,12 +22,14 @@ export default () => {
     <>
       <input
         id='noteinput'
-        style={{ width: '80%' }}
+        className='note-input'
         type='text'
         placeholder='Enter a new note'
       />
 
-      <button onClick={() => handleClick()}>Add note</button>
+      <button className='add-note' onClick={() => handleClick()}>
+        Add note
+      </button>
 
       <Notes data={data} />
     </>
