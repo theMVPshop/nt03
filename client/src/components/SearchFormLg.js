@@ -1,5 +1,6 @@
 import React from 'react';
-const SearchForm = (props) => {
+
+const SearchFormLg = (props) => {
   const handleTextChange = (e) => {};
 
   const handleSubmit = (e) => {
@@ -7,25 +8,25 @@ const SearchForm = (props) => {
   };
 
   return (
-    <div className='search-form-container'>
-      <div className='search-form'>
-        <img className='search-form-icon' src={props.icon} alt={props.alt} />
-        <form className='search-form' onSubmit={handleSubmit}>
+    <div className='lg-search-form-container'>
+      <div className='lg-search-form'>
+        <img className='lg-search-form-icon' src={props.icon} alt={props.alt} />
+        <form className='lg-search-form' onSubmit={handleSubmit}>
           <input
-            className='search-input'
+            className='lg-search-input'
             type='text'
             placeholder={props.placeholder1}
             onChange={handleTextChange}
           />
           {props.placeholder2 === undefined ? null : (
             <input
-              className='search-input'
+              className='lg-search-input'
               type='text'
               placeholder={props.placeholder2}
               onChange={handleTextChange}
             />
           )}
-          <button className='btn form-btn' type='submit'>
+          <button className='btn lg-btn' type='submit'>
             SEARCH
           </button>
         </form>
@@ -34,4 +35,4 @@ const SearchForm = (props) => {
   );
 };
 
-export default SearchForm;
+export default SearchFormLg;

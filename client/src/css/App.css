@@ -31,11 +31,18 @@ body {
 .btn {
   font-size: 15px;
   font-weight: bold;
-  width: 300px;
   border: none;
   background-color: var(--secondary-green);
   text-transform: uppercase;
   color: var(--primary-text-color);
+}
+
+.lg-btn {
+  width: 300px;
+}
+
+.sm-btn {
+  width: 100px;
 }
 
 .btn:hover {

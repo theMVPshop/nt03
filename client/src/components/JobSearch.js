@@ -1,10 +1,10 @@
 import React from 'react';
-import SearchForm from './SearchForm';
+import SearchFormLg from './SearchFormLg';
 import search from '../images/GREEN-search.png';
 
 const JobSearch = () => {
   return (
-    <SearchForm
+    <SearchFormLg
       icon={search}
       alt='job search icon'
       placeholder1='position'
