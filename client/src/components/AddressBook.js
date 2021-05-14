@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { Table } from 'react-bootstrap';
 import { contacts } from '../DummyData';
+import Notes from './Notes';
 
 const AddressBook = () => {
   return (
@@ -28,8 +29,7 @@ const AddressBook = () => {
                 <input type='checkbox' />
               </td>
               <td>
-                {' '}
-                <input type='text' className='form-control' />
+                <Notes></Notes>
               </td>
             </tr>
           ))}
