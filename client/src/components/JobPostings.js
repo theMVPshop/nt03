@@ -10,7 +10,7 @@ const JobPostings = (props) => {
     <div>
       <SearchFormSm placeholder1='position' placeholder2='location' />
 
-      <div className='job-news-flash-container'>
+      <div className='grid-container'>
         <div className='job-postings-container'>
           <JobCard />
           <JobCard />

@@ -1,27 +1,26 @@
-.jobs-news-flash-container {
-  margin: 10px auto;
+.grid-container {
   width: 80%;
-  /* display: inline-grid;
+  margin: 10px auto;
+  display: inline-grid;
   grid-template-columns: 60% 40%;
   grid-template-rows: 30% 70%;
   column-gap: 10px;
   row-gap: 10px;
   grid-template-areas: 
   "jobs news"
-  "jobs flashcards"; */
+  "jobs flashcards";
 }
 
 .job-postings-container {
   background-color: var(--secondary-green-opacity);
-  /* width: 300px; */
   padding: 5px;
-  /* grid-area: jobs; */
+  grid-area: jobs;
 }
 
-/* .news-container {
+.news-container {
   grid-area: news;
 }
 
 .flashcards-container {
   grid-area: flashcards;
-} */
+}

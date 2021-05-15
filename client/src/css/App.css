@@ -3,6 +3,8 @@
 @import url('./SearchForm.css');
 @import url('./JobPostings.css');
 @import url('./JobCard.css');
+@import url('./NewsArticles.css');
+@import url('./FlashCards.css');
 
 :root {
   --primary-green: #28c47d;

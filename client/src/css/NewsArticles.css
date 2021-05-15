@@ -1,5 +1,5 @@
 .news-container {
-  background-color: blue;
+  background-color: var(--secondary-green-opacity);
   height: 100px;
-  width: 100px;
+  width: 250px;
 }
