@@ -1,12 +1,16 @@
 import React from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 import { Link } from 'react-router-dom';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import logo from '../images/DentalWerk.png';
 import clinic from '../images/GREEN-clinic-search.png';
 import search from '../images/GREEN-search.png';
 import LogInButton from './LogInButton';
+import LogOutButton from './LogOutButton';
 
 const Navigation = () => {
+  const { user, isAuthenticated, isLoading } = useAuth0();
+
   return (
     <Navbar className='navbar' expand='lg'>
       <Navbar.Brand href='/'>
@@ -32,11 +36,14 @@ const Navigation = () => {
             </NavDropdown.Item>
             <NavDropdown.Item href='/profile'>Profile</NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item href='/'>Logout</NavDropdown.Item>
+            <NavDropdown.Item href='/'>
+              {isAuthenticated ? <LogOutButton /> : ''}
+            </NavDropdown.Item>
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>
-      <LogInButton />
+
+      {!isAuthenticated && !isLoading ? <LogInButton /> : ''}
     </Navbar>
   );
 };
