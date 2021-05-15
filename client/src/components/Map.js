@@ -61,9 +61,6 @@ const Map = ({selectedOffice}) => {
 
             setMapState(map)
             setMapLayer(layerGroup)
-
-            console.log(mapRef)
-
             return
         }
         
@@ -89,9 +86,9 @@ const Map = ({selectedOffice}) => {
     }, [coords])
 
     return (
-        <div>
+        <>
             {coords ? <div style={mapContainer} ref={mapRef}></div> : <h3>Map Loading...</h3>}
-        </div>
+        </>
     )
 }
 
