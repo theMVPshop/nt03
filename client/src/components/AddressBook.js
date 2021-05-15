@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { Table } from 'react-bootstrap';
 import { contacts } from '../DummyData';
@@ -29,7 +29,7 @@ const AddressBook = () => {
                 <input type='checkbox' />
               </td>
               <td>
-                <Notes></Notes>
+                <Notes key={contact['id']}></Notes>
               </td>
             </tr>
           ))}
