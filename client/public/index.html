@@ -75,6 +75,7 @@
 				def.DateFormat,
 			dataType: "json",
 			success: function (result) {
+				console.log(result.data);
 				$("#" + id).empty();
 				if (result.data == null) return;
 

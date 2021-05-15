@@ -6,14 +6,17 @@
 .job-card-container h2 {
   font-size: 18px;
   font-weight: bold;
+  color: var(--secondary-text-color);
 }
 
 .job-card-container h3, h4 {
   font-size: 14px;
+  color: var(--secondary-text-color);
 }
 
 .card-body {
   font-size: 12px;
+  color: var(--secondary-text-color);
 }
 
 .job-card-header {

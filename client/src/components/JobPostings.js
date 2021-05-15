@@ -11,7 +11,7 @@ const JobPostings = (props) => {
       <SearchFormSm placeholder1='position' placeholder2='location' />
 
       <div className='grid-container'>
-        <div className='job-postings-container'>
+        <div className='job-postings-grid'>
           <JobCard />
           <JobCard />
           <JobCard />
@@ -21,10 +21,10 @@ const JobPostings = (props) => {
           <JobCard />
           <JobCard />
         </div>
-        <div className='news-container'>
+        <div className='news-grid'>
           <NewsArticles />
         </div>
-        <div className='flashcards-container'>
+        <div className='flashcards-grid'>
           <FlashCards />
         </div>
       </div>

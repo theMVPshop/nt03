@@ -11,16 +11,16 @@
   "jobs flashcards";
 }
 
-.job-postings-container {
+.job-postings-grid {
   background-color: var(--secondary-green-opacity);
   padding: 5px;
   grid-area: jobs;
 }
 
-.news-container {
+.news-grid {
   grid-area: news;
 }
 
-.flashcards-container {
+.flashcards-grid {
   grid-area: flashcards;
 }
