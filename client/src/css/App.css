@@ -4,6 +4,7 @@
 @import url('./SearchForm.css');
 @import url('./JobPostings.css');
 @import url('./JobCard.css');
+@import url('./AddressBook.css');
 
 :root {
   --primary-green: #28c47d;
