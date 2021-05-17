@@ -31,7 +31,7 @@ const Navigation = () => {
             </NavDropdown.Item>
             <NavDropdown.Item href='/profile'>Profile</NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item href='/'>Logout</NavDropdown.Item>
+            <NavDropdown.Item href='/'>Log Out</NavDropdown.Item>
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>

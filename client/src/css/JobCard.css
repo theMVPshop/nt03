@@ -1,0 +1,21 @@
+.job-card-container {
+  margin: 5px;
+}
+
+.job-card-container h2 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.job-card-container h3, h4 {
+  font-size: 14px;
+}
+
+.card-body {
+  font-size: 12px;
+}
+
+.job-card-header {
+  display: flex;
+  justify-content: space-between;
+}
