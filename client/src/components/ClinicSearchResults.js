@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import Map from './Map'
 
-const ClinicSearchResults = () => {
+const ClinicSearchResults = ({clinicSearch}) => {
     const [clinicList, setClinicList] = useState([])
     const [selectedOffice, setSelectedOffice] = useState({})
 
     useEffect(() => {
-        fetch('/offices/state/fl')
+        console.log(clinicSearch)
+        fetch(`/offices/state/${clinicSearch}`)
             .then(res => res.json())
             .then(data => {
                 setClinicList(data)
