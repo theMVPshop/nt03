@@ -1,5 +1,6 @@
 .grid-container {
   width: 80%;
+  min-width: 500px;
   margin: 10px auto;
   display: inline-grid;
   grid-template-columns: 60% 40%;
@@ -14,13 +15,16 @@
 .job-postings-grid {
   background-color: var(--secondary-green-opacity);
   padding: 5px;
+  min-width: 300px;
   grid-area: jobs;
 }
 
 .news-grid {
   grid-area: news;
+  min-width: 200px;
 }
 
 .flashcards-grid {
   grid-area: flashcards;
+  min-width: 200px;
 }
