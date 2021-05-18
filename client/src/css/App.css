@@ -1,18 +1,24 @@
 @import url('./Navigation.css');
 @import url('./Landing.css');
+@import url('./SignIn.css');
 @import url('./SearchForm.css');
 @import url('./JobPostings.css');
 @import url('./JobCard.css');
+@import url('./AddressBook.css');
 
 :root {
   --primary-green: #28c47d;
   --secondary-green: #1b512d;
-  --secondary-green-opacity:  rgba(33, 81, 45, 0.3); 
+  --secondary-green-opacity: rgba(33, 81, 45, 0.3);
   --accent-green: #b8edd8;
   --primary-text-color: #f0f0f0;
   --secondary-text-color: #323232;
   --background: #f6feff;
 }
+#root {
+  height: 100vh;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -46,4 +52,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.form-btn {
+  min-height: 38px;
+  border-radius: 2px;
+  margin: 0 0 15px;
 }
