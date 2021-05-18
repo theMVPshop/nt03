@@ -7,10 +7,19 @@ const ClinicSearchResults = ({clinicSearch}) => {
 
     useEffect(() => {
         console.log(clinicSearch)
-        fetch(`/offices/state/${clinicSearch}`)
+        let url = ''
+
+        if (/^[0-9,-]+$/.test(clinicSearch)) {
+            url = `/offices/zip/${clinicSearch}`
+        } else {
+            url = `/offices/state/${clinicSearch}`
+        }
+
+        fetch(url)
             .then(res => res.json())
             .then(data => {
                 setClinicList(data)
+                setSelectedOffice(data[0])
             })
     }, [])
 
@@ -25,23 +34,26 @@ const ClinicSearchResults = ({clinicSearch}) => {
             <div className='row p-3'>
                 <div className='col'>
                     <div className='list-group'>
-                       {clinicList.map((clinic, index) => {
-                           return (
-                            <button
-                                onClick={handleClick}
-                                key={index}
-                                id={index}
-                                type='button'
-                                className='list-group-item list-group-item-action'
-                            >
-                                {clinic.name}
-                            </button>
-                           )
-                       })}
+                        {clinicList.length > 0 ?
+                             clinicList.map((clinic, index) => {
+                                return (
+                                 <button
+                                     onClick={handleClick}
+                                     key={index}
+                                     id={index}
+                                     type='button'
+                                     className='list-group-item list-group-item-action'
+                                 >
+                                     {clinic.name + " " + clinic.zip}
+                                 </button>
+                                )
+                            }) 
+                            : <h3>No Dental Clinics found with your search</h3>                           
+                        }
                     </div>
                 </div>
                 <div className='col'>
-                    <Map selectedOffice={selectedOffice} />
+                    {clinicList.length > 0 && <Map selectedOffice={selectedOffice} />}
                 </div>
             </div>
         </div>

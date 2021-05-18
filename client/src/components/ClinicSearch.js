@@ -26,7 +26,7 @@ const ClinicSearch = ({setClinicSearch}) => {
           <input
             className='search-input'
             type='text'
-            placeholder='location'
+            placeholder='Enter a state of zip code'
             onChange={handleTextChange}
           />
           <button className='btn form-btn' type='submit'>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Switch, Route } from 'react-router';
 import Landing from '../src/components/Landing';
 import JobSearch from '../src/components/JobSearch';
@@ -8,10 +8,6 @@ import ClinicSearchResults from './components/ClinicSearchResults'
 
 function Router() {
   const [clinicSearch, setClinicSearch] = useState("")
-
-  useEffect(() => {
-    console.log(clinicSearch)
-  })
 
   return (
     <Switch>
