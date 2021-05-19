@@ -26,4 +26,6 @@ app.get('/test', (req, res) => {
   res.json({ response: 'basic server up' });
 });
 
-app.listen(port, () => console.log(`API Server running on port ${port}`));
+app.listen(port, () =>
+  console.log(`[⚡️server] API Server running on port ${port}`)
+);

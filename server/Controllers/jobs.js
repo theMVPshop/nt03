@@ -1,20 +1,21 @@
 // DB Connection code
 const db = require('../database/dbConnection');
+const { checkJwt } = require('../Middleware/auth');
 const mysql = require(`mysql`);
 
 //@GET
 // All jobs
 const allJobs = (req, res) => {
-  let sql = "SELECT job_url FROM saved_jobs"
+  let sql = 'SELECT job_url FROM saved_jobs';
 
   db.query(sql, (error, result) => {
     if (error) {
       console.error(error);
-      return res.sendStatus(500)
+      return res.sendStatus(500);
     }
 
     res.json(result);
-  })
+  });
 };
 
 //@GET
@@ -42,17 +43,17 @@ const updateJob = (req, res) => {
   let jobID = req.body.id;
   let newURL = req.body.url;
 
-  let sql = "UPDATE saved_jobs SET job_url = ? WHERE savedjob_id = ?";
+  let sql = 'UPDATE saved_jobs SET job_url = ? WHERE savedjob_id = ?';
 
   sql = mysql.format(sql, [newURL, jobID]);
 
   db.query(sql, (error, result) => {
-      if (error) {
-          console.error(error);
-          return res.sendStatus(500);
-      }
-      res.json(`Job ${jobID} was updated with new URL`)
-  })
+    if (error) {
+      console.error(error);
+      return res.sendStatus(500);
+    }
+    res.json(`Job ${jobID} was updated with new URL`);
+  });
 };
 
 //@POST
