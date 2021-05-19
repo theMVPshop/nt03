@@ -56,7 +56,7 @@ const login = (req, res) => {
       res.send(e);
     });
 
-  let sql = 'SELECT * FROM usersCredentials WHERE username = ?';
+  let sql = 'SELECT * FROM users WHERE email = ?';
   sql = mysql.format(sql, [username]);
 
   pool.query(sql, (err, rows) => {
