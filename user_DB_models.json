@@ -1,5 +1,31 @@
+{"JSON object samples of DB info" : ""},
+
 {
     "user": {
+        "username": "username",
+        "first_name": "first name",
+        "last_name": "last name"
+    },
+
+    "saved_clinics": [
+        {
+            "id": 1,
+            "clinic_name": "clinic name",
+            "clinic_address": "address",
+            "clinic_phone": "123-456-7890",
+            "contacted": false
+        }
+    ],
+
+    "clinic_notes": [
+        {
+            "id": 1,
+            "note": "note Text"
+        }
+    ],
+
+
+    "All_Combined": {
             "username": "username",
             "first_name": "first name",
             "last_name": "last name",
