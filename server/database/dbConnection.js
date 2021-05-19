@@ -4,7 +4,7 @@ const mysql = require('mysql');
 class Connection {
   constructor() {
     if (!this.pool) {
-      console.log('creating mysql connection...');
+      console.log('[⚡️database] mysql is connected...');
       this.pool = mysql.createPool({
         connectionLimit: 100,
         host: process.env.DB_HOST,
@@ -12,7 +12,6 @@ class Connection {
         password: process.env.DB_PASSWORD,
         database: process.env.DB_DEFAULT_SCHEMA,
       });
-      console.log('mysql connected');
       return this.pool;
     }
     return this.pool;

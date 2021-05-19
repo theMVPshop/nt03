@@ -12,7 +12,7 @@ const saltRounds = 10;
 
 const signup = (req, res) => {
   const { username, password } = req.body;
-  let sql = 'INSERT INTO users (email, password) VALUES (?, ?)';
+  let sql = 'INSERT INTO users (username, password) VALUES (?, ?)';
 
   bcrypt.hash(password, saltRounds, function (err, hash) {
     sql = mysql.format(sql, [username, hash]);
@@ -56,27 +56,27 @@ const login = (req, res) => {
       res.send(e);
     });
 
-  let sql = 'SELECT * FROM users WHERE email = ?';
-  sql = mysql.format(sql, [username]);
+  // let sql = 'SELECT * FROM users WHERE username = ?';
+  // sql = mysql.format(sql, [username]);
 
-  pool.query(sql, (err, rows) => {
-    if (err) return handleSQLError(res, err);
-    if (!rows.length) return res.status(404).send('No matching users');
+  // pool.query(sql, (err, rows) => {
+  //   if (err) return handleSQLError(res, err);
+  //   if (!rows.length) return res.status(404).send('No matching users');
 
-    const hash = rows[0].password;
-    bcrypt.compare(password, hash).then((result) => {
-      if (!result) return res.status(400).send('Invalid password');
+  //   const hash = rows[0].password;
+  //   bcrypt.compare(password, hash).then((result) => {
+  //     if (!result) return res.status(400).send('Invalid password');
 
-      const data = { ...rows[0] };
-      data.password = 'REDACTED';
+  //     const data = { ...rows[0] };
+  //     data.password = 'REDACTED';
 
-      const token = jwt.sign(data, 'secret');
-      res.json({
-        msg: 'Login successful',
-        token,
-      });
-    });
-  });
+  //     const token = jwt.sign(data, 'secret');
+  //     res.json({
+  //       msg: 'Login successful',
+  //       token,
+  //     });
+  //   });
+  // });
 };
 
 module.exports = {
