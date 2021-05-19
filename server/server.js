@@ -17,8 +17,9 @@ let port = process.env.PORT || 4000;
 app.use(express.json());
 
 // Routers endpoints
-app.use(usersRoute);
-app.use(jobsRouter);
+app.use('/users', usersRoute);
+app.use('/jobs', jobsRouter);
+app.use('/auth', require('./Routes/auth'));
 
 app.get('/test', (req, res) => {
   console.log('basic server up running');
