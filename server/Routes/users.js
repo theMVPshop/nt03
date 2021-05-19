@@ -16,7 +16,7 @@ router.get('/users/:username', users.userByUsername);
 router.get('/users/:userID/clinics', users.getUserSavedClinics);
 
 // Created new user
-router.post('/users', checkJwt, users.createUser);
+router.post('/users', users.createUser);
 
 // Save a new clinic to a user
 router.post('/users/:userID/clinics', users.saveClinic);

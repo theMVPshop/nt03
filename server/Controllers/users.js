@@ -6,13 +6,13 @@ const mysql = require(`mysql`);
 //@GET
 // All users
 const allUsers = (req, res) => {
-  let sql = "SELECT * FROM users"
+  let sql = 'SELECT * FROM users';
 
   db.query(sql, (error, result) => {
     if (error) return handleSQLError(res, error);
 
     res.json(result);
-  })
+  });
 };
 
 //@GET
@@ -34,9 +34,9 @@ const userByUsername = (req, res) => {
 //@GET
 // Get a list of the current users saved clinics
 const getUserSavedClinics = (req, res) => {
-  let userID = req.params.userID
+  let userID = req.params.userID;
 
-  sql = "SELECT * FFROM user_saved_clinics WHERE user_id = ?";
+  sql = 'SELECT * FROM user_saved_clinics WHERE user_id = ?';
 
   sql = mysql.format(sql, [userID]);
 
@@ -45,7 +45,6 @@ const getUserSavedClinics = (req, res) => {
 
     res.json(rows);
   });
-    
 };
 
 //@PUT
@@ -73,26 +72,25 @@ const clinicContacted = (req, res) => {
 
     res.sendStatus(200);
   });
-  
 };
 
 //@POST
 // Create a new user
-const createUser = (req, res) => {
-  let newUsername = req.body.username;
-  let newUserFirstName = req.body.first_name;
-  let newUserLastName = req.body.last_name;
+const createUser = async (req, res) => {
+  const { username, first_name, last_name } = req.body;
+  try {
+    let sql =
+      'INSERT INTO users (username, first_name, last_name) values (?, ?, ?)';
 
-  let sql = 'INSERT INTO users (username, first_name, last_name) values (?, ?, ?)';
+    sql = mysql.format(sql, [username, first_name, last_name]);
 
-  sql = mysql.format(sql, [newUsername, newUserFirstName, newUserLastName]);
-
-  db.query(sql, (error, result) => {
-    if (error) return handleSQLError(res, error);
-
-    console.log(result);
-    res.json(`User ${req.body.username} was succesfully created!`);
-  });
+    await db.query(sql, (result) => {
+      console.log(result);
+      res.json(`User ${req.body.username} was succesfully created!`);
+    });
+  } catch (error) {
+    return handleSQLError(res, error);
+  }
 };
 
 //@POST
@@ -102,7 +100,8 @@ const saveClinic = (req, res) => {
 
   const newClinic = req.body.clinic;
 
-  let sql = 'INSERT INTO user_saved_clinics (clinic_name, clinic_address, clinic_phone, contacted, user_id) VALUES (?, ?, ?, ?, ?)';
+  let sql =
+    'INSERT INTO user_saved_clinics (clinic_name, clinic_address, clinic_phone, contacted, user_id) VALUES (?, ?, ?, ?, ?)';
 
   sql = mysql.format(sql, [...Object.values(newClinic), userID]);
 
@@ -132,12 +131,12 @@ const unsaveClinic = (req, res) => {
 };
 
 module.exports = {
-                    allUsers,
-                    userByUsername,
-                    updateUser,
-                    createUser,
-                    getUserSavedClinics,
-                    saveClinic,
-                    unsaveClinic,
-                    clinicContacted
-                  };
+  allUsers,
+  userByUsername,
+  updateUser,
+  createUser,
+  getUserSavedClinics,
+  saveClinic,
+  unsaveClinic,
+  clinicContacted,
+};
