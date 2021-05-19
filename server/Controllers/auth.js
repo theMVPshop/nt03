@@ -4,8 +4,8 @@ const axios = require('axios');
 const mysql = require('mysql');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const pool = require('../sql/connection');
-const { handleSQLError } = require('../sql/error');
+const pool = require('../database/dbConnection');
+const { handleSQLError } = require('../database/error');
 
 // for bcrypt
 const saltRounds = 10;
