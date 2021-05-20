@@ -1,5 +1,5 @@
 .grid-container {
-  width: 80%;
+  width: 85%;
   min-width: 500px;
   margin: 10px auto;
   display: inline-grid;
@@ -20,11 +20,13 @@
 }
 
 .news-grid {
-  grid-area: news;
+  background-color: var(--secondary-green-opacity);
+  padding: 10px;
   min-width: 200px;
+  grid-area: news;
 }
 
 .flashcards-grid {
-  grid-area: flashcards;
   min-width: 200px;
+  grid-area: flashcards;
 }

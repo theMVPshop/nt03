@@ -76,48 +76,48 @@
 			dataType: "json",
 			success: function (result) {
 				console.log(result.data);
-				$("#" + id).empty();
-				if (result.data == null) return;
+				// $("#" + id).empty();
+				// if (result.data == null) return;
 
-				$.each(result.data, function (e, itm) {
-					s +=
-						'<li><div class="itemTitle">' +
-						itm.title +
-						"</div>";
+				// $.each(result.data, function (e, itm) {
+				// 	s +=
+				// 		'<li><div class="itemTitle">' +
+				// 		itm.title +
+				// 		"</div>";
 
-					if (def.ShowPubDate) {
-						dt = new Date(itm.publishDate);
-						s += '<div class="itemDate">';
-						if ($.trim(def.DateFormat).length > 0) {
-							s += itm.publishDateFormatted;
-						} else {
-							s += dt.toLocaleDateString();
-						}
-						s += "</div>";
-					}
-					if (def.ShowDesc) {
-						s += '<div class="itemContent">';
-						if (
-							def.DescCharacterLimit > 0 &&
-							itm.description.length > def.DescCharacterLimit
-						) {
-							s +=
-								itm.description.substring(
-									0,
-									def.DescCharacterLimit
-								) + "...";
-						} else {
-							s += itm.description;
-						}
-						s += "</div></li>";
-					}
-				});
+				// 	if (def.ShowPubDate) {
+				// 		dt = new Date(itm.publishDate);
+				// 		s += '<div class="itemDate">';
+				// 		if ($.trim(def.DateFormat).length > 0) {
+				// 			s += itm.publishDateFormatted;
+				// 		} else {
+				// 			s += dt.toLocaleDateString();
+				// 		}
+				// 		s += "</div>";
+				// 	}
+				// 	if (def.ShowDesc) {
+				// 		s += '<div class="itemContent">';
+				// 		if (
+				// 			def.DescCharacterLimit > 0 &&
+				// 			itm.description.length > def.DescCharacterLimit
+				// 		) {
+				// 			s +=
+				// 				itm.description.substring(
+				// 					0,
+				// 					def.DescCharacterLimit
+				// 				) + "...";
+				// 		} else {
+				// 			s += itm.description;
+				// 		}
+				// 		s += "</div></li>";
+				// 	}
+				// });
 
-				$("#" + id).append(
-					'<ul class="feedEkList">' +
-						s +
-						"</ul>"
-				);
+				// $("#" + id).append(
+				// 	'<ul class="feedEkList">' +
+				// 		s +
+				// 		"</ul>"
+				// );
 			},
 		});
 	};

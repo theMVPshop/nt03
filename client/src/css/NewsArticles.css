@@ -1,14 +1,6 @@
-.news-container {
-  background-color: var(--secondary-green-opacity);
-  padding: 10px;
-}
-
-.news-container h3, p {
+.carousel-container h3, p {
   color: var(--secondary-text-color);
-}
-
-.carousel-caption {
-  padding: 0;
+  min-width: 300px;
 }
 
 .carousel-control-prev-icon, .carousel-control-next-icon {
