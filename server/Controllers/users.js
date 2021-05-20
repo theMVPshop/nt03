@@ -2,6 +2,8 @@
 const db = require('../database/dbConnection');
 const { handleSQLError } = require('../database/error');
 const mysql = require(`mysql`);
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 //@GET
 // All users
@@ -76,21 +78,23 @@ const clinicContacted = (req, res) => {
 
 //@POST
 // Create a new user
-const createUser = async (req, res) => {
-  const { username, first_name, last_name } = req.body;
-  try {
-    let sql =
-      'INSERT INTO users (username, first_name, last_name) values (?, ?, ?)';
+//{TODO JEFF FIX ERROR HANDLING}
+const createUser = (req, res) => {
+  const { username, first_name, last_name, password } = req.body;
+  let sql =
+    'INSERT INTO users (username, first_name, last_name, password) values (?, ?, ?, ?)';
+  bcrypt.hash(password, saltRounds, async (error, hash) => {
+    try {
+      sql = mysql.format(sql, [username, first_name, last_name, hash]);
 
-    sql = mysql.format(sql, [username, first_name, last_name]);
-
-    await db.query(sql, (result) => {
-      console.log(result);
-      res.json(`User ${req.body.username} was succesfully created!`);
-    });
-  } catch (error) {
-    return handleSQLError(res, error);
-  }
+      await db.query(sql, (result) => {
+        return res.send(`${username} successfully registered`);
+      });
+    } catch (error) {
+      if (error.code == 'ER_DUP_ENTRY')
+        return res.status(409).send('Username is taken');
+    }
+  });
 };
 
 //@POST
