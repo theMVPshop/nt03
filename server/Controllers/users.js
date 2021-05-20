@@ -43,7 +43,7 @@ const getUserSavedClinics = (req, res) => {
   db.query(sql, (error, results) => {
     if (error) return handleSQLError(res, error);
 
-    res.json(rows);
+    res.json(results);
   });
 };
 
