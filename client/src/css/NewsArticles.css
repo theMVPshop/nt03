@@ -1,6 +1,23 @@
+.carousel-container {
+  margin: 5px;
+}
+
+.carousel-container img {
+  opacity: .35;
+  width: 100%;
+}
+
 .carousel-container h3, p {
   color: var(--secondary-text-color);
-  min-width: 300px;
+}
+
+.carousel-container h3 {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.carousel-container p {
+  font-size: 10px;
 }
 
 .carousel-control-prev-icon, .carousel-control-next-icon {

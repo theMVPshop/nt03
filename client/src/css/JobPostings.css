@@ -21,7 +21,7 @@
 
 .news-grid {
   background-color: var(--secondary-green-opacity);
-  padding: 10px;
+  padding: 5px;
   min-width: 200px;
   grid-area: news;
 }

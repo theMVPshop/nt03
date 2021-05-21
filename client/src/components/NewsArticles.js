@@ -11,7 +11,6 @@ const NewsArticles = (props) => {
         <Carousel.Item>
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
             <img
-              className="d-block w-100"
               src={dentalOffice}
               alt="dental office"
             />
@@ -24,7 +23,6 @@ const NewsArticles = (props) => {
         <Carousel.Item>
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
             <img
-              className="d-block w-100"
               src={dentalOffice}
               alt="dental office"
             />
@@ -37,7 +35,6 @@ const NewsArticles = (props) => {
         <Carousel.Item>
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
             <img
-              className="d-block w-100"
               src={dentalOffice}
               alt="dental office"
             />
@@ -50,7 +47,6 @@ const NewsArticles = (props) => {
         <Carousel.Item>
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
             <img
-              className="d-block w-100"
               src={dentalOffice}
               alt="dental office"
             />
@@ -63,7 +59,6 @@ const NewsArticles = (props) => {
         <Carousel.Item>
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
             <img
-              className="d-block w-100"
               src={dentalOffice}
               alt="dental office"
             />
@@ -76,7 +71,6 @@ const NewsArticles = (props) => {
         <Carousel.Item>
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
             <img
-              className="d-block w-100"
               src={dentalOffice}
               alt="dental office"
             />
@@ -89,7 +83,6 @@ const NewsArticles = (props) => {
         <Carousel.Item>
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
             <img
-              className="d-block w-100"
               src={dentalOffice}
               alt="dental office"
             />
@@ -102,7 +95,6 @@ const NewsArticles = (props) => {
         <Carousel.Item>
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
             <img
-              className="d-block w-100"
               src={dentalOffice}
               alt="dental office"
             />
@@ -115,7 +107,6 @@ const NewsArticles = (props) => {
         <Carousel.Item>
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
             <img
-              className="d-block w-100"
               src={dentalOffice}
               alt="dental office"
             />
@@ -128,7 +119,6 @@ const NewsArticles = (props) => {
         <Carousel.Item>
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
             <img
-              className="d-block w-100"
               src={dentalOffice}
               alt="dental office"
             />
