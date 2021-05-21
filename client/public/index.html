@@ -75,49 +75,19 @@
 				def.DateFormat,
 			dataType: "json",
 			success: function (result) {
-				console.log(result.data);
-				// $("#" + id).empty();
-				// if (result.data == null) return;
+				const articles = result.data;
+				let titles = articles.map(article => article.title);
+				let descriptions = articles.map(article => article.description);
+				let links = articles.map(article => article.link);
+				let titleEls = document.getElementsByClassName('news-title');
+				let descriptionEls = document.getElementsByClassName('news-description');
+				let linkEls = document.getElementsByClassName('news-link');
 
-				// $.each(result.data, function (e, itm) {
-				// 	s +=
-				// 		'<li><div class="itemTitle">' +
-				// 		itm.title +
-				// 		"</div>";
-
-				// 	if (def.ShowPubDate) {
-				// 		dt = new Date(itm.publishDate);
-				// 		s += '<div class="itemDate">';
-				// 		if ($.trim(def.DateFormat).length > 0) {
-				// 			s += itm.publishDateFormatted;
-				// 		} else {
-				// 			s += dt.toLocaleDateString();
-				// 		}
-				// 		s += "</div>";
-				// 	}
-				// 	if (def.ShowDesc) {
-				// 		s += '<div class="itemContent">';
-				// 		if (
-				// 			def.DescCharacterLimit > 0 &&
-				// 			itm.description.length > def.DescCharacterLimit
-				// 		) {
-				// 			s +=
-				// 				itm.description.substring(
-				// 					0,
-				// 					def.DescCharacterLimit
-				// 				) + "...";
-				// 		} else {
-				// 			s += itm.description;
-				// 		}
-				// 		s += "</div></li>";
-				// 	}
-				// });
-
-				// $("#" + id).append(
-				// 	'<ul class="feedEkList">' +
-				// 		s +
-				// 		"</ul>"
-				// );
+				for (let i=0; i < titleEls.length; i++) {
+					titleEls[i].innerHTML = titles[i];
+					descriptionEls[i].innerHTML = descriptions[i];
+					linkEls[i].href = links[i];
+				}
 			},
 		});
 	};
