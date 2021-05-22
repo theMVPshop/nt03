@@ -6,10 +6,11 @@ import ClinicSearch from '../src/components/ClinicSearch';
 import SignIn from '../src/components/SignIn';
 import SignUp from '../src/components/SignUp';
 import AddressBook from './components/AddressBook';
-import ClinicSearchResults from './components/ClinicSearchResults'
+import ClinicSearchResults from './components/ClinicSearchResults';
+import ResumeBuilder from './components/ResumeBuilder';
 
 function Router() {
-  const [clinicSearch, setClinicSearch] = useState("")
+  const [clinicSearch, setClinicSearch] = useState('');
 
   return (
     <Switch>
@@ -24,6 +25,7 @@ function Router() {
       <Route path='/sign-in' component={SignIn}></Route>
       <Route path='/sign-up' component={SignUp}></Route>
       <Route path='/address-book' component={AddressBook}></Route>
+      <Route path='/resume-builder' component={ResumeBuilder}></Route>
     </Switch>
   );
 }

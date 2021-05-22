@@ -1,0 +1,13 @@
+.resume-container {
+  width: 30%;
+}
+
+.tab-bar {
+  background-color: var(--secondary-green);
+  color: var(--primary-text-color);
+}
+
+.form-style {
+  display: flex;
+  flex-direction: column;
+}
