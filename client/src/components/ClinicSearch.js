@@ -7,7 +7,7 @@ const ClinicSearch = () => {
     <SearchFormLg
       icon={clinic}
       alt='clinic search icon'
-      placeholder1='location'
+      placeholder1='Enter a state or zip code'
     />
   );
 };
