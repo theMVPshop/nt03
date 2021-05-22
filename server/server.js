@@ -1,11 +1,13 @@
 // Import environment variables
 require('dotenv').config();
 const db = require('./database/dbConnection');
-const path = require('path')
+const path = require('path');
 
 // express imports
 const express = require('express');
 const app = express();
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
 
 // routers import
 const usersRoute = require('./Routes/users');
@@ -32,7 +34,6 @@ app.get('/test', (req, res) => {
 // app.get('*', (req, res) => {
 //   res.sendFile(path.join(__dirname + '/client/build/index.html'))
 // })
-
 
 app.listen(port, () =>
   console.log(`[⚡️server] API Server running on port ${port}`)

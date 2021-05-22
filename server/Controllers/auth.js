@@ -55,13 +55,19 @@ const login = (req, res) => {
         msg: 'Login successful',
         token,
       });
-      res.cookie('w_auth', token).status(200).json({
-        loginSuccess: true,
-      });
     });
+  });
+};
+
+const logOut = (req, res) => {
+  token = '';
+  res.json({
+    msg: 'Logged Out',
+    token,
   });
 };
 
 module.exports = {
   login,
+  logOut,
 };
