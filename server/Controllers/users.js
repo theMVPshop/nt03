@@ -3,6 +3,8 @@ const db = require('../database/dbConnection');
 const { handleSQLError } = require('../database/error');
 const mysql = require(`mysql`);
 const bcrypt = require('bcrypt');
+const { validationResult } = require('express-validator');
+
 const saltRounds = 10;
 
 //@GET
@@ -80,6 +82,11 @@ const clinicContacted = (req, res) => {
 // Create a new user
 //{TODO JEFF FIX ERROR HANDLING}
 const createUser = (req, res) => {
+  //error returned if validator catches any problems
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
   const { username, first_name, last_name, password } = req.body;
   let sql =
     'INSERT INTO users (username, first_name, last_name, password) values (?, ?, ?, ?)';
