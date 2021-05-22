@@ -8,13 +8,13 @@ const Landing = () => {
     <div className='landing-container'>
       <div className='main-info'>
         <button className='search-button'>
-          <Link className='link' to='/clinic-search'>
+          <Link className='main-link' to='/clinic-search'>
             Clinic Phone Book
           </Link>
           <img src={clinic} alt='clinic search icon' />
         </button>
         <button className='search-button'>
-          <Link className='link' to='/job-search'>
+          <Link className='main-link' to='/job-search'>
             Search For Jobs
           </Link>
           <img src={search} alt='job search icon' />
