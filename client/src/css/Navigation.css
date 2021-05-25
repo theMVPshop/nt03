@@ -1,7 +1,27 @@
+.nav-box {
+  justify-content: flex-end;
+  margin-right: 2em;
+}
+
 .navbar {
   background-color: var(--primary-green);
 }
 
 .nav-link > img {
   height: 50px;
+}
+
+.menu-button {
+  background-color: var(--secondary-green);
+  height: 50px;
+  width: 100px;
+  border-radius: 5px;
+}
+
+.dropdown-menu {
+  background-color: var(--secondary-green);
+}
+
+a.dropdown-item {
+  color: var(--primary-text-color);
 }

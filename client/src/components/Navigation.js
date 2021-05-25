@@ -12,7 +12,7 @@ const Navigation = () => {
         <img src={logo} alt='dental werk logo' />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls='basic-navbar-nav' />
-      <Navbar.Collapse id='basic-navbar-nav'>
+      <Navbar.Collapse className='nav-box' id='basic-navbar-nav'>
         <Nav className='mr-auto'>
           <Link className='nav-link' to='/clinic-search'>
             <img src={clinic} alt='clinic search icon' />
@@ -20,7 +20,12 @@ const Navigation = () => {
           <Link className='nav-link' to='/job-search'>
             <img src={search} alt='job search icon' />
           </Link>
-          <NavDropdown title='Menu' id='basic-nav-dropdown'>
+          <NavDropdown
+            styles={{ color: '#f0f0f0' }}
+            className='menu-button'
+            title='Menu'
+            id='basic-nav-dropdown'
+          >
             <NavDropdown.Item href='/job-search'>Job Search</NavDropdown.Item>
             <NavDropdown.Item href='/clinic-search'>
               Clinic Search
