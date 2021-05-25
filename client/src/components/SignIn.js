@@ -10,7 +10,8 @@ const SignIn = () => {
 
     axios
       .post('/auth/login', { email, password })
-      .then((response) => console.log(response));
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));
   };
   return (
     <div className='sign-in-container'>

@@ -3,7 +3,6 @@ const db = require('../database/dbConnection');
 const { handleSQLError } = require('../database/error');
 const mysql = require(`mysql`);
 const bcrypt = require('bcrypt');
-const { validationResult } = require('express-validator');
 
 const saltRounds = 10;
 
@@ -82,19 +81,14 @@ const clinicContacted = (req, res) => {
 // Create a new user
 //{TODO JEFF FIX ERROR HANDLING}
 const createUser = (req, res) => {
-  //error returned if validator catches any problems
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
-  }
-  const { username, first_name, last_name, password } = req.body;
-  let sql =
-    'INSERT INTO users (username, first_name, last_name, password) values (?, ?, ?, ?)';
+  const { username, password } = req.body;
+
+  let sql = 'INSERT INTO users (username, password) values (?, ?)';
   bcrypt.hash(password, saltRounds, async (error, hash) => {
     try {
-      sql = mysql.format(sql, [username, first_name, last_name, hash]);
+      sql = mysql.format(sql, [username, hash]);
 
-      await db.query(sql, (result) => {
+      await db.query(sql, (result, error) => {
         return res.send(`${username} successfully registered`);
       });
     } catch (error) {
