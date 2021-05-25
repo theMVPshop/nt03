@@ -2,7 +2,6 @@
 const express = require('express');
 const { checkJwt } = require('../Middleware/auth');
 const router = express.Router();
-const { check } = require('express-validator');
 
 // Controllers imports
 const users = require('../Controllers/users');
@@ -18,30 +17,7 @@ router.get('/users/:userID/clinics', users.getUserSavedClinics);
 
 // Created new user
 //validating data with express-validator
-router.post(
-  '/users',
-  [
-    check('first_name', 'Name is Required')
-      .not()
-      .isEmpty()
-      .trim()
-      .toUpperCase(),
-    check('last_name', 'Last Name is Required')
-      .not()
-      .isEmpty()
-      .trim()
-      .toUpperCase(),
-    check('username', 'Please enter a valid email')
-      .isEmail()
-      .normalizeEmail()
-      .trim(),
-    check(
-      'password',
-      'Please enter a password with 6 or more characters'
-    ).isLength({ min: 6 }),
-  ],
-  users.createUser
-);
+router.post('/users', users.createUser);
 
 // Save a new clinic to a user
 router.post('/users/:userID/clinics', users.saveClinic);
