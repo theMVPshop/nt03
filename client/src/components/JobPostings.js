@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import SearchFormSm from './SearchFormSm';
 import JobCard from './JobCard';
 import NewsArticles from './NewsArticles';
@@ -8,25 +8,26 @@ const JobPostings = ({jobSearch}) => {
   // const [jobList, setJobList] = useState([])
   // const [selectedJob, setSelectedJob] = useState({})
 
-  const componentDidMount = () => {
+  useEffect(() => {
     fetch('https://jooble.org/api/2f68c697-0b9e-420b-ac07-3522403e50ae', {
+      // mode: 'no-cors',
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: {
         "keywords": "dental hygienist",
-        "location": "Tampa, FL",
+        "location": "Tampa, FL"
       }
     })
-      .then(response => console.log(response.json()))
+      .then(response => response.json())
       .then(data => {
-        // console.log(data)
+        console.log(data)
         // setJobList(data)
         // setSelectedJob(data[0])
       })
       .catch(error => console.log(`Error, ${error}`))
-  }
+  },[]);
   
   return (
     <div>
