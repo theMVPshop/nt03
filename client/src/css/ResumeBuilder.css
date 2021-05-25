@@ -1,3 +1,8 @@
+.resume-box {
+  display: flex;
+  flex-direction: row;
+}
+
 .resume-container {
   width: 30%;
 }
@@ -10,4 +15,21 @@
 .form-style {
   display: flex;
   flex-direction: column;
+}
+
+.right {
+  width: 75vw;
+  min-height: 100vh;
+  font-family: 'Lora', serif;
+}
+
+.right .page {
+  background: white;
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 0.5cm;
+  box-shadow: 0 0 0.5cm #7b7d7d;
+  width: 21cm;
+  height: 29.7cm;
 }

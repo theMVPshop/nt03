@@ -6,6 +6,7 @@ import Avatar from '@material-ui/core/Avatar';
 import ClearIcon from '@material-ui/icons/Clear';
 import Tooltip from '@material-ui/core/Tooltip';
 import { Link } from '@material-ui/core';
+import { ResumeContext } from './ResumeContext';
 
 {
   /* <Right /> component */
@@ -31,22 +32,22 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function ResumePreview() {
-  //   const { setContent } = useContext(ResumeContext);
+  const { setContent } = useContext(ResumeContext);
   const classes = useStyles();
   const handleDeleteDate = (event) => {
     event.preventDefault();
     localStorage.clear();
-    // setContent({
-    //   header: {},
-    //   professional: { desc1: ['', '', ''], desc2: ['', '', ''] },
-    //   education: {},
-    //   additional: [],
-    // });
+    setContent({
+      header: {},
+      professional: { desc1: ['', '', ''], desc2: ['', '', ''] },
+      education: {},
+      additional: [],
+    });
   };
-  //   const handleSaveToPDF = (event) => {
-  //     event.preventDefault();
-  //     window.print();
-  //   };
+  const handleSaveToPDF = (event) => {
+    event.preventDefault();
+    window.print();
+  };
 
   return (
     <div className='right'>
