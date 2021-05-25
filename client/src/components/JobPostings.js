@@ -5,7 +5,7 @@ import NewsArticles from './NewsArticles';
 import FlashCards from './FlashCards';
 
 const JobPostings = ({jobSearch}) => {
-  const [jobList, setJobList] = useState([])
+  // const [jobList, setJobList] = useState([])
   // const [selectedJob, setSelectedJob] = useState({})
 
   const componentDidMount = () => {
@@ -19,10 +19,10 @@ const JobPostings = ({jobSearch}) => {
         "location": "Tampa, FL",
       }
     })
-      .then(response => response.json())
+      .then(response => console.log(response.json()))
       .then(data => {
-        console.log(data)
-        setJobList(data)
+        // console.log(data)
+        // setJobList(data)
         // setSelectedJob(data[0])
       })
       .catch(error => console.log(`Error, ${error}`))
@@ -30,8 +30,8 @@ const JobPostings = ({jobSearch}) => {
   
   return (
     <div>
-      <SearchFormSm placeholder1='position' placeholder2='location' />
       <div className='container'>
+        <SearchFormSm placeholder1='position' placeholder2='location' />
         <div className='grid-container'>
           <div className='job-postings-grid'>
             <JobCard />
