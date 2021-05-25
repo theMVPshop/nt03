@@ -1,12 +1,14 @@
-.grid-container {
+.container {
   width: 85%;
-  min-width: 500px;
   margin: 10px auto;
+  padding: 0;
+}
+
+.grid-container {
   display: inline-grid;
-  grid-template-columns: 60% 40%;
-  grid-template-rows: 30% 70%;
-  column-gap: 10px;
-  row-gap: 10px;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px 10px;
   grid-template-areas: 
   "jobs news"
   "jobs flashcards";
