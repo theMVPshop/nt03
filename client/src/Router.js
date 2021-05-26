@@ -6,7 +6,7 @@ import ClinicSearch from '../src/components/ClinicSearch';
 import JobPostings from '../src/components/JobPostings';
 
 function Router() {
-  const [jobSearch, setJobSearch] = useState("")
+  const [jobSearch, setJobSearch] = useState({});
 
   return (
     <Switch>

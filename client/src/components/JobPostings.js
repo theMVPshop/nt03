@@ -5,13 +5,14 @@ import NewsArticles from './NewsArticles';
 import FlashCards from './FlashCards';
 
 const JobPostings = ({jobSearch}) => {
-  // const [jobList, setJobList] = useState([])
-  // const [selectedJob, setSelectedJob] = useState({})
+  console.log(jobSearch);
+  const [jobList, setJobList] = useState([]);
+  // const [selectedJob, setSelectedJob] = useState({});
 
   useEffect(() => {
     const url = "https://jooble.org/api/";
     const key = "2f68c697-0b9e-420b-ac07-3522403e50ae";
-    let params = "{ keywords: 'dental assistant', location: 'Austin'}";
+    let params = { "keywords": jobSearch.position, "location": jobSearch.location };
 
     //create xmlHttpRequest object
     const http = new XMLHttpRequest();
@@ -25,8 +26,8 @@ const JobPostings = ({jobSearch}) => {
     http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
         let data = JSON.parse(http.responseText);
-        console.log(data.jobs);
-        // setJobList(data)
+        let jobs = data.jobs;
+        setJobList(jobs);
         // setSelectedJob(data[0])
       }
     }
