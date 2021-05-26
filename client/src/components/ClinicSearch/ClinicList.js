@@ -1,6 +1,13 @@
+import { useState } from "react"
+
 const ClinicList = ({clinic, handleClick, index}) => {
+    const [clinicSaved, setClinicSaved] = useState(false)
 
     const saveClinic = () => {
+        if (clinicSaved) {
+            return
+        }
+
         let clinicToSave = {
             "clinic_name": clinic.name,
             "clinic_address": `${clinic.street}, ${clinic.city}, ${clinic.state} ${clinic.zip}`,
@@ -14,8 +21,16 @@ const ClinicList = ({clinic, handleClick, index}) => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(clinicToSave)
-        }).then(res => console.log(res))
+        }).then(res => {
+                if (res.ok) {
+                    setClinicSaved(true)
+                    alert("Clinic Saved")
+                } else {
+                    alert("There was an error and clinic was not saved")
+                }
+            })
     }
+    
     return (
         <button
             type="button"

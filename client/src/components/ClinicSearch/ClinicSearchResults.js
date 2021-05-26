@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import "../css/clinicSearchResults.css"
+import "../../css/clinicSearchResults.css"
 import Map from './Map'
 import ClinicList from './ClinicList'
 import { useHistory } from 'react-router'

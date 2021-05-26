@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom'
-import clinic from '../images/GREEN-clinic-search.png';
+import clinic from '../../images/GREEN-clinic-search.png';
 
 const ClinicSearch = ({setClinicSearch}) => {
   const [search, setSearch] = useState("")
