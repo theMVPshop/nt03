@@ -103,7 +103,7 @@ const createUser = (req, res) => {
 const saveClinic = (req, res) => {
   let userID = req.params.userID;
 
-  const newClinic = req.body.clinic;
+  const newClinic = req.body;
 
   let sql =
     'INSERT INTO user_saved_clinics (clinic_name, clinic_address, clinic_phone, contacted, user_id) VALUES (?, ?, ?, ?, ?)';
