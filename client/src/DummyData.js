@@ -1,4 +1,4 @@
-export const contacts = [
+const contacts = [
   {
     id: 1,
     officeName: 'Dental Office',
@@ -38,6 +38,4 @@ export const contacts = [
   },
 ];
 
-export default {
-  contacts,
-};
+module.exports = contacts;

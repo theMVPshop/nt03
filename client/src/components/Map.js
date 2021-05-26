@@ -33,6 +33,7 @@ const Map = ({selectedOffice}) => {
     const geocode = () => {
         // create address string
         let address = `${selectedOffice.street} ${selectedOffice.city} ${selectedOffice.state} ${selectedOffice.zip}`
+        //let address = selectedOffice.address;
 
         // Here api and key
         let geocodeURL = "https://geocode.search.hereapi.com/v1/geocode?q="
@@ -50,7 +51,7 @@ const Map = ({selectedOffice}) => {
     const createMap = () => {
         // create initial map display if no maps exists
         if (coords && !mapState) {
-            const map = L.map(mapRef.current).setView(coords, 13)
+            const map = L.map(mapRef.current).setView(coords, 15)
             L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map)
 
             const layerGroup = L.layerGroup().addTo(map)
@@ -66,7 +67,7 @@ const Map = ({selectedOffice}) => {
         
         if (mapState) {
             mapLayer.clearLayers()
-            mapState.setView(coords, 13)
+            mapState.setView(coords, 15)
             const marker = L.marker(coords).bindPopup(selectedOffice.name)
             marker.addTo(mapLayer)
             marker.openPopup()

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import "../css/clinicSearchResults.css"
 import Map from './Map'
 
 const ClinicSearchResults = ({clinicSearch}) => {
@@ -30,34 +31,69 @@ const ClinicSearchResults = ({clinicSearch}) => {
     }
 
     return (
-        <div className='container'>
-            <div className='row p-3'>
-                <div className='col'>
-                    <div className='list-group'>
-                        {clinicList.length > 0 ?
-                             clinicList.map((clinic, index) => {
+        <div className='main-container'>
+            <div className="list-area">
+                <div className="list-group">
+                    {clinicList.length > 0 ?
+                            clinicList.map((clinic, index) => {
                                 return (
-                                 <button
-                                     onClick={handleClick}
-                                     key={index}
-                                     id={index}
-                                     type='button'
-                                     className='list-group-item list-group-item-action'
-                                 >
-                                     {clinic.name + " " + clinic.zip}
-                                 </button>
-                                )
-                            }) 
-                            : <h3>No Dental Clinics found with your search</h3>                           
-                        }
-                    </div>
+                                    <button
+                                    type="button"
+                                    key={index}
+                                    action
+                                    className='list-group-item list-group-item-action'
+                                    >
+                                    <div className="list-container">
+                                        <section onClick={handleClick} className="info">
+                                            <p id={index}>{clinic.name}</p>
+                                            <p id={index}>{`${clinic.street}, ${clinic.city}, ${clinic.state} ${clinic.zip}`}</p>
+                                            <p id={index}>{clinic.phone}</p>
+                                        </section>
+                                        <section className="check">
+                                            <label>Save?</label>
+                                            <input type="checkbox" />
+                                        </section>
+                                    </div>
+                                </button>
+                            )
+                        }) 
+                        : <h3>No Dental Clinics found with your search</h3>                           
+                    }
                 </div>
-                <div className='col'>
-                    {clinicList.length > 0 && <Map selectedOffice={selectedOffice} />}
-                </div>
+            </div>
+            <div className='map-area'>
+                {clinicList.length > 0 && <Map selectedOffice={selectedOffice} />}
             </div>
         </div>
     )
 }
 
 export default ClinicSearchResults
+
+{/* <div className='container'>
+<div className='row p-3'>
+    <div className='col'>
+        <div className='list-group'>
+            {clinicList.length > 0 ?
+                 clinicList.map((clinic, index) => {
+                    return (
+                     <button
+                         onClick={handleClick}
+                         key={index}
+                         id={index}
+                         type='button'
+                         className='list-group-item list-group-item-action'
+                     >
+                         {clinic.name + " " + clinic.zip}
+                     </button>
+                    )
+                }) 
+                : <h3>No Dental Clinics found with your search</h3>                           
+            }
+        </div>
+    </div>
+    <div className='col'>
+        {clinicList.length > 0 && <Map selectedOffice={selectedOffice} />}
+    </div>
+</div>
+</div> */}
