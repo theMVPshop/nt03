@@ -6,7 +6,7 @@ import dentalOffice from '../images/dental-office.jpeg';
 const NewsArticles = (props) => {
   
   return (
-    <div className='carousel-container'>
+    <div className='carousel-container news-grid'>
       <Carousel prevLabel={BsChevronLeft} nextLabel={BsChevronRight} interval={null} indicators={false}>
         <Carousel.Item>
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>

@@ -4,7 +4,7 @@ const FlashCards = (props) => {
   
   return (
     <div className='flashcards-container'>
-      <iframe src="https://quizlet.com/246118952/learn/embed?i=3ojhk9&x=1jj1" className='flashcards'></iframe>
+      <iframe src='https://quizlet.com/246118952/learn/embed?i=3ojhk9&x=1jj1' className='flashcards' title='flashcards'></iframe>
     </div>
   )
 }

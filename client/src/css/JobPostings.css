@@ -23,9 +23,9 @@
 }
 
 .news-grid {
-  background-color: var(--secondary-green-opacity);
-  padding: 5px;
-  min-width: 200px;
+  /* background-color: var(--secondary-green-opacity);
+  padding: 10px;
+  min-width: 200px; */
   grid-area: news;
 }
 

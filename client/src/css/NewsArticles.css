@@ -1,5 +1,6 @@
 .carousel-container {
-  margin: 5px;
+  height: 100%;
+  border: 10px solid var(--secondary-green-opacity);
 }
 
 .carousel-container img {
