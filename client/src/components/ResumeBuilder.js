@@ -7,7 +7,6 @@ import ResumePreview from './ResumePreview';
 import ResumeProfessional from './ResumeProfessional';
 import ResumeEducation from './ResumeEducation';
 import ResumeAdditionalSkills from './ResumeAdditionalSkills';
-import ResumeContextProvider from './ResumeContextProvider';
 
 export default function ResumeBuilder() {
   //   const classes = useStyles();

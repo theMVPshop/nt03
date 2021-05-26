@@ -4,7 +4,6 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Auth0Provider } from '@auth0/auth0-react';
-import ResumeContextProvider from './components/ResumeContextProvider';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,9 +14,7 @@ ReactDOM.render(
       audience='https://dev-k7rou30o.us.auth0.com/api/v2/'
       scope='read:current_user update:current_user_metadata'
     >
-      <ResumeContextProvider>
-        <App />
-      </ResumeContextProvider>
+      <App />
     </Auth0Provider>
   </React.StrictMode>,
   document.getElementById('root')
