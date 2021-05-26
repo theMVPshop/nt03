@@ -9,25 +9,48 @@ const JobPostings = ({jobSearch}) => {
   // const [selectedJob, setSelectedJob] = useState({})
 
   useEffect(() => {
-    fetch('https://jooble.org/api/2f68c697-0b9e-420b-ac07-3522403e50ae', {
-      // mode: 'no-cors',
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: {
-        "keywords": "dental hygienist",
-        "location": "Tampa, FL"
+    var url = "https://jooble.org/api/";
+    var key = "2f68c697-0b9e-420b-ac07-3522403e50ae";
+    var params = "{ keywords: 'dental assistant', location: 'Austin'}"
+
+    //create xmlHttpRequest object
+    var http = new XMLHttpRequest();
+    //open connection. true - asynchronous, false - synchronous
+    http.open("POST", url + key, true);
+
+    //Send the proper header information
+    http.setRequestHeader("Content-type", "application/json");
+      
+    //Callback when the state changes
+    http.onreadystatechange = function() {
+      if(http.readyState == 4 && http.status == 200) {
+        let data = http.responseText
+        console.log(data);
       }
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data)
-        // setJobList(data)
-        // setSelectedJob(data[0])
-      })
-      .catch(error => console.log(`Error, ${error}`))
-  },[]);
+    }
+    //Send request to the server
+    http.send(params);
+  }, [])
+
+  // useEffect(() => {
+  //   fetch('https://jooble.org/api/2f68c697-0b9e-420b-ac07-3522403e50ae', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: {
+  //       "keywords": "dental hygienist",
+  //       "location": "Tampa, FL"
+  //     }
+  //   })
+  //     .then(response => console.log(response.json()))
+  //     .then(data => {
+  //       // console.log(data)
+  //       // setJobList(data)
+  //       // setSelectedJob(data[0])
+  //     })
+  //     .catch(error => console.log(`Error, ${error}`))
+  // },[]);
   
   return (
     <div>
