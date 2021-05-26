@@ -1,20 +1,17 @@
 .landing-container {
-  margin: auto;
-  display: flex;
-  /* justify-content: center;
-  align-items: center; */
-  margin-top: 10em;
+  margin-top: 8.5em;
 }
 
 .main-info {
   background-image: url(../images/dental-office.jpeg);
-  background-size: cover;
+  background-size: 125% 200%;
   background-position: center;
   width: 100vw;
-  height: 600px;
+  height: 65vh;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.558), 0 -7px 10px rgba(0, 0, 0, 0.558);
 }
 
 .search-button {
@@ -23,7 +20,7 @@
   border-radius: 30px;
   height: 225px;
   width: 750px;
-  margin-right: 20px;
+  margin-right: 10px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;

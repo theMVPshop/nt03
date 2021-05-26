@@ -4,6 +4,7 @@ import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import logo from '../images/DentalWerk.png';
 import clinic from '../images/GREEN-clinic-search.png';
 import search from '../images/GREEN-search.png';
+import '../css/Navigation.css';
 
 const Navigation = () => {
   return (
@@ -21,7 +22,6 @@ const Navigation = () => {
             <img src={search} alt='job search icon' />
           </Link>
           <NavDropdown
-            styles={{ color: '#f0f0f0' }}
             className='menu-button'
             title='Menu'
             id='basic-nav-dropdown'
