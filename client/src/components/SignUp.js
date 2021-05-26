@@ -6,10 +6,26 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
   const [passwordCompare, setPasswordCompare] = useState('');
 
+  const validateMail = (inputText) => {
+    const mailformat = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (inputText.match(mailformat)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
+    const mail = email;
+    let check = validateMail(mail);
     if (password !== passwordCompare) {
       console.log('Pasword do not match');
+    }
+    if (password.length < 8) {
+      console.log('password too short');
+    }
+    if (!check) {
+      console.log(`${email} is not in the correct format`);
     } else {
       console.log('passwords match');
       console.log(email);
