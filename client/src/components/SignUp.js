@@ -1,77 +1,101 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useFormik } from 'formik';
+
+const validate = (values) => {
+  const errors = {};
+  if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.userName)) {
+    errors.userName = 'Must be a valid email address';
+  }
+  if (!values.password) {
+    errors.password = 'Required';
+  } else if (values.password.length < 8) {
+    errors.password = 'Must be 20 characters or less';
+  }
+  if (!values.passwordTwo) {
+    errors.passwordTwo = 'Required';
+  } else if (values.passwordTwo !== values.password) {
+    errors.passwordTwo = 'Paswords do not match';
+  }
+
+  return errors;
+};
 
 const SignUp = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordCompare, setPasswordCompare] = useState('');
-
-  const validateMail = (inputText) => {
-    const mailformat = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (inputText.match(mailformat)) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const mail = email;
-    let check = validateMail(mail);
-    if (password !== passwordCompare) {
-      console.log('Pasword do not match');
-    }
-    if (password.length < 8) {
-      console.log('password too short');
-    }
-    if (!check) {
-      console.log(`${email} is not in the correct format`);
-    } else {
-      console.log('passwords match');
-      console.log(email);
-
+  const formik = useFormik({
+    initialValues: {
+      userName: '',
+      password: '',
+      passwordTwo: '',
+    },
+    validate,
+    onSubmit: (values) => {
       axios
-        .post('/users/users', { username: email, password })
+        .post('/users/users', {
+          username: values.userName,
+          password: values.password,
+        })
         .then((response) => console.log(response))
-        .catch((errors) => console.log(errors));
-    }
-  };
+        .catch((error) => console.log(error));
+
+      formik.resetForm();
+      // history.push("/");
+    },
+  });
 
   return (
     <div className='sign-in-container'>
       <div className='login-form'>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={formik.handleSubmit}>
           <h2 className='text-center'>Sign Up</h2>
           <div className='form-group'>
             <input
-              type='text'
+              type='email'
+              id='userName'
               className='form-control'
               placeholder='Enter Email'
               required='required'
-              onChange={(e) => setEmail(e.target.value)}
+              value={formik.values.userName}
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
             />
+            {formik.touched.userName && formik.errors.userName ? (
+              <div>{formik.errors.userName}</div>
+            ) : null}
           </div>
           <div className='form-group'>
             <input
               type='password'
+              id='password'
               className='form-control'
               placeholder='Password'
               required='required'
-              onChange={(e) => setPassword(e.target.value)}
+              value={formik.values.password}
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
             />
+            {formik.touched.password && formik.errors.password ? (
+              <div>{formik.errors.password}</div>
+            ) : null}
           </div>
           <div className='form-group'>
             <input
               type='password'
+              id='passwordTwo'
               className='form-control'
               placeholder='Re-Enter Password'
               required='required'
-              onChange={(e) => setPasswordCompare(e.target.value)}
+              value={formik.values.passwordTwo}
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
             />
+            {formik.touched.passwordTwo && formik.errors.passwordTwo ? (
+              <div>{formik.errors.passwordTwo}</div>
+            ) : null}
           </div>
           <div className='form-group button-box'>
             <button
-              onClick={handleSubmit}
+              onClick={formik.handleSubmit}
               type='submit'
               className='btn btn-primary btn-block'
             >
