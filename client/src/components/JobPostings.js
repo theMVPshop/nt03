@@ -17,30 +17,31 @@ const JobPostings = ({jobSearch}) => {
       .then(data => {
         let jobs = data.jobs;
         setJobList(jobs);
-        console.log(jobList)
       })
   }, []);
   
   return (
     <div>
+      {console.log(jobList)}
       <div className='container'>
         <SearchFormSm placeholder1='position' placeholder2='location' />
         <div className='grid-container'>
           <div className='job-postings-grid'>
-            <JobCard />
-            <JobCard />
-            <JobCard />
-            <JobCard />
-            {/* {jobList.map((job) => {
-              <JobCard 
-                key={job.id}
-                title={job.title}
-                location={job.location}
-                company={job.company}
-                description={job.snippet}
-                link={job.link}
-              />
-            })} */}
+            {jobList.length > 0 ?
+              jobList.map(job => {
+                return (
+                  <JobCard 
+                    key={job.id}
+                    title={job.title}
+                    location={job.location}
+                    company={job.company}
+                    description={job.snippet}
+                    link={job.link}
+                  />
+                )
+              })
+            : <h3>No job postings found with your specifications.</h3>                           
+            }
           </div>
           {/* <div className='news-grid'> */}
             <NewsArticles />
@@ -48,7 +49,7 @@ const JobPostings = ({jobSearch}) => {
           <div className='flashcards-grid'>
             <FlashCards />
           </div>
-      </div>
+        </div>
       </div>
     </div>
   )
@@ -56,41 +57,17 @@ const JobPostings = ({jobSearch}) => {
 
 export default JobPostings;
 
-// {jobList.map((job, index) => {
-//   <JobCard 
-//     title={job.title}
-//     location={job.location}
-//     company={job.company}
-//     description={job.snippet}
-//     link={job.link}
-//   />
-// })}
 
-
-// const url = "https://jooble.org/api/";
-//     const key = "2f68c697-0b9e-420b-ac07-3522403e50ae";
-//     // let params = "{ keywords: 'dentist', location: 'austin'}";
-//     // let params = `{ keywords: ${jobSearch.position}, location: ${jobSearch.location}}`;
-//     // let params = { "keywords": jobSearch.position, "location": jobSearch.location };
-//     // console.log(params);
-
-//     //create xmlHttpRequest object
-//     const http = new XMLHttpRequest();
-//     //open connection. true - asynchronous, false - synchronous
-//     http.open("POST", url + key, true);
-
-//     //Send the proper header information
-//     http.setRequestHeader("Content-type", "application/json");
-      
-//     //Callback when the state changes
-//     http.onreadystatechange = function() {
-//       if(http.readyState == 4 && http.status == 200) {
-//         let data = JSON.parse(http.responseText);
-//         let jobs = data.jobs;
-//         // console.log(jobs);
-//         // setJobList(jobs);
-//         // setSelectedJob(data[0])
-//       }
-//     }
-//     //Send request to the server
-//     http.send(params);
+// {jobList.length > 0 ?
+//   jobList.map((job) => {
+//     <JobCard 
+//       key={job.id}
+//       title={job.title}
+//       location={job.location}
+//       company={job.company}
+//       description={job.snippet}
+//       link={job.link}
+//     />
+//   })
+//  : <h3>No job postings found with your search</h3>                           
+// }
