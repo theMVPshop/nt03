@@ -1,17 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
-const ResumeHeader = () => {
-  const [name, setName] = useState('');
-  const [address, setAddress] = useState('');
-  const [city, setCity] = useState('');
-  const [state, setState] = useState('');
-  const [zip, setZip] = useState('');
-  const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
-  const [summary, setSummary] = useState('');
-
+const ResumeHeader = (props) => {
   // Stops page refresh
   const onSubmit = (e) => {
     e.preventDefault();
@@ -24,10 +15,7 @@ const ResumeHeader = () => {
         <TextField
           id='outlined-basic'
           label='Full Name'
-          // name='name'
-          // value={name}
-          name={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => props.updateName(e.target.value)}
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
         />
@@ -35,9 +23,7 @@ const ResumeHeader = () => {
         <TextField
           id='outlined-basic'
           label='Address'
-          name='address'
-          address={address}
-          onChange={(e) => setAddress(e.target.value)}
+          onChange={(e) => props.updateAddress(e.target.value)}
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
         />
@@ -45,9 +31,7 @@ const ResumeHeader = () => {
         <TextField
           id='outlined-basic'
           label='City'
-          name='city'
-          city={city}
-          onChange={(e) => setCity(e.target.value)}
+          onChange={(e) => props.updateCity(e.target.value)}
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
         />
@@ -55,9 +39,7 @@ const ResumeHeader = () => {
         <TextField
           id='outlined-basic'
           label='State'
-          name='state'
-          state={state}
-          onChange={(e) => setState(e.target.value)}
+          onChange={(e) => props.updateState(e.target.value)}
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
         />
@@ -65,9 +47,7 @@ const ResumeHeader = () => {
         <TextField
           id='outlined-basic'
           label='Zip Code'
-          name='zip'
-          zip={zip}
-          onChange={(e) => setZip(e.target.value)}
+          onChange={(e) => props.updateZip(e.target.value)}
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
         />
@@ -75,9 +55,7 @@ const ResumeHeader = () => {
         <TextField
           id='outlined-basic'
           label='Phone'
-          name='phone'
-          phone={phone}
-          onChange={(e) => setPhone(e.target.value)}
+          onChange={(e) => props.updatePhone(e.target.value)}
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
         />
@@ -85,9 +63,7 @@ const ResumeHeader = () => {
         <TextField
           id='outlined-basic'
           label='E-mail'
-          name='email'
-          email={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => props.updateEmail(e.target.value)}
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
         />
@@ -95,9 +71,7 @@ const ResumeHeader = () => {
         <TextField
           id='outlined-multiline-static'
           label='Summary'
-          name='summary'
-          summary={summary}
-          onChange={(e) => setSummary(e.target.value)}
+          onChange={(e) => props.updateSummary(e.target.value)}
           multiline
           rows={7}
           variant='outlined'
@@ -111,7 +85,6 @@ const ResumeHeader = () => {
         <Button variant='contained' type='submit' style={{ margin: 8 }}>
           Update
         </Button>
-        <p>{name}</p>
       </form>
     </div>
   );
