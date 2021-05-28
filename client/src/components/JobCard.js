@@ -29,9 +29,8 @@ const JobCard = (props) => {
             </div>
           </Accordion.Toggle>
           <Accordion.Collapse eventKey='0'>
-            <Card.Body className='card-body'>
-              {props.description}
-              <br/>
+            <Card.Body>
+              <p className='card-body'>{props.description}</p>
               <a href={props.link} target='blank' className='btn sm-btn'>MORE INFO</a>
             </Card.Body>
           </Accordion.Collapse>
