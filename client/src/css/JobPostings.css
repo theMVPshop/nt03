@@ -9,7 +9,8 @@
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 10px 10px;
-  margin-top: 10px;
+  margin: 10px 0;
+  height: 80vh;
   grid-template-areas: 
   "jobs news"
   "jobs flashcards";
@@ -19,6 +20,7 @@
   background-color: var(--secondary-green-opacity);
   padding: 5px;
   min-width: 300px;
+  overflow: scroll;
   grid-area: jobs;
 }
 
