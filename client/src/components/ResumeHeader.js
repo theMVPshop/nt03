@@ -24,8 +24,9 @@ const ResumeHeader = () => {
         <TextField
           id='outlined-basic'
           label='Full Name'
-          name='name'
-          value={name}
+          // name='name'
+          // value={name}
+          name={name}
           onChange={(e) => setName(e.target.value)}
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
@@ -35,7 +36,7 @@ const ResumeHeader = () => {
           id='outlined-basic'
           label='Address'
           name='address'
-          value={address}
+          address={address}
           onChange={(e) => setAddress(e.target.value)}
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
@@ -45,7 +46,7 @@ const ResumeHeader = () => {
           id='outlined-basic'
           label='City'
           name='city'
-          value={city}
+          city={city}
           onChange={(e) => setCity(e.target.value)}
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
@@ -55,7 +56,7 @@ const ResumeHeader = () => {
           id='outlined-basic'
           label='State'
           name='state'
-          value={state}
+          state={state}
           onChange={(e) => setState(e.target.value)}
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
@@ -65,7 +66,7 @@ const ResumeHeader = () => {
           id='outlined-basic'
           label='Zip Code'
           name='zip'
-          value={zip}
+          zip={zip}
           onChange={(e) => setZip(e.target.value)}
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
@@ -75,7 +76,7 @@ const ResumeHeader = () => {
           id='outlined-basic'
           label='Phone'
           name='phone'
-          value={phone}
+          phone={phone}
           onChange={(e) => setPhone(e.target.value)}
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
@@ -85,7 +86,7 @@ const ResumeHeader = () => {
           id='outlined-basic'
           label='E-mail'
           name='email'
-          value={email}
+          email={email}
           onChange={(e) => setEmail(e.target.value)}
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
@@ -95,7 +96,7 @@ const ResumeHeader = () => {
           id='outlined-multiline-static'
           label='Summary'
           name='summary'
-          value={summary}
+          summary={summary}
           onChange={(e) => setSummary(e.target.value)}
           multiline
           rows={7}
@@ -110,6 +111,7 @@ const ResumeHeader = () => {
         <Button variant='contained' type='submit' style={{ margin: 8 }}>
           Update
         </Button>
+        <p>{name}</p>
       </form>
     </div>
   );

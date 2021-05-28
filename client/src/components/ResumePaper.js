@@ -1,9 +1,9 @@
 import React from 'react';
 
-function ResumePaper() {
+function ResumePaper(props) {
   return (
-    <div className=''>
-      <div size='A4' className='page'></div>
+    <div size='A4' className='page'>
+      <h1>{props.name}</h1>
     </div>
   );
 }
