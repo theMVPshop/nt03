@@ -32,9 +32,9 @@ const ClinicSearchResults = ({clinicSearch}) => {
         let url = ''
 
         if (/^[0-9,-]+$/.test(clinicSearch)) {
-            url = `http://localhost:5000/offices/zip/${clinicSearch}`
+            url = `https://dental-werk.herokuapp.com/offices/zip/${clinicSearch}`
         } else {
-            url = `http://localhost:5000/offices/state/${clinicSearch}`
+            url = `https://dental-werk.herokuapp.com/offices/state/${clinicSearch}`
         }
 
         fetch(url)
