@@ -1,3 +1,10 @@
+/**
+ *  Container component to list the results of the search for a dental clinic
+ *  This has two inner components: ClinicList and Map
+ *  ClinicList: The actual list of returned dental offices
+ *  Map: Display the location of the selected dental office on a map
+ */
+
 import React, { useEffect, useState } from 'react'
 import "../../css/clinicSearchResults.css"
 import Map from './Map'
@@ -5,12 +12,21 @@ import ClinicList from './ClinicList'
 import { useHistory } from 'react-router'
 
 const ClinicSearchResults = ({clinicSearch}) => {
+
+    // The list of results from the fetch call to the API
     const [clinicList, setClinicList] = useState([])
+
+    // Track the clinic selected by the user
     const [selectedOffice, setSelectedOffice] = useState({})
+
+    // Switch to show if anything found from the fetch call for conditional render in component
     const [resultsFound, setResultsFound] = useState(true);
 
+    // To help with returning to the search page if no results found
     const history = useHistory();
 
+    // Perform fetch call to search for clinics based on parameter from the search page,
+    // set the results into ClinicList state and a default office to display on the map
     useEffect(() => {
         console.log(clinicSearch)
         let url = ''
@@ -33,6 +49,7 @@ const ClinicSearchResults = ({clinicSearch}) => {
             })
     }, [])
 
+    // Pass store the selected office in state to pass to the Map Component
     const handleClick = (e) => {
         console.log(e)
         let id = e.target.id
@@ -44,6 +61,7 @@ const ClinicSearchResults = ({clinicSearch}) => {
         <div className='main-container'>
             <div className="list-area">
                 <div className="list-group">
+                    {/* If nothing found display message and button to return to search page */}
                     {!resultsFound &&
                         <>
                             <h3>Sorry, no dental clinics found....</h3>
@@ -56,6 +74,7 @@ const ClinicSearchResults = ({clinicSearch}) => {
                             </button>
                         </>
                     }
+                    {/* If results found, display searching message till results are returned */}
                     {resultsFound && clinicList.length > 0 ?
                             clinicList.map((clinic, index) => {
                                 return (
@@ -70,6 +89,7 @@ const ClinicSearchResults = ({clinicSearch}) => {
                     }
                 </div>
             </div>
+            {/* Don't display map untill ClinicList is loaded with data */}
             <div className='map-area'>
                 {clinicList.length > 0 && <Map selectedOffice={selectedOffice} />}
             </div>

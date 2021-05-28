@@ -12,11 +12,14 @@ import { useEffect, useRef, useState } from 'react'
 import L from 'leaflet'
 
 const Map = ({selectedOffice}) => {
+
     // state variables
     // track geo coordinates from dental office address 
     const [coords, setCoords] = useState(null)
+
     // track the map initialized by leaflet
     const [mapState, setMapState] = useState(null)
+
     // track the layer object for placement and control of markers on map
     const [mapLayer, setMapLayer] = useState(null)
 
@@ -31,9 +34,9 @@ const Map = ({selectedOffice}) => {
 
     // call to Here rest api to gecode the address of the dental office
     const geocode = () => {
+
         // create address string
         let address = `${selectedOffice.street} ${selectedOffice.city} ${selectedOffice.state} ${selectedOffice.zip}`
-        //let address = selectedOffice.address;
 
         // Here api and key
         let geocodeURL = "https://geocode.search.hereapi.com/v1/geocode?q="
@@ -42,6 +45,7 @@ const Map = ({selectedOffice}) => {
         fetch(geocodeURL+address+apiKey,)
             .then(res => res.json())
             .then(data => {
+
                 // retrieve the lat and long to set in coords state
                 setCoords([data.items[0].position.lat, data.items[0].position.lng])
             })
@@ -49,6 +53,7 @@ const Map = ({selectedOffice}) => {
 
     // creation and re-render of the map
     const createMap = () => {
+
         // create initial map display if no maps exists
         if (coords && !mapState) {
             const map = L.map(mapRef.current).setView(coords, 15)
@@ -65,6 +70,7 @@ const Map = ({selectedOffice}) => {
             return
         }
         
+        // Re-render the map if one already exists
         if (mapState) {
             mapLayer.clearLayers()
             mapState.setView(coords, 15)
@@ -74,14 +80,18 @@ const Map = ({selectedOffice}) => {
         }
     }
 
+    // control if a geocode needs to be done, do not perform if no data passed to component
     useEffect(() => {
         if (Object.keys(selectedOffice).length === 0) {
             return
         }
 
+        // run the geocode of the selected clinic
         geocode()
+
     }, [selectedOffice])
 
+    // create and re-render map on coordinates data in state
     useEffect(() => {
         createMap()
     }, [coords])

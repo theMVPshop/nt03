@@ -1,8 +1,11 @@
 import { useState } from "react"
 
 const ClinicList = ({clinic, handleClick, index}) => {
+
+    // Keep track if a clinic was checked to save, prevent double fetch on same clinic if checked again
     const [clinicSaved, setClinicSaved] = useState(false)
 
+    // Perform POST request to save the clinic to the user
     const saveClinic = () => {
         if (clinicSaved) {
             return
