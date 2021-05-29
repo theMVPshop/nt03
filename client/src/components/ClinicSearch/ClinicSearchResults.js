@@ -81,6 +81,7 @@ const ClinicSearchResults = ({clinicSearch}) => {
                                     <ClinicList
                                         clinic={clinic}
                                         handleClick={handleClick}
+                                        key={index}
                                         index={index}
                                     />
                             )
