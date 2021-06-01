@@ -3,7 +3,6 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Button from '@material-ui/core/Button';
 import ResumeHeader from './ResumeHeader';
-// import ResumePreview from './ResumePreview';
 import ResumePaper from './ResumePaper';
 import ResumeProfessional from './ResumeProfessional';
 import ResumeEducation from './ResumeEducation';
@@ -18,6 +17,7 @@ export default function ResumeBuilder() {
     setTab(newValue);
   };
 
+  // ---------HEADER STATE VARIABLES-----------
   // Header Form State
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
@@ -28,6 +28,7 @@ export default function ResumeBuilder() {
   const [email, setEmail] = useState('');
   const [summary, setSummary] = useState('');
 
+  // --------PROFESSIONAL STATE VARIABLES AND FUNCTIONS--------
   // Professional Form State
   const [proData, setProData] = useState([]);
 
@@ -65,6 +66,66 @@ export default function ResumeBuilder() {
     setProData(items);
   };
 
+  // --------EDUCATION STATE VARIABLES AND FUNCTIONS--------
+  // Array that holds each chunk of Education info
+  const [eduData, setEduData] = useState([]);
+
+  const [institute, setInstitute] = useState('');
+  const [instLocation, setInstLocation] = useState('');
+  const [major, setMajor] = useState('');
+  const [graduation, setGraduation] = useState('');
+  const [info, setInfo] = useState('');
+
+  // function that adds current Education info to array
+  const addEducation = () => {
+    const items = [...eduData];
+    items.push({
+      institute,
+      instLocation,
+      major,
+      graduation,
+      info,
+    });
+
+    setInstitute('');
+    setInstLocation('');
+    setMajor('');
+    setGraduation('');
+    setInfo('');
+
+    setEduData(items);
+  };
+
+  // --------SKILLS STATE VARIABLES AND FUNCTIONS--------
+  // Array that holds all additional skills
+  const [addSkillsData, setAddSkillsData] = useState([]);
+
+  const [skill1, setSkill1] = useState('');
+  const [skill2, setSkill2] = useState('');
+  const [skill3, setSkill3] = useState('');
+  const [skill4, setSkill4] = useState('');
+  const [skill5, setSkill5] = useState('');
+
+  // function that adds current list of skills to array
+  const addSkills = () => {
+    const items = [...addSkillsData];
+    items.push({
+      skill1,
+      skill2,
+      skill3,
+      skill4,
+      skill5,
+    });
+
+    setSkill1('');
+    setSkill2('');
+    setSkill3('');
+    setSkill4('');
+    setSkill5('');
+
+    setAddSkillsData(items);
+  };
+
   return (
     <div className='resume-box'>
       <div className='resume-container'>
@@ -76,7 +137,6 @@ export default function ResumeBuilder() {
             <Tab label='+ Additional Skills'></Tab>
           </Tabs>
         </div>
-        {/* <ResumeContextProvider> */}
         {tab === 0 && (
           <ResumeHeader
             name={name}
@@ -100,7 +160,7 @@ export default function ResumeBuilder() {
         {tab === 1 && (
           <div>
             <ResumeProfessional
-              proDate={proData}
+              proData={proData}
               updateProData={setProData}
               company={company}
               updateCompany={setCompany}
@@ -130,13 +190,64 @@ export default function ResumeBuilder() {
             </Button>
           </div>
         )}
-        {tab === 2 && <ResumeEducation />}
-        {tab === 3 && <ResumeAdditionalSkills />}
-        {/* </ResumeContextProvider> */}
+        {tab === 2 && (
+          <div>
+            <ResumeEducation
+              eduData={eduData}
+              updateEduData={setEduData}
+              institute={institute}
+              updateInstitute={setInstitute}
+              instLocation={instLocation}
+              updateInstLocation={setInstLocation}
+              major={major}
+              updateMajor={setMajor}
+              graduation={graduation}
+              updateGraduation={setGraduation}
+              info={info}
+              updateInfo={setInfo}
+            />
+            <Button
+              variant='contained'
+              color='secondary'
+              type='submit'
+              onClick={addEducation}
+              style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+            >
+              ADD
+            </Button>
+          </div>
+        )}
+        {tab === 3 && (
+          <div>
+            <ResumeAdditionalSkills
+              addSkillsData={addSkillsData}
+              updateSkillsData={setAddSkillsData}
+              skill1={skill1}
+              updateSkill1={setSkill1}
+              skill2={skill2}
+              updateSkill2={setSkill2}
+              skill3={skill3}
+              updateSkill3={setSkill3}
+              skill4={skill4}
+              updateSkill4={setSkill4}
+              skill5={skill5}
+              updateSkill5={setSkill5}
+            />
+            <Button
+              variant='contained'
+              color='secondary'
+              type='submit'
+              onClick={addSkills}
+              style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+            >
+              ADD
+            </Button>
+          </div>
+        )}
       </div>
-      {/* <div className='preview-container'> */}
-      {/* <ResumeContextProvider> */}
+
       <ResumePaper
+        // HEADER
         name={name}
         address={address}
         city={city}
@@ -145,6 +256,7 @@ export default function ResumeBuilder() {
         phone={phone}
         email={email}
         summary={summary}
+        // PROFESSIONAL
         proDate={proData}
         company={company}
         location={location}
@@ -154,9 +266,21 @@ export default function ResumeBuilder() {
         desc1={desc1}
         desc2={desc2}
         desc3={desc3}
+        // EDUCATION
+        eduData={eduData}
+        institute={institute}
+        instLocation={instLocation}
+        major={major}
+        graduation={graduation}
+        info={info}
+        // ADDITIONAL SKILLS
+        addSkillsData={addSkillsData}
+        skill1={skill1}
+        skill2={skill2}
+        skill3={skill3}
+        skill4={skill4}
+        skill5={skill5}
       />
-      {/* </ResumeContextProvider> */}
-      {/* </div> */}
     </div>
   );
 }
