@@ -18,7 +18,7 @@ const ClinicList = ({clinic, handleClick, index}) => {
             "contacted": false
         }
 
-        fetch("/users/users/1/clinics", {
+        fetch("/users/1/clinics", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

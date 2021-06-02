@@ -31,7 +31,7 @@ const SignUp = () => {
     validate,
     onSubmit: (values) => {
       axios
-        .post('/users/users', {
+        .post('/users', {
           username: values.userName,
           password: values.password,
         })
