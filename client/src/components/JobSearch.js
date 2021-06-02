@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-// import SearchFormLg from './SearchFormLg';
 import { useHistory } from 'react-router-dom'
 import searchIcon from '../images/GREEN-search.png';
 
 const JobSearch = ({setJobSearch}) => {
-  const [search, setSearch] = useState({})
+  const [search, setSearch] = useState({});
 
   const history = useHistory();
 
@@ -14,8 +13,8 @@ const JobSearch = ({setJobSearch}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setJobSearch(search)
-    history.push('/job-postings')
+    setJobSearch(search);
+    history.push('/job-postings');
   };
   return(
 

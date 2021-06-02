@@ -16,7 +16,7 @@ function Router() {
       </Route>
       <Route path='/clinic-search' component={ClinicSearch}></Route>
       <Route path='/job-postings'>
-        <JobPostings jobSearch={jobSearch} />
+        <JobPostings jobSearch={jobSearch} setJobSearch={setJobSearch} />
       </Route>
     </Switch>
   );
