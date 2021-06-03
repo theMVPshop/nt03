@@ -1,11 +1,6 @@
 const jwksRsa = require('jwks-rsa');
 const jwt = require('express-jwt');
 
-// const logger = (req, res, next) => {
-//   console.log(`logging route: ${req.path} ` + new Date().toISOString());
-//   next();
-// }
-
 const checkJwt = jwt({
   secret: jwksRsa.expressJwtSecret({
     cache: true,
@@ -20,6 +15,5 @@ const checkJwt = jwt({
 });
 
 module.exports = {
-  //   logger,
   checkJwt,
 };

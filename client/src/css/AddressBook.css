@@ -1,0 +1,38 @@
+.table-container {
+  width: 90vw;
+  height: 80vh;
+  margin: 0 auto;
+  top: 5%;
+  position: relative;
+  padding-top: 25px;
+  background-color: var(--accent-green);
+}
+
+.table {
+  width: 87vw;
+  margin: 0 auto;
+  background-color: var(--background);
+}
+
+.contacted {
+  width: 100px;
+}
+
+.notes {
+  width: 550px;
+}
+
+/* Notes Component */
+.note-input {
+  width: 80%;
+  margin-right: 15px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.add-note {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: var(--secondary-green);
+  color: var(--primary-text-color);
+}

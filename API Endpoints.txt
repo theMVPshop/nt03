@@ -15,6 +15,24 @@ POST /users - Create a new user
 PUT /users/:username - Not fully implemented yet
 
 
+################ Saved clinic data for user
+
+GET /users/:userID/clinics - Get a list of saved clinics for the user
+
+POST /users/:userID/clinics - Save a clinic to the user
+        Sample JSON
+            {
+                "clinic_name": "clinic name",
+                "clinic_address": "address",
+                "clinic_phone": "123-456-7890",
+                "contacted": false
+            }
+
+PUT /users/:clinicID/contacted - Hit enpoint to swicth the saved clinic to contacted
+
+DELETE /users/:clinicID/clinics - Hit endpoint to unsave the clinic from the user
+
+
 ################ Saved Job Info
 
 GET /jobs - Get all jobs in DB

@@ -1,0 +1,18 @@
+Jooble
+==============
+URL
+
+https://jooble.org/api/2f68c697-0b9e-420b-ac07-3522403e50ae
+
+const fetchBody = {
+    "keywords": "dental hygienist",
+    "location": "Tampa, FL",
+    "radius": "25",
+    "searchMode": 1
+}
+
+adzuna
+=====================
+
+URL
+https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=e9f904ef&app_key=262e0e3cc87d9d17dc5a332c8f19af1d&what={searchTerm}
