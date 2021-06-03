@@ -9,11 +9,18 @@ import AddressBook from './components/AddressBook';
 import ClinicSearchResults from './components/ClinicSearch/ClinicSearchResults'
 
 function Router() {
+  const [jobSearch, setJobSearch] = useState({});
   const [clinicSearch, setClinicSearch] = useState("")
 
   return (
     <Switch>
       <Route exact path='/' component={Landing}></Route>
+      <Route path='/job-search'>
+        <JobSearch setJobSearch={setJobSearch} />
+      </Route>
+      <Route path='/job-postings'>
+        <JobPostings jobSearch={jobSearch} setJobSearch={setJobSearch} />
+      </Route>
       <Route path='/job-search' component={JobSearch}></Route>
       <Route path='/clinic-search'>
         <ClinicSearch setClinicSearch={setClinicSearch} />

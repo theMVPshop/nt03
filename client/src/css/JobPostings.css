@@ -1,5 +1,37 @@
-.job-postings-container {
-  width: 60%;
+.container {
+  width: 85%;
+  margin: 10px auto;
+  padding: 0;
+}
+
+.grid-container {
+  display: inline-grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px 10px;
+  margin: 10px 0;
+  height: 80vh;
+  grid-template-areas: 
+  "jobs news"
+  "jobs flashcards";
+}
+
+.job-postings-grid {
   background-color: var(--secondary-green-opacity);
   padding: 5px;
+  min-width: 300px;
+  overflow: scroll;
+  grid-area: jobs;
+}
+
+.news-grid {
+  /* background-color: var(--secondary-green-opacity);
+  padding: 10px;
+  min-width: 200px; */
+  grid-area: news;
+}
+
+.flashcards-grid {
+  min-width: 200px;
+  grid-area: flashcards;
 }
