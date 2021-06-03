@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Accordion, Card } from 'react-bootstrap';
 import { BsChevronUp, BsChevronDown } from 'react-icons/bs';
 
-const JobCard = (props) => {
+const JobCard = (props) => {  
   const [collapse, setCollapse] = useState(true);
 
   const collapseCard = () => {
