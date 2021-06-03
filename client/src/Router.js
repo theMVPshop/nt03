@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router';
 import Landing from '../src/components/Landing';
 import JobSearch from '../src/components/JobSearch';
 import ClinicSearch from '../src/components/ClinicSearch/ClinicSearch';
+import JobPostings from './components/JobPostings'
 import SignIn from '../src/components/SignIn';
 import SignUp from '../src/components/SignUp';
 import AddressBook from './components/AddressBook';
@@ -21,7 +22,6 @@ function Router() {
       <Route path='/job-postings'>
         <JobPostings jobSearch={jobSearch} setJobSearch={setJobSearch} />
       </Route>
-      <Route path='/job-search' component={JobSearch}></Route>
       <Route path='/clinic-search'>
         <ClinicSearch setClinicSearch={setClinicSearch} />
       </Route>
