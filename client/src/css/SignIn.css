@@ -1,6 +1,7 @@
 .sign-in-container {
   position: relative;
   height: 60vh;
+  margin-top: 40px;
 }
 
 .login-form {
@@ -31,17 +32,17 @@
 
 .form-group > input {
   width: 350px;
+}
+
+.form-group {
+  min-height: 38px;
+  border-radius: 2px;
   margin: 30px;
 }
 
-.form-group,
 .btn {
   min-height: 38px;
   border-radius: 2px;
-  margin: 0 0 15px;
-}
-
-.btn {
   font-size: 15px;
   font-weight: bold;
   width: 300px;
@@ -54,6 +55,13 @@
 .btn:hover {
   background-color: var(--primary-green);
 }
+
+
+.validation-error {
+  font-size: 10px;
+  color: red;
+}
+
 /* Forgot Password Container */
 .clearfix {
   text-align: right;

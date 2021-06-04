@@ -19,17 +19,17 @@ const ClinicSearch = ({setClinicSearch}) => {
   };
 
   return (
-    <div className='search-form-container'>
-      <div className='search-form'>
-        <img className='search-form-icon' src={clinic} alt='clinic search icon' />
-        <form className='search-form' onSubmit={handleSubmit}>
+    <div className='lg-search-form-container'>
+      <div className='lg-search-form'>
+        <img className='lg-search-form-icon' src={clinic} alt='clinic search icon' />
+        <form className='lg-search-form' onSubmit={handleSubmit}>
           <input
-            className='search-input'
+            className='lg-search-input'
             type='text'
-            placeholder='Enter a state of zip code'
+            placeholder='Enter a state or zip code'
             onChange={handleTextChange}
           />
-          <button className='btn form-btn' type='submit'>
+          <button className='btn lg-btn' type='submit'>
             SEARCH
           </button>
         </form>
