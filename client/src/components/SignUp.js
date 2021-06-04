@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import axios from 'axios';
 import { useFormik } from 'formik';
 
@@ -90,7 +90,9 @@ const SignUp = () => {
               onChange={formik.handleChange}
             />
             {formik.touched.passwordTwo && formik.errors.passwordTwo ? (
-              <div className='validation-error'>{formik.errors.passwordTwo}</div>
+              <div className='validation-error'>
+                {formik.errors.passwordTwo}
+              </div>
             ) : null}
           </div>
           <div className='form-group button-box'>
