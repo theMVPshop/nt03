@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Accordion, Card } from 'react-bootstrap';
-import { BsChevronUp, BsChevronDown } from 'react-icons/bs';
+import { BsChevronUp, BsChevronDown, BsBookmark } from 'react-icons/bs';
 
 const JobCard = (props) => {  
   const [collapse, setCollapse] = useState(true);
@@ -19,10 +19,13 @@ const JobCard = (props) => {
             className='job-card-header'
             onClick={collapseCard}
           >
-            <div>
-              <h2>{props.title}</h2>
-              <h3>{props.company}</h3>
-              <h4>{props.location}</h4>
+            <div className='bookmark-header'>
+              <BsBookmark />
+              <div className='header-content'>
+                <h2>{props.title}</h2>
+                <h3>{props.company}</h3>
+                <h4>{props.location}</h4>
+              </div>
             </div>
             <div>
               {collapse ? <BsChevronDown/> : <BsChevronUp/>}
