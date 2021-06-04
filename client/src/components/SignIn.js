@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const SignIn = () => {
+const SignIn = (props) => {
+  const { getUser } = props;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    //saving user info to redux
+    getUser({
+      userId: 'number',
+      username: 'test',
+    });
 
     axios
       .post('/auth/login', { email, password })

@@ -3,11 +3,11 @@ import { Switch, Route } from 'react-router';
 import Landing from '../src/components/Landing';
 import JobSearch from '../src/components/JobSearch';
 import ClinicSearch from '../src/components/ClinicSearch/ClinicSearch';
+import SignIn from './Containers/SignIn';
+import SignUp from './components/SignUp'
 import JobPostings from './components/JobPostings'
-import SignIn from '../src/components/SignIn';
-import SignUp from '../src/components/SignUp';
 import AddressBook from './components/AddressBook';
-import ClinicSearchResults from './components/ClinicSearch/ClinicSearchResults'
+import ClinicSearchResults from './components/ClinicSearch/ClinicSearchResults';
 
 function Router() {
   const [jobSearch, setJobSearch] = useState({});
