@@ -50,10 +50,13 @@ const login = (req, res) => {
       const data = { ...rows[0] };
       data.password = 'REDACTED';
 
+      const { id, username } = data;
+      const userProfile = { userId: id, username: username };
       const token = jwt.sign(data, 'secret');
       res.json({
         msg: 'Login successful',
         token,
+        userProfile,
       });
     });
   });
