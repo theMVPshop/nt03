@@ -6,7 +6,6 @@ import JobPostings from '../src/components/JobPostings';
 import ClinicSearch from '../src/components/ClinicSearch/ClinicSearch';
 import SignIn from './Containers/SignIn';
 import SignUp from './components/SignUp';
-import JobPostings from './components/JobPostings';
 import AddressBook from './components/AddressBook';
 import ClinicSearchResults from './components/ClinicSearch/ClinicSearchResults';
 
