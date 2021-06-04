@@ -9,8 +9,8 @@ const validate = (values) => {
   }
   if (!values.password) {
     errors.password = 'Required';
-  } else if (values.password.length < 8) {
-    errors.password = 'Must be 20 characters or less';
+  } else if (values.password.length > 8) {
+    errors.password = 'Must be 8 characters or less';
   }
   if (!values.passwordTwo) {
     errors.passwordTwo = 'Required';
@@ -60,7 +60,7 @@ const SignUp = () => {
               onChange={formik.handleChange}
             />
             {formik.touched.userName && formik.errors.userName ? (
-              <div>{formik.errors.userName}</div>
+              <div className='validation-error'>{formik.errors.userName}</div>
             ) : null}
           </div>
           <div className='form-group'>
@@ -75,7 +75,7 @@ const SignUp = () => {
               onChange={formik.handleChange}
             />
             {formik.touched.password && formik.errors.password ? (
-              <div>{formik.errors.password}</div>
+              <div className='validation-error'>{formik.errors.password}</div>
             ) : null}
           </div>
           <div className='form-group'>
@@ -90,7 +90,7 @@ const SignUp = () => {
               onChange={formik.handleChange}
             />
             {formik.touched.passwordTwo && formik.errors.passwordTwo ? (
-              <div>{formik.errors.passwordTwo}</div>
+              <div className='validation-error'>{formik.errors.passwordTwo}</div>
             ) : null}
           </div>
           <div className='form-group button-box'>

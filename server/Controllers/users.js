@@ -89,7 +89,7 @@ const createUser = (req, res) => {
       sql = mysql.format(sql, [username, hash]);
 
       await db.query(sql, (result, error) => {
-        return res.send(`${username} successfully registered`);
+        return res.send(`${username} successfully registered: ${result.data}`);
       });
     } catch (error) {
       if (error.code == 'ER_DUP_ENTRY')

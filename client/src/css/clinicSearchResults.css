@@ -11,6 +11,8 @@
     width: 45vw;
     height: 80vh;
     overflow-y: auto;
+    background-color: var(--secondary-green-opacity);
+    padding: .5rem;
 }
 
 .map-area {
@@ -37,4 +39,8 @@ p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.list-group-item {
+    margin: 0.2rem 0;
 }

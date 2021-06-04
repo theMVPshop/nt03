@@ -4,14 +4,15 @@ import Landing from '../src/components/Landing';
 import JobSearch from '../src/components/JobSearch';
 import JobPostings from '../src/components/JobPostings';
 import ClinicSearch from '../src/components/ClinicSearch/ClinicSearch';
-import SignIn from '../src/components/SignIn';
-import SignUp from '../src/components/SignUp';
+import SignIn from './Containers/SignIn';
+import SignUp from './components/SignUp';
+import JobPostings from './components/JobPostings';
 import AddressBook from './components/AddressBook';
-import ClinicSearchResults from './components/ClinicSearch/ClinicSearchResults'
+import ClinicSearchResults from './components/ClinicSearch/ClinicSearchResults';
 
 function Router() {
   const [jobSearch, setJobSearch] = useState({});
-  const [clinicSearch, setClinicSearch] = useState("")
+  const [clinicSearch, setClinicSearch] = useState('');
 
   return (
     <Switch>
