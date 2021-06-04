@@ -8,7 +8,8 @@
 import React, { useEffect, useState } from 'react'
 import "../../css/clinicSearchResults.css"
 import Map from './Map'
-import ClinicList from './ClinicList'
+//import ClinicList from './ClinicList'
+import ClinicList from '../../Containers/ClinicList'
 import { useHistory } from 'react-router'
 
 const ClinicSearchResults = ({clinicSearch}) => {

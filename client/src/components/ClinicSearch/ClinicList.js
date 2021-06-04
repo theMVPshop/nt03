@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const ClinicList = ({clinic, handleClick, index}) => {
+const ClinicList = ({clinic, handleClick, index, user}) => {
 
     // Keep track if a clinic was checked to save, prevent double fetch on same clinic if checked again
     const [clinicSaved, setClinicSaved] = useState(false)
