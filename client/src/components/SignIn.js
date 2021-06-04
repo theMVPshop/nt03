@@ -10,14 +10,22 @@ const SignIn = (props) => {
     e.preventDefault();
 
     //saving user info to redux
-    getUser({
-      userId: 'number',
-      username: 'test',
-    });
 
     axios
-      .post('/auth/login', { email, password })
-      .then((response) => console.log(response))
+      .post('/auth/login', { username: email, password })
+      .then((response) => {
+        const {
+          data: {
+            msg,
+            userProfile: { userId, username },
+          },
+        } = response;
+        if (msg == 'Login successful') {
+          console.log('Log in Successful');
+          getUser({ userId, username });
+          console.log(userId);
+        }
+      })
       .catch((error) => console.log(error));
   };
   return (
