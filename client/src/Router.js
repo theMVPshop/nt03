@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Switch, Route } from 'react-router';
 import Landing from '../src/components/Landing';
 import JobSearch from '../src/components/JobSearch';
+import JobPostings from '../src/components/JobPostings';
 import ClinicSearch from '../src/components/ClinicSearch/ClinicSearch';
 import SignIn from './Containers/SignIn';
 import SignUp from './components/SignUp';

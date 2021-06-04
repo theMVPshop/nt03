@@ -23,3 +23,11 @@
   display: flex;
   justify-content: space-between;
 }
+
+.bookmark-header {
+  display: flex;
+}
+
+.header-content {
+  margin-left: 10px;
+}
