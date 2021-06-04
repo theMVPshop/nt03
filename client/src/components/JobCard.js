@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Accordion, Card } from 'react-bootstrap';
 import { BsChevronUp, BsChevronDown } from 'react-icons/bs';
 
-const JobCard = (props) => {
+const JobCard = (props) => {  
   const [collapse, setCollapse] = useState(true);
 
   const collapseCard = () => {
@@ -20,16 +20,19 @@ const JobCard = (props) => {
             onClick={collapseCard}
           >
             <div>
-              <h2>Position</h2>
-              <h3>Company</h3>
-              <h4>Location</h4>
+              <h2>{props.title}</h2>
+              <h3>{props.company}</h3>
+              <h4>{props.location}</h4>
             </div>
             <div>
               {collapse ? <BsChevronDown/> : <BsChevronUp/>}
             </div>
           </Accordion.Toggle>
           <Accordion.Collapse eventKey='0'>
-            <Card.Body className='card-body'>Job description here.</Card.Body>
+            <Card.Body>
+              <p className='card-body'>{props.description}</p>
+              <a href={props.link} target='blank' className='btn sm-btn'>MORE INFO</a>
+            </Card.Body>
           </Accordion.Collapse>
         </Card>
       </Accordion>

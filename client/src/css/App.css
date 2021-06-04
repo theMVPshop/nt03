@@ -4,6 +4,8 @@
 @import url('./SearchForm.css');
 @import url('./JobPostings.css');
 @import url('./JobCard.css');
+@import url('./NewsArticles.css');
+@import url('./FlashCards.css');
 @import url('./AddressBook.css');
 
 :root {
@@ -37,14 +39,23 @@ body {
 .btn {
   font-size: 15px;
   font-weight: bold;
-  width: 300px;
   border: none;
   background-color: var(--secondary-green);
   text-transform: uppercase;
   color: var(--primary-text-color);
 }
 
-.btn:hover {
+.lg-btn {
+  width: 300px;
+}
+
+.sm-btn {
+  width: 100px;
+  padding: 5px;
+  margin: 10px;
+}
+
+.lg-btn:hover {
   background-color: var(--primary-green);
 }
 

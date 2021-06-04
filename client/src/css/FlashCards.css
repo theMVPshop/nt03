@@ -1,0 +1,10 @@
+.flashcards-container {
+  background-color: var(--secondary-green-opacity);
+  padding: 10px;
+  height: 100%;
+}
+
+.flashcards {
+  height: 100%;
+  width: 100%;
+}

@@ -4,17 +4,24 @@ import Landing from '../src/components/Landing';
 import JobSearch from '../src/components/JobSearch';
 import ClinicSearch from '../src/components/ClinicSearch/ClinicSearch';
 import SignIn from './Containers/SignIn';
-import SignUp from './components/SignUp';
+import SignUp from './components/SignUp'
+import JobPostings from './components/JobPostings'
 import AddressBook from './components/AddressBook';
 import ClinicSearchResults from './components/ClinicSearch/ClinicSearchResults';
 
 function Router() {
-  const [clinicSearch, setClinicSearch] = useState('');
+  const [jobSearch, setJobSearch] = useState({});
+  const [clinicSearch, setClinicSearch] = useState("")
 
   return (
     <Switch>
       <Route exact path='/' component={Landing}></Route>
-      <Route path='/job-search' component={JobSearch}></Route>
+      <Route path='/job-search'>
+        <JobSearch setJobSearch={setJobSearch} />
+      </Route>
+      <Route path='/job-postings'>
+        <JobPostings jobSearch={jobSearch} setJobSearch={setJobSearch} />
+      </Route>
       <Route path='/clinic-search'>
         <ClinicSearch setClinicSearch={setClinicSearch} />
       </Route>
