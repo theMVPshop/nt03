@@ -74,3 +74,7 @@ module.exports = {
   login,
   logOut,
 };
+
+// GET https://dev-k7rou30o.us.auth0.com/v2/logout?
+//   client_id=DTVZutsnMuYy1zPj0Ybs8Aj8RFAQulvf&
+//   returnTo=LOGOUT_URL

@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import logo from '../images/DentalWerk.png';
@@ -6,7 +7,24 @@ import clinic from '../images/GREEN-clinic-search.png';
 import search from '../images/GREEN-search.png';
 import '../css/Navigation.css';
 
-const Navigation = () => {
+const Navigation = (props) => {
+  const { signOut, signInStatus, user } = props;
+  const handleLogOut = () => {
+    axios
+      .post('/auth/logout')
+      .then((response) => {
+        console.log(response);
+        const {
+          data: { msg },
+        } = response;
+        if (msg == 'Logged Out') {
+          signOut();
+          console.log('you good');
+        }
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
     <Navbar className='navbar' expand='lg'>
       <Navbar.Brand href='/'>
@@ -36,7 +54,7 @@ const Navigation = () => {
             </NavDropdown.Item>
             <NavDropdown.Item href='/profile'>Profile</NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item href='/'>Log Out</NavDropdown.Item>
+            <NavDropdown.Item onClick={handleLogOut}>Log Out</NavDropdown.Item>
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>
