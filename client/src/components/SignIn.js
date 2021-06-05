@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const SignIn = (props) => {
-  const { getUser } = props;
+  const { getUser, signIn } = props;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -22,7 +22,10 @@ const SignIn = (props) => {
         } = response;
         if (msg == 'Login successful') {
           console.log('Log in Successful');
+          //saves user info to redux state
           getUser({ userId, username });
+          //changes sign in status to true in redux state
+          signIn();
           console.log(userId);
         }
       })
