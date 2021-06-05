@@ -1,12 +1,42 @@
 import { useState } from 'react';
 import { Accordion, Card } from 'react-bootstrap';
-import { BsChevronUp, BsChevronDown, BsBookmark } from 'react-icons/bs';
+import { BsChevronUp, BsChevronDown, BsBookmark, BsBookmarkFill } from 'react-icons/bs';
 
-const JobCard = (props) => {  
+const JobCard = (props) => { 
+  console.log(props.user) 
   const [collapse, setCollapse] = useState(true);
+  const [jobToSave, setJobToSave] = useState({});
+  const [jobSaved, setJobSaved] = useState(false)
 
   const collapseCard = () => {
     setCollapse(!collapse);
+  }
+
+  const saveJobPosting = () => {
+    if (jobSaved) {
+      return
+  }
+
+    setJobToSave({ 
+      ...jobToSave,
+      url: props.link,
+      user_id: props.user.user_id
+    })
+
+    fetch('/jobs', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(jobToSave)
+    })
+    .then(response => {
+      if (response.ok) {
+          setJobSaved(true)
+      } else {
+          alert('There was an error and job posting was not saved');
+      }
+  })
   }
 
   return (
@@ -20,7 +50,7 @@ const JobCard = (props) => {
             onClick={collapseCard}
           >
             <div className='bookmark-header'>
-              <BsBookmark />
+              <BsBookmark onClick={saveJobPosting} />
               <div className='header-content'>
                 <h2>{props.title}</h2>
                 <h3>{props.company}</h3>

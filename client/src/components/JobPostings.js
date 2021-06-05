@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import JobSearchSm from './JobSearchSm';
-import JobCard from './JobCard';
+import JobCard from '../Containers/JobCard';
 import NewsArticles from './NewsArticles';
 import FlashCards from './FlashCards';
 
