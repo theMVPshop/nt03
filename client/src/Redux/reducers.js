@@ -5,8 +5,7 @@ import initState from './state';
 const user = (state = {}, action) => {
   switch (action.type) {
     case 'GET_USER':
-      let username = action.value;
-      return username;
+      return action.value;
     default:
       return state;
   }

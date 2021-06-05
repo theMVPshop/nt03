@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navigation from './components/Navigation';
+import Navigation from './Containers/Navigation';
 import Router from './Router';
 import './css/App.css';
 import { Provider } from 'react-redux';
