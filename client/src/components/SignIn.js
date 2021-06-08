@@ -27,6 +27,7 @@ const SignIn = (props) => {
           //changes sign in status to true in redux state
           signIn();
           console.log(userId);
+          // history.push("/");
         }
       })
       .catch((error) => console.log(error));
