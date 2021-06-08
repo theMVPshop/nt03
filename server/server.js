@@ -12,6 +12,7 @@ app.use(cookieParser());
 // routers import
 const usersRoute = require('./Routes/users');
 const jobsRouter = require('./Routes/jobs');
+const resumeRouter = require('./Routes/resume');
 
 // set port for api server
 let port = process.env.PORT || 4000;
@@ -25,6 +26,8 @@ app.use(express.json());
 app.use('/users', usersRoute);
 app.use('/jobs', jobsRouter);
 app.use('/auth', require('./Routes/auth'));
+app.use('/resume', resumeRouter);
+
 
 app.get('/test', (req, res) => {
   console.log('basic server up running');
