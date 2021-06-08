@@ -84,12 +84,11 @@ const createUser = (req, res, err) => {
   const { username, password } = req.body;
 
   let sql = 'INSERT INTO users (username, password) values (?, ?)';
-  bcrypt.hash(password, saltRounds, async (err, hash) => {
+  bcrypt.hash(password, saltRounds, (err, hash) => {
     try {
       sql = mysql.format(sql, [username, hash]);
 
-      await db.query(sql, (err, res) => {
-        if (err) return handleSQLError(err, res);
+      db.query(sql, (err, res) => {
         res.send(res);
       });
     } catch (err) {
