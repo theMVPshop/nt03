@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 const SignIn = (props) => {
   const { getUser, signIn } = props;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  let history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,8 +28,9 @@ const SignIn = (props) => {
           getUser({ userId, username });
           //changes sign in status to true in redux state
           signIn();
+          document.cookie = 'loggedIn=true;';
           console.log(userId);
-          // history.push("/");
+          history.push('/');
         }
       })
       .catch((error) => console.log(error));
