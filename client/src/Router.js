@@ -9,6 +9,20 @@ import SignUp from './components/SignUp';
 import AddressBook from './components/AddressBook';
 import ClinicSearchResults from './components/ClinicSearch/ClinicSearchResults';
 
+// const checkAuth = () => {
+//   const cookies = cookie.parse(document.cookie);
+//   return cookies['loggedIn'] ? true : false;
+// };
+// const ProtectedRoute = ({ component: Component, ...rest }) => {
+//   return (
+//     <Route
+//       {...rest}
+//       render={(props) =>
+//         checkAuth() ? <Component {...props} /> : <Redirect to='/login' />
+//       }
+//     />
+//   );
+// };
 function Router() {
   const [jobSearch, setJobSearch] = useState({});
   const [clinicSearch, setClinicSearch] = useState('');

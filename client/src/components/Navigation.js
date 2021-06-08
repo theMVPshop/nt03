@@ -54,7 +54,13 @@ const Navigation = (props) => {
             </NavDropdown.Item>
             <NavDropdown.Item href='/profile'>Profile</NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item onClick={handleLogOut}>Log Out</NavDropdown.Item>
+            {signInStatus ? (
+              <NavDropdown.Item onClick={handleLogOut}>
+                Log Out
+              </NavDropdown.Item>
+            ) : (
+              <NavDropdown.Item href='/sign-in'>Sign In</NavDropdown.Item>
+            )}
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>
