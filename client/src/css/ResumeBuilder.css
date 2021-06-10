@@ -33,3 +33,65 @@
   width: 21cm;
   height: 29.7cm;
 }
+
+/* Resume Preview */
+.resume-titles {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-top: 15px;
+  font-size: 1.2em;
+}
+
+.resume-header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  align-items: center;
+}
+
+.content-header {
+  width: 80%;
+}
+
+.content {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.header-h1 {
+  margin-top: 60px;
+  text-transform: uppercase;
+  font-size: 2em;
+}
+
+.resume-divider {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.divider {
+  width: 55%;
+}
+
+.work-exp,
+.education,
+.additional {
+  display: flex;
+  flex-direction: column;
+  /* margin-left: 94px; */
+}
+
+.work-content,
+.edu-content,
+.additional-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.work-single,
+.edu-single,
+.additional-single {
+  padding-right: 50px;
+}

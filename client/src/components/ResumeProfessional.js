@@ -10,12 +10,14 @@ const ResumeProfessional = (props) => {
   return (
     <div className=''>
       <form onSubmit={onSubmit} className='form-style' autoComplete='off'>
-        <h3>Add Professional Experience</h3>
+        <h2>Add Current and Past Dental Work Experience</h2>
+
         <TextField
           id='outlined-basic'
           label='Company'
           onChange={(e) => props.updateCompany(e.target.value)}
           variant='outlined'
+          style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
         />
 
         <TextField

@@ -10,7 +10,9 @@ const ResumeHeader = (props) => {
 
   return (
     <div className=''>
-      <br />
+      <h2>Create a header for your resume</h2>
+      <p>The header is where you should add your contact information.</p>
+
       <form onSubmit={onSubmit} className='form-style'>
         <TextField
           id='outlined-basic'
@@ -67,7 +69,11 @@ const ResumeHeader = (props) => {
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
         />
-
+        <br />
+        <p>
+          Write a small blurb or say a little bit about yourself. (Make it
+          professional!)
+        </p>
         <TextField
           id='outlined-multiline-static'
           label='Summary'

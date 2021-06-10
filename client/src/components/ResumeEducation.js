@@ -10,6 +10,10 @@ const ResumeEducation = (props) => {
   return (
     <div className=''>
       <form onSubmit={onSubmit} className='form-style' autoComplete='off'>
+        <h2>Add Current and Past Education</h2>
+        <p>
+          Add Highschool, College, or any relevant education you have completed.
+        </p>
         <TextField
           id='outlined-basic'
           label='Institution'
