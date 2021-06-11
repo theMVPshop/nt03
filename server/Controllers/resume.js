@@ -53,42 +53,42 @@ const saveResume = (req, res) => {
 
     // start a MySQL transaction
     // series of sql statements, if one fails no partial data will be saved to the DB
-    // db.beginTransaction( err => {
-    //     if (err) return handleSQLError(res, err);
+    db.beginTransaction( err => {
+        if (err) return handleSQLError(res, err);
 
-    //     // save resume header info
-    //     db.query(sqlResumeHead, (error, results) => {
-    //         if (error) return db.rollback((error) => handleSQLError(res, error));
-    //         console.log(results);
-    //     })
+        // save resume header info
+        db.query(sqlResumeHead, (error, results) => {
+            if (error) return db.rollback((error) => handleSQLError(res, error));
+            console.log(results);
+        })
 
-    //     // save resume work info
-    //     db.query(sqlResumeWork, (error, results) => {
-    //         if (error) return db.rollback((error) => handleSQLError(res, error));
-    //         console.log(results);
-    //     })
+        // save resume work info
+        db.query(sqlResumeWork, (error, results) => {
+            if (error) return db.rollback((error) => handleSQLError(res, error));
+            console.log(results);
+        })
 
-    //     // save resume education info
-    //     db.query(sqlResumeEducation, (error, results) => {
-    //         if (error) return db.rollback((error) => handleSQLError(res, error));
-    //         console.log(results);
-    //     })
+        // save resume education info
+        db.query(sqlResumeEducation, (error, results) => {
+            if (error) return db.rollback((error) => handleSQLError(res, error));
+            console.log(results);
+        })
 
-    //     // save resume skills
-    //     db.query(sqlResumeSkills, (error, results) => {
-    //         if (error) return db.rollback((error) => handleSQLError(res, error));
-    //         console.log(results);
-    //     })
+        // save resume skills
+        db.query(sqlResumeSkills, (error, results) => {
+            if (error) return db.rollback((error) => handleSQLError(res, error));
+            console.log(results);
+        })
 
-    //     // if no errors so far commit the statements and changes to the DB
-    //     db.commit( error => {
-    //         if (error) return db.rollback((error) => handleSQLError(res, error));
-    //     })
+        // if no errors so far commit the statements and changes to the DB
+        db.commit( error => {
+            if (error) return db.rollback((error) => handleSQLError(res, error));
+        })
 
-        // succesful call to DB, return response OK
-    //     console.log("MySQL Transaction Succesful!!");
-    //     res.sendStatus(200);
-    // });
+        //succesful call to DB, return response OK
+        console.log("MySQL Transaction Succesful!!");
+        res.sendStatus(200);
+    });
 };
 
 module.exports = { saveResume }
