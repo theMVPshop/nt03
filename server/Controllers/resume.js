@@ -21,11 +21,6 @@ const saveResume = (req, res) => {
 
     console.log(userID);
     console.log(resume);
-    // console.log('****************************');
-    // console.log(resume_head);
-    // console.log(resume_work);
-    // console.log(resume_education);
-    // console.log(resume_skills);
 
     // create sql statement to save the resume header info
     let sqlResumeHead = 'INSERT INTO resume_head (name, address, city, state, zip, phone, email, summary, user_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)';
@@ -53,43 +48,50 @@ const saveResume = (req, res) => {
 
     // start a MySQL transaction
     // series of sql statements, if one fails no partial data will be saved to the DB
-    db.beginTransaction( err => {
-        if (err) return handleSQLError(res, err);
-
-        // save resume header info
-        db.query(sqlResumeHead, (error, results) => {
-            if (error) return db.rollback((error) => handleSQLError(res, error));
-            console.log(results);
-        })
-
-        // save resume work info
-        db.query(sqlResumeWork, (error, results) => {
-            if (error) return db.rollback((error) => handleSQLError(res, error));
-            console.log(results);
-        })
-
-        // save resume education info
-        db.query(sqlResumeEducation, (error, results) => {
-            if (error) return db.rollback((error) => handleSQLError(res, error));
-            console.log(results);
-        })
-
-        // save resume skills
-        db.query(sqlResumeSkills, (error, results) => {
-            if (error) return db.rollback((error) => handleSQLError(res, error));
-            console.log(results);
-        })
-
-        // if no errors so far commit the statements and changes to the DB
-        db.commit( error => {
-            if (error) return db.rollback((error) => handleSQLError(res, error));
-        })
-
-        //succesful call to DB, return response OK
-        console.log("MySQL Transaction Succesful!!");
-        res.sendStatus(200);
-    });
+    db.getConnection( (error, connection) => {
+        connection.beginTransaction( err => {
+            if (err) return handleSQLError(res, err);
+    
+            // save resume header info
+            connection.query(sqlResumeHead, (error, results) => {
+                if (error) return connection.rollback((error) => console.log(error));
+                console.log(results);
+            })
+    
+            // save resume work info
+            connection.query(sqlResumeWork, (error, results) => {
+                if (error) return connection.rollback((error) => console.log(error));
+                console.log(results);
+            })
+    
+            // save resume education info
+            connection.query(sqlResumeEducation, (error, results) => {
+                if (error) return connection.rollback((error) => console.log(error));
+                console.log(results);
+            })
+    
+            // save resume skills
+            connection.query(sqlResumeSkills, (error, results) => {
+                if (error) return connection.rollback((error) => console.log(error));
+                console.log(results);
+            })
+    
+            // if no errors so far commit the statements and changes to the connection
+            connection.commit( error => {
+                if (error) return connection.rollback((error) => console.log(error));
+            })
+    
+            //succesful call to DB, return response OK
+            connection.release();
+            console.log("MySQL Transaction Succesful!!");
+            res.sendStatus(200);
+        });
+    })
 };
+
+const getResume = (req, res) => {
+    
+}
 
 module.exports = { saveResume }
 
