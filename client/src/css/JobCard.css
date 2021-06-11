@@ -25,7 +25,8 @@
 }
 
 .bookmark-header {
-  display: flex;
+  background-color: #F7F7F7;
+  padding: 10px 0 0 10px;;
 }
 
 .header-content {

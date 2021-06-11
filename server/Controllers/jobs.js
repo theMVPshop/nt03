@@ -60,6 +60,7 @@ const updateJob = (req, res) => {
 // Save a new job to user
 const saveJob = (req, res) => {
   let newJobUrl = req.body.url;
+  console.log(req.body);
   let userID = req.body.user_id;
 
   let sql = 'INSERT INTO saved_jobs (job_url, user_id) values (?, ?)';
