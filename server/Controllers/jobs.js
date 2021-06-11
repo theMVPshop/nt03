@@ -73,7 +73,10 @@ const saveJob = (req, res) => {
     }
 
     console.log(result);
-    res.json(`Job ${req.body.url} was succesfully saved!`);
+    res.json({
+      msg: `Job ${req.body.url} was succesfully saved!`,
+      jobID: result.insertId
+    });
   });
 };
 
