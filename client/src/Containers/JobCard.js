@@ -5,6 +5,7 @@ import JobCard from '../components/JobCard';
 const mapStateToProps = (state) => {
   return {
     user: state.user,
+    signInStatus: state.signInStatus
   };
 };
 
