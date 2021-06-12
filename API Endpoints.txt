@@ -35,20 +35,20 @@ DELETE /users/:clinicID/clinics - Hit endpoint to unsave the clinic from the use
 
 ################ Saved Job Info
 
-GET /jobs - Get all jobs in DB
+GET /jobs/jobs - Get all jobs in DB
 
-GET /jobs/:id - List of saved jobs by user - id recieved from pulling users account info
+GET /jobs/jobs/:userID - List of saved jobs by user - id recieved from pulling users account info
 
-POST /jobs - Save a new job for user
+POST /jobs/jobs - Save a new job for user
         Sample JSON
             {
-                "url": "http://jobURL",
-                "user_id: "1"
+                "user_id" : 1,
+                "job": {
+                    "company": "test company",
+                    "position": "test position",
+                    "location": "tampa, FL",
+                    "url": "test job url"
+                }
             }
 
-PUT /jobs/:id - Update the url of a saved job
-        Sample JSON
-            {
-                "url": "http://jobURL",
-                "user_id: "1"
-            }
+DELETE /jobs/jobs/:jobID - Deletes a specific saved job from the database
