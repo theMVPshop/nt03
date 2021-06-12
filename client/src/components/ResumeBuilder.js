@@ -38,6 +38,80 @@ const id = uuidv4();
 // ];
 
 export default function ResumeBuilder() {
+  useEffect(() => {
+    const nameData = localStorage.getItem('name');
+    const addressData = localStorage.getItem('address');
+    const cityData = localStorage.getItem('city');
+    const stateData = localStorage.getItem('state');
+    const zipData = localStorage.getItem('zip');
+    const phoneData = localStorage.getItem('phone');
+    const emailData = localStorage.getItem('email');
+    const summaryData = localStorage.getItem('summary');
+    const companyData = localStorage.getItem('company');
+    const locationData = localStorage.getItem('location');
+    const positionData = localStorage.getItem('position');
+    const startData = localStorage.getItem('start');
+    const endData = localStorage.getItem('end');
+    const desc1Data = localStorage.getItem('desc1');
+    const desc2Data = localStorage.getItem('desc2');
+    const desc3Data = localStorage.getItem('desc3');
+
+    if (
+      (nameData,
+      addressData,
+      cityData,
+      stateData,
+      zipData,
+      phoneData,
+      emailData,
+      summaryData,
+      companyData,
+      locationData,
+      positionData,
+      startData,
+      endData,
+      desc1Data,
+      desc2Data,
+      desc3Data)
+    ) {
+      setName(JSON.parse(nameData));
+      setAddress(JSON.parse(addressData));
+      setCity(JSON.parse(cityData));
+      setState(JSON.parse(stateData));
+      setZip(JSON.parse(zipData));
+      setPhone(JSON.parse(phoneData));
+      setEmail(JSON.parse(emailData));
+      setSummary(JSON.parse(summaryData));
+      setCompany(JSON.parse(companyData));
+      setLocation(JSON.parse(locationData));
+      setPosition(JSON.parse(positionData));
+      setStart(JSON.parse(startData));
+      setEnd(JSON.parse(endData));
+      setDesc1(JSON.parse(desc1Data));
+      setDesc2(JSON.parse(desc2Data));
+      setDesc3(JSON.parse(desc3Data));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('name', JSON.stringify(name));
+    localStorage.setItem('address', JSON.stringify(address));
+    localStorage.setItem('city', JSON.stringify(city));
+    localStorage.setItem('state', JSON.stringify(state));
+    localStorage.setItem('zip', JSON.stringify(zip));
+    localStorage.setItem('phone', JSON.stringify(phone));
+    localStorage.setItem('email', JSON.stringify(email));
+    localStorage.setItem('summary', JSON.stringify(summary));
+    localStorage.setItem('company', JSON.stringify(company));
+    localStorage.setItem('location', JSON.stringify(location));
+    localStorage.setItem('position', JSON.stringify(position));
+    localStorage.setItem('start', JSON.stringify(start));
+    localStorage.setItem('end', JSON.stringify(end));
+    localStorage.setItem('desc1', JSON.stringify(desc1));
+    localStorage.setItem('desc2', JSON.stringify(desc2));
+    localStorage.setItem('desc3', JSON.stringify(desc3));
+  });
+
   //   const classes = useStyles();
   const [tab, setTab] = React.useState(0);
 
@@ -62,40 +136,48 @@ export default function ResumeBuilder() {
   const [proData, setProData] = useState([]);
 
   const [company, setCompany] = useState('');
+  const [company2, setCompany2] = useState('');
   const [location, setLocation] = useState('');
+  const [location2, setLocation2] = useState('');
   const [position, setPosition] = useState('');
+  const [position2, setPosition2] = useState('');
   const [start, setStart] = useState('');
+  const [start2, setStart2] = useState('');
   const [end, setEnd] = useState('');
+  const [end2, setEnd2] = useState('');
   const [desc1, setDesc1] = useState('');
+  const [desc11, setDesc11] = useState('');
   const [desc2, setDesc2] = useState('');
+  const [desc22, setDesc22] = useState('');
   const [desc3, setDesc3] = useState('');
+  const [desc33, setDesc33] = useState('');
 
   // Professional function to add to ProData
-  const addProfessional = () => {
-    const id = uuidv4();
-    const items = [...proData];
-    items.push({
-      id,
-      company,
-      location,
-      position,
-      start,
-      end,
-      desc1,
-      desc2,
-      desc3,
-    });
+  // const addProfessional = () => {
+  //   const id = uuidv4();
+  //   const items = [...proData];
+  //   items.push({
+  //     id,
+  //     company,
+  //     location,
+  //     position,
+  //     start,
+  //     end,
+  //     desc1,
+  //     desc2,
+  //     desc3,
+  //   });
 
-    setCompany('');
-    setLocation('');
-    setPosition('');
-    setStart('');
-    setEnd('');
-    setDesc1('');
-    setDesc2('');
-    setDesc3('');
-    setProData(items);
-  };
+  //   setCompany('');
+  //   setLocation('');
+  //   setPosition('');
+  //   setStart('');
+  //   setEnd('');
+  //   setDesc1('');
+  //   setDesc2('');
+  //   setDesc3('');
+  //   setProData(items);
+  // };
 
   // --------EDUCATION STATE VARIABLES AND FUNCTIONS--------
   // Array that holds each chunk of Education info
@@ -228,23 +310,39 @@ export default function ResumeBuilder() {
               proData={proData}
               updateProData={setProData}
               company={company}
+              company2={company2}
               updateCompany={setCompany}
+              updateCompany2={setCompany2}
               location={location}
+              location2={location2}
               updateLocation={setLocation}
+              updateLocation2={setLocation2}
               position={position}
+              position2={position2}
               updatePosition={setPosition}
+              updatePosition2={setPosition2}
               start={start}
+              start2={start2}
               updateStart={setStart}
+              updateStart2={setStart2}
               end={end}
+              end2={end2}
               updateEnd={setEnd}
+              updateEnd2={setEnd2}
               desc1={desc1}
+              desc11={desc11}
               updateDesc1={setDesc1}
+              updateDesc11={setDesc11}
               desc2={desc2}
+              desc22={desc22}
               updateDesc2={setDesc2}
+              updateDesc22={setDesc22}
               desc3={desc3}
+              desc33={desc33}
               updateDesc3={setDesc3}
+              updateDesc33={setDesc33}
             />
-            <Button
+            {/* <Button
               variant='contained'
               color='secondary'
               type='submit'
@@ -252,7 +350,7 @@ export default function ResumeBuilder() {
               style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
             >
               ADD
-            </Button>
+            </Button> */}
           </div>
         )}
         {tab === 2 && (
@@ -546,6 +644,14 @@ export default function ResumeBuilder() {
         desc1={desc1}
         desc2={desc2}
         desc3={desc3}
+        company2={company2}
+        location2={location2}
+        position2={position2}
+        start2={start2}
+        end2={end2}
+        desc11={desc11}
+        desc22={desc22}
+        desc33={desc33}
         // EDUCATION
         eduData={eduData}
         institute={institute}

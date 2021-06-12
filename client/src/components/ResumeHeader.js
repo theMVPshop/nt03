@@ -17,6 +17,7 @@ const ResumeHeader = (props) => {
         <TextField
           id='outlined-basic'
           label='Full Name'
+          value={props.name}
           onChange={(e) => props.updateName(e.target.value)}
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
@@ -25,6 +26,7 @@ const ResumeHeader = (props) => {
         <TextField
           id='outlined-basic'
           label='Address'
+          value={props.address}
           onChange={(e) => props.updateAddress(e.target.value)}
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
@@ -33,6 +35,7 @@ const ResumeHeader = (props) => {
         <TextField
           id='outlined-basic'
           label='City'
+          value={props.city}
           onChange={(e) => props.updateCity(e.target.value)}
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
@@ -41,6 +44,7 @@ const ResumeHeader = (props) => {
         <TextField
           id='outlined-basic'
           label='State'
+          value={props.state}
           onChange={(e) => props.updateState(e.target.value)}
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
@@ -49,6 +53,7 @@ const ResumeHeader = (props) => {
         <TextField
           id='outlined-basic'
           label='Zip Code'
+          value={props.zip}
           onChange={(e) => props.updateZip(e.target.value)}
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
@@ -57,6 +62,7 @@ const ResumeHeader = (props) => {
         <TextField
           id='outlined-basic'
           label='Phone'
+          value={props.phone}
           onChange={(e) => props.updatePhone(e.target.value)}
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
@@ -65,6 +71,7 @@ const ResumeHeader = (props) => {
         <TextField
           id='outlined-basic'
           label='E-mail'
+          value={props.email}
           onChange={(e) => props.updateEmail(e.target.value)}
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
@@ -77,6 +84,7 @@ const ResumeHeader = (props) => {
         <TextField
           id='outlined-multiline-static'
           label='Summary'
+          value={props.summary}
           onChange={(e) => props.updateSummary(e.target.value)}
           multiline
           rows={7}
@@ -88,9 +96,6 @@ const ResumeHeader = (props) => {
             marginRight: 8,
           }}
         />
-        <Button variant='contained' type='submit' style={{ margin: 8 }}>
-          Update
-        </Button>
       </form>
     </div>
   );

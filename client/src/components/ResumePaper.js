@@ -80,7 +80,34 @@ function ResumePaper(props) {
               {proTitle}
               {/* This maps over the proData array */}
               <div className='work-content'>
-                {props.proData.map((pro) => (
+                <div className='work-single'>
+                  <p>
+                    {props.company}
+                    <br />
+                    {props.location}
+                    <br />
+                    {props.position} <br />
+                    {props.start === '' ? '' : `${props.start} -`}
+                    {props.end} <br />
+                    {props.desc1 === '' ? '' : <li>{props.desc1}</li>}
+                    {props.desc2 === '' ? '' : <li>{props.desc2}</li>}
+                    {props.desc3 === '' ? '' : <li>{props.desc3}</li>}
+                  </p>
+                  <p>
+                    {props.company2}
+                    <br />
+                    {props.location2}
+                    <br />
+                    {props.position2} <br />
+                    {props.start2 === '' ? '' : `${props.start2} -`}{' '}
+                    {props.end2} <br />
+                    {props.desc11 === '' ? '' : <li>{props.desc11}</li>}
+                    {props.desc22 === '' ? '' : <li>{props.desc22}</li>}
+                    {props.desc33 === '' ? '' : <li>{props.desc33}</li>}
+                  </p>
+                </div>
+
+                {/* {props.proData.map((pro) => (
                   <div>
                     <p className='work-single' key={pro.id}>
                       <strong>{pro.company}</strong>
@@ -94,7 +121,7 @@ function ResumePaper(props) {
                       {pro.desc3 === '' ? '' : <li>{pro.desc3}</li>}
                     </p>
                   </div>
-                ))}
+                ))} */}
               </div>
             </div>
 
