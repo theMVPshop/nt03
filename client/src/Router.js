@@ -7,6 +7,7 @@ import ClinicSearch from '../src/components/ClinicSearch/ClinicSearch';
 import SignIn from './Containers/SignIn';
 import SignUp from './components/SignUp';
 import AddressBook from './components/AddressBook';
+import SavedJobs from './components/SavedJobs';
 import ClinicSearchResults from './components/ClinicSearch/ClinicSearchResults';
 
 // const checkAuth = () => {
@@ -45,6 +46,8 @@ function Router() {
       <Route path='/sign-in' component={SignIn}></Route>
       <Route path='/sign-up' component={SignUp}></Route>
       <Route path='/address-book' component={AddressBook}></Route>
+      <Route path='/saved-jobs' savedJobs={SavedJobs} >
+      </Route>
     </Switch>
   );
 }

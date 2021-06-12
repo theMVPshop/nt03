@@ -5,7 +5,7 @@ import { BsChevronUp, BsChevronDown, BsBookmark, BsBookmarkFill } from 'react-ic
 const JobCard = (props) => { 
   const [collapse, setCollapse] = useState(true);
   const [jobSaved, setJobSaved] = useState(false);
-  const [isBookmarked, setIsBookmarked] = useState(false)
+  const [isBookmarked, setIsBookmarked] = useState(false);
 
   const collapseCard = () => {
     setCollapse(!collapse);
