@@ -20,4 +20,7 @@ router.put('/jobs', jobs.updateJob);
 // delete job
 router.delete('/jobs/:jobID', jobs.deleteJob);
 
+// Update job to contacted
+router.put('/jobs/:jobID', jobs.jobContacted);
+
 module.exports = router;

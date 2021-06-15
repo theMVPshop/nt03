@@ -63,9 +63,9 @@ const saveJob = (req, res) => {
   console.log(req.body);
   let userID = req.body.user_id;
 
-  let sql = 'INSERT INTO saved_jobs (company, position, location, url, user_id) values (?, ?, ?, ?, ?)';
+  let sql = 'INSERT INTO saved_jobs (company, position, location, url, contacted, user_id) values (?, ?, ?, ?, ?, ?)';
 
-  sql = mysql.format(sql, [...Object.values(newJob), userID]);
+  sql = mysql.format(sql, [...Object.values(newJob), false, userID]);
 
   db.query(sql, (error, result) => {
     if (error) {
@@ -100,4 +100,23 @@ const deleteJob = (req, res) => {
   })
 }
 
-module.exports = { allJobs, saveJob, jobByID, updateJob, deleteJob };
+//@PUT
+// Mark a saved clinic as contacted
+const jobContacted = (req, res) => {
+  let jobID = req.params.jobID;
+
+  let sql = `
+    UPDATE saved_jobs
+    SET contacted = true
+    WHERE job_id = ?`;
+
+  sql = mysql.format(sql, [jobID]);
+
+  db.query(sql, (error, results) => {
+    if (error) return handleSQLError(res, error);
+
+    res.sendStatus(200);
+  });
+};
+
+module.exports = { allJobs, saveJob, jobByID, updateJob, deleteJob, jobContacted };
