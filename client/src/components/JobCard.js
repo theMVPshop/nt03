@@ -22,17 +22,21 @@ const JobCard = (props) => {
 
     toggleBookmark();
 
-    let job = {
+    let userJob = {
+      user_id: 1,
+      job: {
+      company: props.company,
+      position: props.title,
+      location: props.location,
       url: props.link,
-      user_id: "1"
-    }
+    }}
 
     fetch('/jobs/jobs', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
       },
-      body: JSON.stringify(job)
+      body: JSON.stringify(userJob)
     })
     .then(response => {
       if (response.ok) {

@@ -1,9 +1,18 @@
 import React, { useEffect } from 'react';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { Table } from 'react-bootstrap';
-import Notes from './Notes';
 
 const SavedJobs = () => {
+  let savedJobs = [];
+
+  useEffect(() => {
+    fetch(`/jobs/jobs/1`)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+      })
+  })
+
   return (
     <div className='table-container'>
       <Table className='table' bordered hover>
@@ -14,7 +23,6 @@ const SavedJobs = () => {
           <th>Location</th>
           <th>Link</th>
           <th className='contacted'>Contacted?</th>
-          <th className='notes'>Notes</th>
         </thead>
         <tbody>
           {savedJobs.map((job, index) => (
@@ -28,9 +36,6 @@ const SavedJobs = () => {
               <td>{job.link}</td>
               <td>
                 <input type='checkbox' />
-              </td>
-              <td>
-                <Notes></Notes>
               </td>
             </tr>
           ))}
