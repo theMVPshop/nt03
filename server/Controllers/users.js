@@ -113,7 +113,10 @@ const saveClinic = (req, res) => {
     if (error) return handleSQLError(res, error);
 
     console.log(result);
-    res.sendStatus(200);
+    res.json({
+      msg: 'clinic saved',
+      clinicID: result.insertId
+    });
   });
 };
 
