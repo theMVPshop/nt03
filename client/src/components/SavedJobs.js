@@ -13,6 +13,22 @@ const SavedJobs = () => {
         console.log(data);
       })
   }, [])
+
+  const deleteJob = (id) => {
+    fetch(`/jobs/jobs/${id}`, {
+      method: 'DELETE',
+      headers: {
+          'Content-Type': 'application/json'
+      }
+    })
+      .then(response => {
+        if (response.ok) {
+            console.log(response);
+        } else {
+            alert('There was an error and job posting was not deleted');
+        }
+    })
+  }
   
   return (
     <div className='table-container'>
@@ -28,7 +44,7 @@ const SavedJobs = () => {
           {savedJobs.map(job => (
             <tr key={job.job_id}>
               <td>
-                <DeleteIcon />
+                <DeleteIcon onClick={() => deleteJob(job.job_id)} />
               </td>
               <td><a href={job.url} target='blank'>{job.position}</a></td>
               <td>{job.company}</td>
