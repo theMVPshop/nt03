@@ -46,7 +46,7 @@ function Router() {
       <Route path='/sign-in' component={SignIn}></Route>
       <Route path='/sign-up' component={SignUp}></Route>
       <Route path='/address-book' component={AddressBook}></Route>
-      <Route path='/saved-jobs' savedJobs={SavedJobs} >
+      <Route path='/saved-jobs' component={SavedJobs} >
       </Route>
     </Switch>
   );
