@@ -2,11 +2,7 @@ import React from 'react';
 import TextField from '@material-ui/core/TextField';
 
 const ResumeAdditionalSkills = (props) => {
-  // const checked = props.skills.checked;
-
-  // const toggleSkill = (e) => {
-  //   props.setSkills({ checked: e.target.checked });
-  // };
+  console.log(props.skills.select);
   // Stops page refresh
 
   const onSubmit = (e) => {
@@ -15,6 +11,28 @@ const ResumeAdditionalSkills = (props) => {
   console.log(props);
   return (
     <div className=''>
+      <div>
+        {props.skills.map((d, i) => (
+          <ul key={d.id}>
+            <input
+              onChange={(event) => {
+                let checked = event.target.checked;
+                props.setSkills(
+                  props.skills.map((data) => {
+                    if (d.id === data.id) {
+                      data.select = checked;
+                    }
+                    return data;
+                  })
+                );
+              }}
+              type='checkbox'
+              checked={d.select}
+            />
+            <span>{d.name}</span>
+          </ul>
+        ))}
+      </div>
       {/* {props.skills.map((skill) => (
         <div>
           <input

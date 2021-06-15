@@ -17,6 +17,7 @@ const ResumeProfessional = (props) => {
         <TextField
           id='outlined-basic'
           label='Company'
+          value={props.company}
           onChange={(e) => props.updateCompany(e.target.value)}
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
@@ -25,6 +26,7 @@ const ResumeProfessional = (props) => {
         <TextField
           id='outlined-basic'
           label='City, State, Country'
+          value={props.location}
           onChange={(e) => props.updateLocation(e.target.value)}
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
@@ -33,6 +35,7 @@ const ResumeProfessional = (props) => {
         <TextField
           id='outlined-basic'
           label='Position'
+          value={props.position}
           onChange={(e) => props.updatePosition(e.target.value)}
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
@@ -41,6 +44,7 @@ const ResumeProfessional = (props) => {
         <TextField
           id='outlined-basic'
           label='Start MM/YYYY'
+          value={props.start}
           onChange={(e) => props.updateStart(e.target.value)}
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
@@ -49,6 +53,7 @@ const ResumeProfessional = (props) => {
         <TextField
           id='outlined-basic'
           label='End MM/YYYY'
+          value={props.end}
           onChange={(e) => props.updateEnd(e.target.value)}
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
@@ -57,6 +62,7 @@ const ResumeProfessional = (props) => {
         <TextField
           id='outlined-basic'
           label='Description'
+          value={props.desc1}
           onChange={(e) => props.updateDesc1(e.target.value)}
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
@@ -64,6 +70,7 @@ const ResumeProfessional = (props) => {
         <TextField
           id='outlined-basic'
           label='Description'
+          value={props.desc2}
           onChange={(e) => props.updateDesc2(e.target.value)}
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
@@ -71,6 +78,7 @@ const ResumeProfessional = (props) => {
         <TextField
           id='outlined-basic'
           label='Description'
+          value={props.desc3}
           onChange={(e) => props.updateDesc3(e.target.value)}
           variant='outlined'
           style={{

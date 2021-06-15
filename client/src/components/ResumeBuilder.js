@@ -216,34 +216,59 @@ export default function ResumeBuilder() {
   const [addSkillsData, setAddSkillsData] = useState([]);
 
   const [skill1, setSkill1] = useState('');
-  // const [skill, setSkill] = useState([]);
-
   // CHECKBOXES
-  // const [skills, setSkills] = useState([]);
-  // console.log(skills);
-  console.log('hi');
+  const [skills, setSkills] = useState([]);
 
-  // useEffect(() => {
-  //   setSkill([...document.querySelectorAll('.checkBox')]);
-  // }, []);
+  useEffect(() => {
+    let skills = [
+      { id: 1, name: 'Patient Care' },
+      { id: 2, name: 'X-Ray Skills' },
+      { id: 3, name: '4-Handed Dentistry' },
+      { id: 4, name: 'Great Attitude' },
+      { id: 5, name: 'Compassion' },
+      { id: 6, name: 'Detail Oriented' },
+      { id: 7, name: 'Efficiency' },
+      { id: 8, name: 'Organization' },
+      { id: 9, name: 'Motivated' },
+      { id: 10, name: 'Teamwork' },
+      { id: 11, name: 'Interpersonal Skills' },
+      { id: 12, name: 'Customer Service' },
+      { id: 13, name: 'Dental Procedure Preparation' },
+      { id: 14, name: 'Patient Communication' },
+      { id: 15, name: 'Digital X-Ray Skills' },
+      { id: 16, name: 'Dental Equipment Operation' },
+      { id: 17, name: 'Dental Equipment Maintenance' },
+      { id: 18, name: 'Eaglesoft Dental Software' },
+      { id: 19, name: 'Invisalign' },
+      { id: 20, name: 'Cerec' },
+      { id: 21, name: 'CPR' },
+      { id: 22, name: 'Electronic Medical Records' },
+      { id: 23, name: 'Record Keeping' },
+      { id: 24, name: 'Payment Processing' },
+    ];
 
-  let skill = [...document.querySelectorAll('.checkBox')];
-  console.log(skill);
+    setSkills(
+      skills.map((d) => {
+        return { select: false, id: d.id, name: d.name };
+      })
+    );
+  }, []);
 
-  function getChecked(e) {
-    let getChex = skill
-      .filter((item) => item.checked)
-      .map((item) => item.value);
-    // let getChexMap = getChex.map((item) => item.value);
-    // .map((item) => item.value);
-    // console.log(getChexMap);
-    console.log(getChex);
-  }
+  console.log(skills);
+  // let skill = [...document.querySelectorAll('.checkBox')];
+  // console.log(skill);
 
-  skill.forEach((item) => item.addEventListener('change', getChecked));
-  // useEffect(() => {
+  // function getChecked(e) {
+  //   let getChex = skill
+  //     .filter((item) => item.checked)
+  //     .map((item) => item.value);
+  //   // let getChexMap = getChex.map((item) => item.value);
+  //   // .map((item) => item.value);
+  //   // console.log(getChexMap);
+  //   console.log(getChex);
+  // }
 
-  // }, [skill]);
+  // skill.forEach((item) => item.addEventListener('change', getChecked));
 
   // const updateSkill = (item) => {
   //   if (skills.includes(item)) {
@@ -382,231 +407,34 @@ export default function ResumeBuilder() {
         )}
         {tab === 3 && (
           <div>
-            <div>
-              <li>
-                <input
-                  type='checkbox'
-                  value='Patient Care'
-                  id={id + 1}
-                  className='checkBox'
-                  // onChange={getChecked}
-                />{' '}
-                <span>Patient Care</span>
-              </li>
-              <li>
-                <input
-                  type='checkbox'
-                  value='X-Ray Skills'
-                  id={id + 2}
-                  className='checkBox'
-                />{' '}
-                <span>X-Ray Skills</span>
-              </li>
-              <li>
-                <input
-                  type='checkbox'
-                  value='4-Handed Dentistry'
-                  id={id + 3}
-                  className='checkBox'
-                />{' '}
-                <span>4-Handed Dentist</span>
-              </li>
-              <li>
-                <input
-                  type='checkbox'
-                  value='Great Attitude'
-                  id={id + 4}
-                  className='checkBox'
-                />{' '}
-                <span>Great Attitude</span>
-              </li>
-              <li>
-                <input
-                  type='checkbox'
-                  value='Compassion'
-                  id={id + 5}
-                  className='checkBox'
-                />{' '}
-                <span>Compassion</span>
-              </li>
-              <li>
-                <input
-                  type='checkbox'
-                  value='Detail Oriented'
-                  id={id + 6}
-                  className='checkBox'
-                />{' '}
-                <span>Detail Oriented</span>
-              </li>
-              <li>
-                <input
-                  type='checkbox'
-                  value='Efficiency'
-                  id={id + 7}
-                  className='checkBox'
-                />{' '}
-                <span>Efficiency</span>
-              </li>
-              <li>
-                <input
-                  type='checkbox'
-                  value='Organization'
-                  id={id + 8}
-                  className='checkBox'
-                />{' '}
-                <span>Organization</span>
-              </li>
-              <li>
-                <input
-                  type='checkbox'
-                  value='Motivated'
-                  id={id + 9}
-                  className='checkBox'
-                />{' '}
-                <span>Motivated</span>
-              </li>
-              <li>
-                <input
-                  type='checkbox'
-                  value='Teamwork'
-                  id={id + 10}
-                  className='checkBox'
-                />{' '}
-                <span>Teamwork</span>
-              </li>
-              <li>
-                <input
-                  type='checkbox'
-                  value='Interpersonal Skills'
-                  id={id + 11}
-                  className='checkBox'
-                />{' '}
-                <span>Interpersonal Skills</span>
-              </li>
-              <li>
-                <input
-                  type='checkbox'
-                  value='Customer Service'
-                  id={id + 12}
-                  className='checkBox'
-                />{' '}
-                <span>Customer Service</span>
-              </li>
-              <li>
-                <input
-                  type='checkbox'
-                  value='Dental Procedure Preparation'
-                  id={id + 13}
-                  className='checkBox'
-                />{' '}
-                Dental Procedure Preparation
-              </li>
-              <li>
-                <input
-                  type='checkbox'
-                  value='Patient Communication'
-                  id={id + 14}
-                  className='checkBox'
-                />{' '}
-                <span>Patient Communication</span>
-              </li>
-              <li>
-                <input
-                  type='checkbox'
-                  value='Digital X-Ray Skills'
-                  id={id + 15}
-                  className='checkBox'
-                />{' '}
-                <span>Digital X-Ray Skills</span>
-              </li>
-              <li>
-                <input
-                  type='checkbox'
-                  value='Dental Equipment Operation'
-                  id={id + 16}
-                  className='checkBox'
-                />{' '}
-                <span>Dental Equipment Operation</span>
-              </li>
-              <li>
-                <input
-                  type='checkbox'
-                  value='Dental Equipment Maintenance'
-                  id={id + 17}
-                  className='checkBox'
-                />{' '}
-                <span>Dental Equipment Maintenance</span>
-              </li>
-              <li>
-                <input
-                  type='checkbox'
-                  value='Eaglesoft Dental Software'
-                  id={id + 18}
-                  className='checkBox'
-                />{' '}
-                <span>Eaglesoft Dental Software</span>
-              </li>
-              <li>
-                <input
-                  type='checkbox'
-                  value='Invisalign'
-                  id={id + 19}
-                  className='checkBox'
-                />{' '}
-                <span>Invisalign</span>
-              </li>
-              <li>
-                <input
-                  type='checkbox'
-                  value='Cerec'
-                  id={id + 20}
-                  className='checkBox'
-                />{' '}
-                <span>Cerec</span>
-              </li>
-              <li>
-                <input
-                  type='checkbox'
-                  value='CPR'
-                  id={id + 21}
-                  className='checkBox'
-                />{' '}
-                <span>CPR</span>
-              </li>
-              <li>
-                <input
-                  type='checkbox'
-                  value='Electronic Medical Records'
-                  id={id + 22}
-                  className='checkBox'
-                />{' '}
-                <span>Electronic Medical Records</span>
-              </li>
-              <li>
-                <input
-                  type='checkbox'
-                  value='Record Keeping'
-                  id={id + 23}
-                  className='checkBox'
-                />{' '}
-                <span>Record Keeping</span>
-              </li>
-              <li>
-                <input
-                  type='checkbox'
-                  value='Payment Processing'
-                  id={id + 24}
-                  className='checkBox'
-                />{' '}
-                <span>Payment Processing</span>
-              </li>
-            </div>
+            {/* <div>
+              {skills.map((d, i) => (
+                <ul key={d.id}>
+                  <input
+                    onChange={(event) => {
+                      let checked = event.target.checked;
+                      setSkills(
+                        skills.map((data) => {
+                          if (d.id === data.id) {
+                            data.select = checked;
+                          }
+                          return data;
+                        })
+                      );
+                    }}
+                    type='checkbox'
+                    checked={d.select}
+                  />
+                  <span>{d.name}</span>
+                </ul>
+              ))}
+            </div> */}
 
             <ResumeAdditionalSkills
               addSkillsData={addSkillsData}
               updateSkillsData={setAddSkillsData}
-              // skills={skills}
-              // setSkills={setSkills}
+              skills={skills}
+              setSkills={setSkills}
               skill1={skill1}
               updateSkill1={setSkill1}
             />
@@ -662,6 +490,8 @@ export default function ResumeBuilder() {
         // ADDITIONAL SKILLS
         addSkillsData={addSkillsData}
         skill1={skill1}
+        skills={skills}
+        setSkills={setSkills}
         // isChecked={isChecked}
         // formData={formData}
       />

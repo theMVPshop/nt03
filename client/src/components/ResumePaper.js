@@ -5,8 +5,8 @@ import Pdf from 'react-to-pdf';
 const ref = React.createRef();
 
 function ResumePaper(props) {
-  console.log(props.formData);
-  console.log(props.isChecked);
+  console.log(props.skills);
+
   //If there is no data, the Title of the section will not be displayed
   let proTitle;
   if (props.proData.length < 1) {
@@ -33,6 +33,7 @@ function ResumePaper(props) {
   }
 
   let skillsTitle;
+
   if (props.addSkillsData.length === 0) {
     skillsTitle = '';
   } else {
@@ -156,11 +157,13 @@ function ResumePaper(props) {
                     <li>{add.skill1}</li>
                   </p>
                 ))}
-                {/* {props.formData.map((skill, index) => (
-                  <p key={index}>
-                    {props.isChecked === false ? '' : <li>{skill.name}</li>}
+              </div>
+              <div>
+                {props.skills.map((skill, id) => (
+                  <p key={id}>
+                    {skill.select === false ? '' : <li>{skill.name}</li>}
                   </p>
-                ))} */}
+                ))}
               </div>
             </div>
           </div>
