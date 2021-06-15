@@ -90,10 +90,65 @@ const saveResume = (req, res) => {
 };
 
 const getResume = (req, res) => {
+    const userID = req.params.userID;
     
+    let resume = {};
+    let resume_head = {};
+    let experience = [];
+    let education = [];
+    let skills = [];
+
+    let sqlResumeHead = 'SELECT * FROM resume_head WHERE user_id = ?';
+    sqlResumeHead = mysql.format(sqlResumeHead, [userID]);
+
+    let sqlResumeWork = 'SELECT * FROM resume_work WHERE user_id = ?';
+    sqlResumeWork = mysql.format(sqlResumeWork, [userID]);
+
+    let sqlResumeEducation = 'SELECT * FROM resume_education WHERE user_id = ?';
+    sqlResumeEducation = mysql.format(sqlResumeEducation, [userID]);
+
+    let sqlResumeSkills = 'SELECT * FROM resume_skills WHERE user_id = ?';
+    sqlResumeSkills = mysql.format(sqlResumeSkills, [userID]);
+
+    db.getConnection( (error, connection) => {
+        connection.beginTransaction( async error => {
+            if (error) return connection.rollback((error) => console.log(error));
+
+            resume_head = await query(sqlResumeHead, connection);
+            experience = await query(sqlResumeWork, connection);
+            education = await query(sqlResumeEducation, connection);
+            skills = await query(sqlResumeSkills, connection);
+
+            connection.commit( error => {
+                if (error) return connection.rollback((error) => console.log(error));
+            })
+
+            connection.release();
+
+            resume = {
+                resume_head: {...resume_head[0]},
+                experience: experience.map( item => ({...item})),
+                education: education.map( item => ({...item})),
+                skills: skills.map( item => item.skill)
+            };
+
+            return res.json(resume);
+        })
+    })
 }
 
-module.exports = { saveResume }
+const query = (sql, connection) => {
+    return new Promise( ( resolve, reject ) => {
+        connection.query(sql, ( err, result ) => {
+            if ( err ) {
+                return reject(connection.rollback((error) => console.log(error)));
+            }
+            resolve(result)
+        })
+    } )
+}
+
+module.exports = { saveResume, getResume }
 
 // const buildResumeObject = () => {
 //     let resume = {
