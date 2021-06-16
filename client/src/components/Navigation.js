@@ -53,6 +53,9 @@ const Navigation = (props) => {
               Address Book
             </NavDropdown.Item>
             <NavDropdown.Item href='/profile'>Profile</NavDropdown.Item>
+            <NavDropdown.Item href='/resume-builder'>
+              Resume Builder
+            </NavDropdown.Item>
             <NavDropdown.Divider />
             {signInStatus ? (
               <NavDropdown.Item onClick={handleLogOut}>
