@@ -79,7 +79,6 @@
 .additional {
   display: flex;
   flex-direction: column;
-  /* margin-left: 94px; */
 }
 
 .work-content,
@@ -92,6 +91,12 @@
 
 .work-single,
 .edu-single,
-.additional-single {
+.additional-single,
+.work-one {
   padding-right: 50px;
+}
+
+.work-single {
+  display: flex;
+  flex-direction: row;
 }

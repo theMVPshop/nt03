@@ -1,15 +1,12 @@
 import React from 'react';
 import Pdf from 'react-to-pdf';
-// import { SavePDF } from './SavePDF';
 
 const ref = React.createRef();
 
 function ResumePaper(props) {
-  console.log(props.skills);
-
-  //If there is no data, the Title of the section will not be displayed
+  // Work Experience Title
   let proTitle;
-  if (props.proData.length < 1) {
+  if (props.company.length < 1) {
     proTitle = '';
   } else {
     proTitle = (
@@ -20,8 +17,9 @@ function ResumePaper(props) {
     );
   }
 
+  // Education Title
   let eduTitle;
-  if (props.eduData.length === 0) {
+  if (props.institute.length < 1) {
     eduTitle = '';
   } else {
     eduTitle = (
@@ -32,8 +30,8 @@ function ResumePaper(props) {
     );
   }
 
+  // Skills Title
   let skillsTitle;
-
   if (props.addSkillsData.length === 0) {
     skillsTitle = '';
   } else {
@@ -82,7 +80,7 @@ function ResumePaper(props) {
               {/* This maps over the proData array */}
               <div className='work-content'>
                 <div className='work-single'>
-                  <p>
+                  <p className='work-one'>
                     {props.company}
                     <br />
                     {props.location}
@@ -94,7 +92,7 @@ function ResumePaper(props) {
                     {props.desc2 === '' ? '' : <li>{props.desc2}</li>}
                     {props.desc3 === '' ? '' : <li>{props.desc3}</li>}
                   </p>
-                  <p>
+                  <p className='work-one'>
                     {props.company2}
                     <br />
                     {props.location2}
@@ -106,23 +104,19 @@ function ResumePaper(props) {
                     {props.desc22 === '' ? '' : <li>{props.desc22}</li>}
                     {props.desc33 === '' ? '' : <li>{props.desc33}</li>}
                   </p>
+                  <p className='work-one'>
+                    {props.company3}
+                    <br />
+                    {props.location3}
+                    <br />
+                    {props.position3} <br />
+                    {props.start3 === '' ? '' : `${props.start3} -`}
+                    {props.end3} <br />
+                    {props.desc111 === '' ? '' : <li>{props.desc111}</li>}
+                    {props.desc222 === '' ? '' : <li>{props.desc222}</li>}
+                    {props.desc333 === '' ? '' : <li>{props.desc333}</li>}
+                  </p>
                 </div>
-
-                {/* {props.proData.map((pro) => (
-                  <div>
-                    <p className='work-single' key={pro.id}>
-                      <strong>{pro.company}</strong>
-                      <br />
-                      {pro.location}
-                      <br />
-                      {pro.position} <br />
-                      {pro.start} - {pro.end}
-                      {pro.desc1 === '' ? '' : <li>{pro.desc1}</li>}
-                      {pro.desc2 === '' ? '' : <li>{pro.desc2}</li>}
-                      {pro.desc3 === '' ? '' : <li>{pro.desc3}</li>}
-                    </p>
-                  </div>
-                ))} */}
               </div>
             </div>
 
@@ -131,39 +125,62 @@ function ResumePaper(props) {
               {eduTitle}
 
               <div className='edu-content'>
-                {/* This maps over the eduData array */}
-                {props.eduData.map((edu, index) => (
-                  <p className='edu-single' key={index}>
-                    <strong>{edu.institute}</strong>
-                    <br />
-                    {edu.instLocation}
-                    <br />
-                    {edu.major}
-                    <br />
-                    {edu.graduation}
-                    <br />
-                    {edu.info}
-                  </p>
-                ))}
+                {/* EDU 1 */}
+                <p className='edu-single'>
+                  <strong>{props.institute}</strong>
+                  <br />
+                  {props.instLocation}
+                  <br />
+                  {props.major}
+                  <br />
+                  {props.graduation}
+                  <br />
+                  {props.info}
+                </p>
+                {/* EDU 2 */}
+                <p className='edu-single'>
+                  <strong>{props.institute2}</strong>
+                  <br />
+                  {props.instLocation2}
+                  <br />
+                  {props.major2}
+                  <br />
+                  {props.graduation2}
+                  <br />
+                  {props.info2}
+                </p>
+                {/* EDU 3 */}
+                <p className='edu-single'>
+                  <strong>{props.institute3}</strong>
+                  <br />
+                  {props.instLocation3}
+                  <br />
+                  {props.major3}
+                  <br />
+                  {props.graduation3}
+                  <br />
+                  {props.info3}
+                </p>
               </div>
             </div>
 
             {/* ADDITIONAL SKILLS */}
             <div className='additional'>
               {skillsTitle}
-              <div className='additional-content'>
-                {props.addSkillsData.map((add) => (
-                  <p className='additional-single' key={add.id}>
-                    <li>{add.skill1}</li>
-                  </p>
-                ))}
-              </div>
+
               <div>
                 {props.skills.map((skill, id) => (
                   <p key={id}>
                     {skill.select === false ? '' : <li>{skill.name}</li>}
                   </p>
                 ))}
+                <div className='additional-content'>
+                  {props.addSkillsData.map((add) => (
+                    <p className='additional-single' key={add.id}>
+                      <li>{add.skill1}</li>
+                    </p>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
