@@ -9,7 +9,6 @@ import SignUp from './components/SignUp';
 import AddressBook from './components/AddressBook';
 import SavedJobs from './components/SavedJobs';
 import ClinicSearchResults from './components/ClinicSearch/ClinicSearchResults';
-import ClinicSearchResults from './components/ClinicSearchResults';
 import ResumeBuilder from './components/ResumeBuilder';
 
 // const checkAuth = () => {
