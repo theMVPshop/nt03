@@ -30,7 +30,8 @@
     "immer": "^9.0.2",
     "jsonwebtoken": "^8.5.1",
     "jwks-rsa": "^2.0.3",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "react-checkbox-group": "^5.0.2"
   },
   "devDependencies": {
     "concurrently": "^6.1.0",

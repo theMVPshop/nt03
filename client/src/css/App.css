@@ -7,6 +7,7 @@
 @import url('./NewsArticles.css');
 @import url('./FlashCards.css');
 @import url('./AddressBook.css');
+@import url('./ResumeBuilder.css');
 
 :root {
   --primary-green: #28c47d;
