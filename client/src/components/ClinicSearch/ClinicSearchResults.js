@@ -60,6 +60,7 @@ const ClinicSearchResults = ({clinicSearch}) => {
     return (
         <div className='main-container'>
             <div className="list-area">
+                <h2>Dental Offices</h2>
                 <div className="list-group">
                     {/* If nothing found display message and button to return to search page */}
                     {!resultsFound &&
@@ -92,6 +93,7 @@ const ClinicSearchResults = ({clinicSearch}) => {
             </div>
             {/* Don't display map untill ClinicList is loaded with data */}
             <div className='map-area'>
+                <h2>Dental Office Map</h2>
                 {clinicList.length > 0 && <Map selectedOffice={selectedOffice} />}
             </div>
         </div>
