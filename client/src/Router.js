@@ -9,7 +9,6 @@ import SignUp from './components/SignUp';
 import AddressBook from './components/AddressBook';
 import SavedJobs from './components/SavedJobs';
 import ClinicSearchResults from './components/ClinicSearch/ClinicSearchResults';
-import ClinicSearchResults from './components/ClinicSearchResults';
 import ResumeBuilder from './components/ResumeBuilder';
 
 // const checkAuth = () => {
@@ -48,8 +47,7 @@ function Router() {
       <Route path='/sign-in' component={SignIn}></Route>
       <Route path='/sign-up' component={SignUp}></Route>
       <Route path='/address-book' component={AddressBook}></Route>
-      <Route path='/saved-jobs' component={SavedJobs} >
-      </Route>
+      <Route path='/saved-jobs' component={SavedJobs}></Route>
       <Route path='/resume-builder' component={ResumeBuilder}></Route>
     </Switch>
   );
