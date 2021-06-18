@@ -1,17 +1,41 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 const ResumeAdditionalSkills = (props) => {
-  console.log(props.skills.select);
   // Stops page refresh
-
   const onSubmit = (e) => {
     e.preventDefault();
   };
-  console.log(props);
+
   return (
     <div className=''>
-      <div>
+      <h2>Add any skills that are unique to you.</h2>
+      <form
+        onSubmit={onSubmit}
+        className='form-style small-field-box'
+        autoComplete='off'
+      >
+        <TextField
+          className='small-field-add'
+          id='outlined-basic'
+          label=''
+          onChange={(e) => props.updateSkill1(e.target.value)}
+          variant='outlined'
+          style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+        />{' '}
+        <Button
+          variant='contained'
+          color='secondary'
+          type='submit'
+          onClick={props.addSkills}
+          style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+        >
+          ADD
+        </Button>
+      </form>
+      <h3>Additional Skills:</h3>
+      <div className='checkbox-container'>
         {props.skills.map((d, i) => (
           <ul key={d.id}>
             <input
@@ -33,27 +57,6 @@ const ResumeAdditionalSkills = (props) => {
           </ul>
         ))}
       </div>
-      {/* {props.skills.map((skill) => (
-        <div>
-          <input
-            checked={checked}
-            key={skill.id}
-            type='checkbox'
-            // onChange={toggleSkill}
-          />
-          <span>{skill.title}</span>
-        </div>
-      ))} */}
-      {/* <input type='checkbox'>Patient Care</input> */}
-      <form onSubmit={onSubmit} className='form-style' autoComplete='off'>
-        <TextField
-          id='outlined-basic'
-          label=''
-          onChange={(e) => props.updateSkill1(e.target.value)}
-          variant='outlined'
-          style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
-        />
-      </form>
     </div>
   );
 };

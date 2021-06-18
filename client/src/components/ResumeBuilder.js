@@ -3,14 +3,14 @@ import { v4 as uuidv4 } from 'uuid';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Button from '@material-ui/core/Button';
+import Avatar from '@material-ui/core/Avatar';
+import ClearIcon from '@material-ui/icons/Clear';
+import Tooltip from '@material-ui/core/Tooltip';
 import ResumeHeader from './ResumeHeader';
 import ResumePaper from './ResumePaper';
 import ResumeProfessional from './ResumeProfessional';
 import ResumeEducation from './ResumeEducation';
 import ResumeAdditionalSkills from './ResumeAdditionalSkills';
-// import { set } from 'immer/dist/internal';
-
-// const id = uuidv4();
 
 export default function ResumeBuilder() {
   useEffect(() => {
@@ -50,14 +50,27 @@ export default function ResumeBuilder() {
     const desc1Data3 = localStorage.getItem('desc111');
     const desc2Data3 = localStorage.getItem('desc222');
     const desc3Data3 = localStorage.getItem('desc333');
-    // skills
-    // const addSkillsData = localStorage.getItem('addSkillsData');
+
     // EDU 1
-    // const instituteData = localStorage.getItem('institute');
-    // const instLocationData = localStorage.getItem('instLocation');
-    // const majorData = localStorage.getItem('major');
-    // const graduationData = localStorage.getItem('graduation');
-    // const infoData = localStorage.getItem('info');
+    const instituteData = localStorage.getItem('institute');
+    const instLocationData = localStorage.getItem('instLocation');
+    const majorData = localStorage.getItem('major');
+    const graduationData = localStorage.getItem('graduation');
+    const infoData = localStorage.getItem('info');
+
+    // EDU 2
+    const instituteData2 = localStorage.getItem('institute2');
+    const instLocationData2 = localStorage.getItem('instLocation2');
+    const majorData2 = localStorage.getItem('major2');
+    const graduationData2 = localStorage.getItem('graduation2');
+    const infoData2 = localStorage.getItem('info2');
+
+    // EDU 3
+    const instituteData3 = localStorage.getItem('institute3');
+    const instLocationData3 = localStorage.getItem('instLocation3');
+    const majorData3 = localStorage.getItem('major3');
+    const graduationData3 = localStorage.getItem('graduation3');
+    const infoData3 = localStorage.getItem('info3');
 
     if (
       (nameData,
@@ -91,13 +104,22 @@ export default function ResumeBuilder() {
       endData3,
       desc1Data3,
       desc2Data3,
-      desc3Data3)
-      // instituteData,
-      // instLocationData,
-      // majorData,
-      // graduationData,
-      // infoData
-      // addSkillsData
+      desc3Data3,
+      instituteData,
+      instLocationData,
+      majorData,
+      graduationData,
+      infoData,
+      instituteData2,
+      instLocationData2,
+      majorData2,
+      graduationData2,
+      infoData2,
+      instituteData3,
+      instLocationData3,
+      majorData3,
+      graduationData3,
+      infoData3)
     ) {
       setName(JSON.parse(nameData));
       setAddress(JSON.parse(addressData));
@@ -135,13 +157,23 @@ export default function ResumeBuilder() {
       setDesc222(JSON.parse(desc2Data3));
       setDesc333(JSON.parse(desc3Data3));
 
-      // setInstitute(JSON.parse(institute));
-      // setInstLocation(JSON.parse(instLocation));
-      // setMajor(JSON.parse(major));
-      // setGraduation(JSON.parse(graduation));
-      // setInfo(JSON.parse(info));
+      setInstitute(JSON.parse(instituteData));
+      setInstLocation(JSON.parse(instLocationData));
+      setMajor(JSON.parse(majorData));
+      setGraduation(JSON.parse(graduationData));
+      setInfo(JSON.parse(infoData));
 
-      // setAddSkillsData(JSON.parse(addSkillsData));
+      setInstitute2(JSON.parse(instituteData2));
+      setInstLocation2(JSON.parse(instLocationData2));
+      setMajor2(JSON.parse(majorData2));
+      setGraduation2(JSON.parse(graduationData2));
+      setInfo2(JSON.parse(infoData2));
+
+      setInstitute3(JSON.parse(instituteData3));
+      setInstLocation3(JSON.parse(instLocationData3));
+      setMajor3(JSON.parse(majorData3));
+      setGraduation3(JSON.parse(graduationData3));
+      setInfo3(JSON.parse(infoData3));
     }
   }, []);
 
@@ -182,15 +214,92 @@ export default function ResumeBuilder() {
     localStorage.setItem('desc111', JSON.stringify(desc111));
     localStorage.setItem('desc222', JSON.stringify(desc222));
     localStorage.setItem('desc333', JSON.stringify(desc333));
-    // Skills
+
     // // EDU 1
-    // localStorage.setItem('institute', JSON.stringify(institute));
-    // localStorage.setItem('instLocation', JSON.stringify(instLocation));
-    // localStorage.setItem('major', JSON.stringify(major));
-    // localStorage.setItem('graduation', JSON.stringify(graduation));
-    // localStorage.setItem('info', JSON.stringify(info));
-    // localStorage.setItem('addSkillsData', JSON.stringify(addSkillsData));
+    localStorage.setItem('institute', JSON.stringify(institute));
+    localStorage.setItem('instLocation', JSON.stringify(instLocation));
+    localStorage.setItem('major', JSON.stringify(major));
+    localStorage.setItem('graduation', JSON.stringify(graduation));
+    localStorage.setItem('info', JSON.stringify(info));
+
+    // // EDU 2
+    localStorage.setItem('institute2', JSON.stringify(institute2));
+    localStorage.setItem('instLocation2', JSON.stringify(instLocation2));
+    localStorage.setItem('major2', JSON.stringify(major2));
+    localStorage.setItem('graduation2', JSON.stringify(graduation2));
+    localStorage.setItem('info2', JSON.stringify(info2));
+
+    // // EDU 3
+    localStorage.setItem('institute3', JSON.stringify(institute3));
+    localStorage.setItem('instLocation3', JSON.stringify(instLocation3));
+    localStorage.setItem('major3', JSON.stringify(major3));
+    localStorage.setItem('graduation3', JSON.stringify(graduation3));
+    localStorage.setItem('info3', JSON.stringify(info3));
   });
+
+  const handleDeleteData = () => {
+    localStorage.clear();
+    setName('');
+    setAddress('');
+    setCity('');
+    setState('');
+    setZip('');
+    setPhone('');
+    setEmail('');
+    setSummary('');
+
+    setCompany('');
+    setLocation('');
+    setPosition('');
+    setStart('');
+    setEnd('');
+    setDesc1('');
+    setDesc2('');
+    setDesc3('');
+
+    setCompany2('');
+    setLocation2('');
+    setPosition2('');
+    setStart2('');
+    setEnd2('');
+    setDesc11('');
+    setDesc22('');
+    setDesc33('');
+
+    setCompany3('');
+    setLocation3('');
+    setPosition3('');
+    setStart3('');
+    setEnd3('');
+    setDesc111('');
+    setDesc222('');
+    setDesc333('');
+
+    setInstitute('');
+    setInstLocation('');
+    setMajor('');
+    setGraduation('');
+    setInfo('');
+
+    setInstitute2('');
+    setInstLocation2('');
+    setMajor2('');
+    setGraduation2('');
+    setInfo2('');
+
+    setInstitute3('');
+    setInstLocation3('');
+    setMajor3('');
+    setGraduation3('');
+    setInfo3('');
+
+    setAddSkillsData([]);
+    setSkills(
+      skills.map((d) => {
+        return { select: false, id: d.id, name: d.name };
+      })
+    );
+  };
 
   //   const classes = useStyles();
   const [tab, setTab] = React.useState(0);
@@ -268,31 +377,6 @@ export default function ResumeBuilder() {
   const [info, setInfo] = useState('');
   const [info2, setInfo2] = useState('');
   const [info3, setInfo3] = useState('');
-
-  // const removedEdu = eduData.shift();
-  // console.log(removedEdu);
-
-  // function that adds current Education info to array
-  const addEducation = () => {
-    const id = uuidv4();
-    const items = [...eduData];
-    items.push({
-      id,
-      institute,
-      instLocation,
-      major,
-      graduation,
-      info,
-    });
-
-    setInstitute('');
-    setInstLocation('');
-    setMajor('');
-    setGraduation('');
-    setInfo('');
-
-    setEduData(items);
-  };
 
   // --------SKILLS STATE VARIABLES AND FUNCTIONS--------
 
@@ -382,15 +466,8 @@ export default function ResumeBuilder() {
               updateEmail={setEmail}
               summary={summary}
               updateSummary={setSummary}
-            />
-            <Button
-              variant='contained'
-              color='primary'
-              style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
               onClick={nextButton}
-            >
-              Next
-            </Button>
+            />
           </div>
         )}
         {tab === 1 && (
@@ -522,6 +599,7 @@ export default function ResumeBuilder() {
         {tab === 3 && (
           <div>
             <ResumeAdditionalSkills
+              addSkills={addSkills}
               addSkillsData={addSkillsData}
               updateSkillsData={setAddSkillsData}
               skills={skills}
@@ -529,7 +607,7 @@ export default function ResumeBuilder() {
               skill1={skill1}
               updateSkill1={setSkill1}
             />
-            <Button
+            {/* <Button
               variant='contained'
               color='secondary'
               type='submit'
@@ -537,7 +615,7 @@ export default function ResumeBuilder() {
               style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
             >
               ADD
-            </Button>
+            </Button> */}
             <Button
               variant='contained'
               color='secondary'
@@ -549,72 +627,79 @@ export default function ResumeBuilder() {
           </div>
         )}
       </div>
+      <div>
+        <Tooltip title='Delete All Data' placement='right'>
+          <Avatar>
+            <ClearIcon onClick={handleDeleteData} />
+          </Avatar>
+        </Tooltip>
 
-      {/* RESUME RENDER */}
-      <ResumePaper
-        // HEADER
-        name={name}
-        address={address}
-        city={city}
-        state={state}
-        zip={zip}
-        phone={phone}
-        email={email}
-        summary={summary}
-        // PROFESSIONAL
-        // JOB 1
-        company={company}
-        location={location}
-        position={position}
-        start={start}
-        end={end}
-        desc1={desc1}
-        desc2={desc2}
-        desc3={desc3}
-        // JOB 2
-        company2={company2}
-        location2={location2}
-        position2={position2}
-        start2={start2}
-        end2={end2}
-        desc11={desc11}
-        desc22={desc22}
-        desc33={desc33}
-        // JOB 3
-        company3={company3}
-        location3={location3}
-        position3={position3}
-        start3={start3}
-        end3={end3}
-        desc111={desc111}
-        desc222={desc222}
-        desc333={desc333}
-        // EDUCATION
-        // EDU 1
-        eduData={eduData}
-        institute={institute}
-        instLocation={instLocation}
-        major={major}
-        graduation={graduation}
-        info={info}
-        // EDU 2
-        institute2={institute2}
-        instLocation2={instLocation2}
-        major2={major2}
-        graduation2={graduation2}
-        info2={info2}
-        // EDU 3
-        institute3={institute3}
-        instLocation3={instLocation3}
-        major3={major3}
-        graduation3={graduation3}
-        info3={info3}
-        // ADDITIONAL SKILLS
-        addSkillsData={addSkillsData}
-        skill1={skill1}
-        skills={skills}
-        setSkills={setSkills}
-      />
+        {/* RESUME RENDER */}
+        <ResumePaper
+          // HEADER
+          name={name}
+          address={address}
+          city={city}
+          state={state}
+          zip={zip}
+          phone={phone}
+          email={email}
+          summary={summary}
+          // PROFESSIONAL
+          // JOB 1
+          company={company}
+          location={location}
+          position={position}
+          start={start}
+          end={end}
+          desc1={desc1}
+          desc2={desc2}
+          desc3={desc3}
+          // JOB 2
+          company2={company2}
+          location2={location2}
+          position2={position2}
+          start2={start2}
+          end2={end2}
+          desc11={desc11}
+          desc22={desc22}
+          desc33={desc33}
+          // JOB 3
+          company3={company3}
+          location3={location3}
+          position3={position3}
+          start3={start3}
+          end3={end3}
+          desc111={desc111}
+          desc222={desc222}
+          desc333={desc333}
+          // EDUCATION
+          // EDU 1
+          eduData={eduData}
+          institute={institute}
+          instLocation={instLocation}
+          major={major}
+          graduation={graduation}
+          info={info}
+          // EDU 2
+          institute2={institute2}
+          instLocation2={instLocation2}
+          major2={major2}
+          graduation2={graduation2}
+          info2={info2}
+          // EDU 3
+          institute3={institute3}
+          instLocation3={instLocation3}
+          major3={major3}
+          graduation3={graduation3}
+          info3={info3}
+          // ADDITIONAL SKILLS
+          addSkillsData={addSkillsData}
+          skill1={skill1}
+          skills={skills}
+          setSkills={setSkills}
+        />
+      </div>
     </div>
   );
 }

@@ -1,5 +1,9 @@
 import React from 'react';
 import Pdf from 'react-to-pdf';
+import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
+import Avatar from '@material-ui/core/Avatar';
+import Tooltip from '@material-ui/core/Tooltip';
+import ClearIcon from '@material-ui/icons/Clear';
 
 const ref = React.createRef();
 
@@ -52,8 +56,19 @@ function ResumePaper(props) {
 
   return (
     <div className='right'>
+      {/* <Tooltip title='Delete All Data' placement='right'>
+        <Avatar>
+          <ClearIcon onClick={props.delete} />
+        </Avatar>
+      </Tooltip> */}
       <Pdf targetRef={ref} filename='resume.pdf'>
-        {({ toPdf }) => <button onClick={toPdf}>Save Resume</button>}
+        {({ toPdf }) => (
+          <Tooltip title='Save to PDF' placement='right'>
+            <Avatar>
+              <PictureAsPdfIcon onClick={toPdf} />
+            </Avatar>
+          </Tooltip>
+        )}
       </Pdf>
       <div size='A4' className='page' ref={ref}>
         <div className='preview-container'>

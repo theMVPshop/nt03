@@ -5,6 +5,7 @@
 
 .resume-container {
   width: 40%;
+  background-color: white;
 }
 
 .tab-bar {
@@ -17,10 +18,29 @@
   flex-direction: column;
 }
 
+.small-field-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.small-field {
+  width: 48%;
+}
+
+.small-field-add {
+  width: 85%;
+}
+
+.checkbox-container {
+  /* height: 20%; */
+}
+
 .right {
   width: 75vw;
   min-height: 100vh;
   font-family: 'Lora', serif;
+  background-color: var(--background);
 }
 
 .right .page {
