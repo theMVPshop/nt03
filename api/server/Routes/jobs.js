@@ -1,3 +1,7 @@
+/**
+ * Router file for the saved job data endpoints
+ */
+
 // express imports
 const express = require('express');
 const router = express.Router();
@@ -6,21 +10,21 @@ const router = express.Router();
 const jobs = require('../Controllers/jobs');
 
 // All jobs
-router.get('/jobs', jobs.allJobs);
+router.get('/', jobs.allJobs);
 
 // List of saved jobs by user
-router.get('/jobs/:userID', jobs.jobByID);
+router.get('/:userID', jobs.jobByID);
 
 // Save new job to user
-router.post('/jobs', jobs.saveJob);
+router.post('/', jobs.saveJob);
 
 // Update job
-router.put('/jobs', jobs.updateJob);
+router.put('/', jobs.updateJob);
 
 // delete job
-router.delete('/jobs/:jobID', jobs.deleteJob);
+router.delete('/:jobID', jobs.deleteJob);
 
 // Update job to contacted
-router.put('/jobs/:jobID', jobs.jobContacted);
+router.put('/:jobID', jobs.jobContacted);
 
 module.exports = router;

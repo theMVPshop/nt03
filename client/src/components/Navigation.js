@@ -7,24 +7,25 @@ import clinic from '../images/GREEN-clinic-search.png';
 import search from '../images/GREEN-search.png';
 import '../css/Navigation.css';
 
-const Navigation = (props) => {
-  const { signOut, signInStatus, user } = props;
-  const handleLogOut = () => {
-    axios
-      .post('/auth/logout')
-      .then((response) => {
-        console.log(response);
-        const {
-          data: { msg },
-        } = response;
-        if (msg == 'Logged Out') {
-          signOut();
-          console.log('you good');
-        }
-      })
-      .catch((error) => console.log(error));
-  };
+// Code to logout user
+//   const { signOut, signInStatus, user } = props;
+//   const handleLogOut = () => {
+//     axios
+//       .post('/auth/logout')
+//       .then((response) => {
+//         console.log(response);
+//         const {
+//           data: { msg },
+//         } = response;
+//         if (msg == 'Logged Out') {
+//           signOut();
+//           console.log('you good');
+//         }
+//       })
+//       .catch((error) => console.log(error));
+//
 
+const Navigation = () => {
   return (
     <Navbar className='navbar' expand='lg'>
       <Navbar.Brand href='/'>
@@ -48,22 +49,23 @@ const Navigation = (props) => {
             <NavDropdown.Item href='/clinic-search'>
               Clinic Search
             </NavDropdown.Item>
-            <NavDropdown.Item href='/saved-jobs'>Saved Jobs</NavDropdown.Item>
-            <NavDropdown.Item href='/address-book'>
-              Address Book
-            </NavDropdown.Item>
-            <NavDropdown.Item href='/profile'>Profile</NavDropdown.Item>
             <NavDropdown.Item href='/resume-builder'>
               Resume Builder
             </NavDropdown.Item>
-            <NavDropdown.Divider />
+            {/* Code for conditional display of login in nav menu */}
+            {/* <NavDropdown.Item href='/saved-jobs'>Saved Jobs</NavDropdown.Item> */}
+            {/* <NavDropdown.Item href='/address-book'>
+              Address Book
+            </NavDropdown.Item> */}
+            {/* <NavDropdown.Item href='/profile'>Profile</NavDropdown.Item> */}
+            {/* <NavDropdown.Divider />
             {signInStatus ? (
               <NavDropdown.Item onClick={handleLogOut}>
                 Log Out
               </NavDropdown.Item>
             ) : (
               <NavDropdown.Item href='/sign-in'>Sign In</NavDropdown.Item>
-            )}
+            )} */}
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>

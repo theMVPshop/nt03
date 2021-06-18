@@ -1,3 +1,7 @@
+/**
+ * Router file for the user data and saved clinic data endpoints
+ */
+
 // express imports
 const express = require('express');
 const { checkJwt } = require('../Middleware/auth');
