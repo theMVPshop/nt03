@@ -73,26 +73,30 @@ const ResumeHeader = (props) => {
           variant='outlined'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
         />
+        <div className='small-field-box'>
+          <TextField
+            className='small-field'
+            id='outlined-basic'
+            label='City'
+            value={props.city}
+            onChange={(e) => props.updateCity(e.target.value)}
+            variant='outlined'
+            style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+          />
+
+          <TextField
+            className='small-field'
+            id='outlined-basic'
+            label='State'
+            value={props.state}
+            onChange={(e) => props.updateState(e.target.value)}
+            variant='outlined'
+            style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+          />
+        </div>
 
         <TextField
-          id='outlined-basic'
-          label='City'
-          value={props.city}
-          onChange={(e) => props.updateCity(e.target.value)}
-          variant='outlined'
-          style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
-        />
-
-        <TextField
-          id='outlined-basic'
-          label='State'
-          value={props.state}
-          onChange={(e) => props.updateState(e.target.value)}
-          variant='outlined'
-          style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
-        />
-
-        <TextField
+          className='small-field'
           id='outlined-basic'
           label='Zip Code'
           value={props.zip}
@@ -139,6 +143,14 @@ const ResumeHeader = (props) => {
           }}
         />
       </form>
+      <Button
+        variant='contained'
+        color='primary'
+        style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+        onClick={props.onClick}
+      >
+        Next
+      </Button>
     </div>
   );
 };

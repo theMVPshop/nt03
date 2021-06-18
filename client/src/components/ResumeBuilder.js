@@ -3,6 +3,9 @@ import { v4 as uuidv4 } from 'uuid';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Button from '@material-ui/core/Button';
+import Avatar from '@material-ui/core/Avatar';
+import ClearIcon from '@material-ui/icons/Clear';
+import Tooltip from '@material-ui/core/Tooltip';
 import ResumeHeader from './ResumeHeader';
 import ResumePaper from './ResumePaper';
 import ResumeProfessional from './ResumeProfessional';
@@ -234,6 +237,70 @@ export default function ResumeBuilder() {
     localStorage.setItem('info3', JSON.stringify(info3));
   });
 
+  const handleDeleteData = () => {
+    localStorage.clear();
+    setName('');
+    setAddress('');
+    setCity('');
+    setState('');
+    setZip('');
+    setPhone('');
+    setEmail('');
+    setSummary('');
+
+    setCompany('');
+    setLocation('');
+    setPosition('');
+    setStart('');
+    setEnd('');
+    setDesc1('');
+    setDesc2('');
+    setDesc3('');
+
+    setCompany2('');
+    setLocation2('');
+    setPosition2('');
+    setStart2('');
+    setEnd2('');
+    setDesc11('');
+    setDesc22('');
+    setDesc33('');
+
+    setCompany3('');
+    setLocation3('');
+    setPosition3('');
+    setStart3('');
+    setEnd3('');
+    setDesc111('');
+    setDesc222('');
+    setDesc333('');
+
+    setInstitute('');
+    setInstLocation('');
+    setMajor('');
+    setGraduation('');
+    setInfo('');
+
+    setInstitute2('');
+    setInstLocation2('');
+    setMajor2('');
+    setGraduation2('');
+    setInfo2('');
+
+    setInstitute3('');
+    setInstLocation3('');
+    setMajor3('');
+    setGraduation3('');
+    setInfo3('');
+
+    setAddSkillsData([]);
+    setSkills(
+      skills.map((d) => {
+        return { select: false, id: d.id, name: d.name };
+      })
+    );
+  };
+
   //   const classes = useStyles();
   const [tab, setTab] = React.useState(0);
   console.log(tab);
@@ -310,31 +377,6 @@ export default function ResumeBuilder() {
   const [info, setInfo] = useState('');
   const [info2, setInfo2] = useState('');
   const [info3, setInfo3] = useState('');
-
-  // const removedEdu = eduData.shift();
-  // console.log(removedEdu);
-
-  // function that adds current Education info to array
-  const addEducation = () => {
-    const id = uuidv4();
-    const items = [...eduData];
-    items.push({
-      id,
-      institute,
-      instLocation,
-      major,
-      graduation,
-      info,
-    });
-
-    setInstitute('');
-    setInstLocation('');
-    setMajor('');
-    setGraduation('');
-    setInfo('');
-
-    setEduData(items);
-  };
 
   // --------SKILLS STATE VARIABLES AND FUNCTIONS--------
 
@@ -424,15 +466,8 @@ export default function ResumeBuilder() {
               updateEmail={setEmail}
               summary={summary}
               updateSummary={setSummary}
-            />
-            <Button
-              variant='contained'
-              color='primary'
-              style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
               onClick={nextButton}
-            >
-              Next
-            </Button>
+            />
           </div>
         )}
         {tab === 1 && (
@@ -564,6 +599,7 @@ export default function ResumeBuilder() {
         {tab === 3 && (
           <div>
             <ResumeAdditionalSkills
+              addSkills={addSkills}
               addSkillsData={addSkillsData}
               updateSkillsData={setAddSkillsData}
               skills={skills}
@@ -571,7 +607,7 @@ export default function ResumeBuilder() {
               skill1={skill1}
               updateSkill1={setSkill1}
             />
-            <Button
+            {/* <Button
               variant='contained'
               color='secondary'
               type='submit'
@@ -579,7 +615,7 @@ export default function ResumeBuilder() {
               style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
             >
               ADD
-            </Button>
+            </Button> */}
             <Button
               variant='contained'
               color='secondary'
@@ -591,72 +627,79 @@ export default function ResumeBuilder() {
           </div>
         )}
       </div>
+      <div>
+        <Tooltip title='Delete All Data' placement='right'>
+          <Avatar>
+            <ClearIcon onClick={handleDeleteData} />
+          </Avatar>
+        </Tooltip>
 
-      {/* RESUME RENDER */}
-      <ResumePaper
-        // HEADER
-        name={name}
-        address={address}
-        city={city}
-        state={state}
-        zip={zip}
-        phone={phone}
-        email={email}
-        summary={summary}
-        // PROFESSIONAL
-        // JOB 1
-        company={company}
-        location={location}
-        position={position}
-        start={start}
-        end={end}
-        desc1={desc1}
-        desc2={desc2}
-        desc3={desc3}
-        // JOB 2
-        company2={company2}
-        location2={location2}
-        position2={position2}
-        start2={start2}
-        end2={end2}
-        desc11={desc11}
-        desc22={desc22}
-        desc33={desc33}
-        // JOB 3
-        company3={company3}
-        location3={location3}
-        position3={position3}
-        start3={start3}
-        end3={end3}
-        desc111={desc111}
-        desc222={desc222}
-        desc333={desc333}
-        // EDUCATION
-        // EDU 1
-        eduData={eduData}
-        institute={institute}
-        instLocation={instLocation}
-        major={major}
-        graduation={graduation}
-        info={info}
-        // EDU 2
-        institute2={institute2}
-        instLocation2={instLocation2}
-        major2={major2}
-        graduation2={graduation2}
-        info2={info2}
-        // EDU 3
-        institute3={institute3}
-        instLocation3={instLocation3}
-        major3={major3}
-        graduation3={graduation3}
-        info3={info3}
-        // ADDITIONAL SKILLS
-        addSkillsData={addSkillsData}
-        skill1={skill1}
-        skills={skills}
-        setSkills={setSkills}
-      />
+        {/* RESUME RENDER */}
+        <ResumePaper
+          // HEADER
+          name={name}
+          address={address}
+          city={city}
+          state={state}
+          zip={zip}
+          phone={phone}
+          email={email}
+          summary={summary}
+          // PROFESSIONAL
+          // JOB 1
+          company={company}
+          location={location}
+          position={position}
+          start={start}
+          end={end}
+          desc1={desc1}
+          desc2={desc2}
+          desc3={desc3}
+          // JOB 2
+          company2={company2}
+          location2={location2}
+          position2={position2}
+          start2={start2}
+          end2={end2}
+          desc11={desc11}
+          desc22={desc22}
+          desc33={desc33}
+          // JOB 3
+          company3={company3}
+          location3={location3}
+          position3={position3}
+          start3={start3}
+          end3={end3}
+          desc111={desc111}
+          desc222={desc222}
+          desc333={desc333}
+          // EDUCATION
+          // EDU 1
+          eduData={eduData}
+          institute={institute}
+          instLocation={instLocation}
+          major={major}
+          graduation={graduation}
+          info={info}
+          // EDU 2
+          institute2={institute2}
+          instLocation2={instLocation2}
+          major2={major2}
+          graduation2={graduation2}
+          info2={info2}
+          // EDU 3
+          institute3={institute3}
+          instLocation3={instLocation3}
+          major3={major3}
+          graduation3={graduation3}
+          info3={info3}
+          // ADDITIONAL SKILLS
+          addSkillsData={addSkillsData}
+          skill1={skill1}
+          skills={skills}
+          setSkills={setSkills}
+        />
+      </div>
     </div>
   );
 }
