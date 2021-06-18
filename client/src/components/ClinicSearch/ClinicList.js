@@ -1,38 +1,38 @@
-import { useState } from "react"
+//import { useState } from "react"
 
-const ClinicList = ({clinic, handleClick, index, user}) => {
+const ClinicList = ({clinic, handleClick, index}) => {
 
     // Keep track if a clinic was checked to save, prevent double fetch on same clinic if checked again
-    const [clinicSaved, setClinicSaved] = useState(false)
+    // const [clinicSaved, setClinicSaved] = useState(false)
 
     // Perform POST request to save the clinic to the user
-    const saveClinic = () => {
-        if (clinicSaved) {
-            return
-        }
+    // const saveClinic = () => {
+    //     if (clinicSaved) {
+    //         return
+    //     }
 
-        let clinicToSave = {
-            "clinic_name": clinic.name,
-            "clinic_address": `${clinic.street}, ${clinic.city}, ${clinic.state} ${clinic.zip}`,
-            "clinic_phone": clinic.phone,
-            "contacted": false
-        }
+    //     let clinicToSave = {
+    //         "clinic_name": clinic.name,
+    //         "clinic_address": `${clinic.street}, ${clinic.city}, ${clinic.state} ${clinic.zip}`,
+    //         "clinic_phone": clinic.phone,
+    //         "contacted": false
+    //     }
 
-        fetch("/users/1/clinics", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(clinicToSave)
-        }).then(res => {
-                if (res.ok) {
-                    setClinicSaved(true)
-                    alert("Clinic Saved")
-                } else {
-                    alert("There was an error and clinic was not saved")
-                }
-            })
-    }
+    //     fetch("/users/1/clinics", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify(clinicToSave)
+    //     }).then(res => {
+    //             if (res.ok) {
+    //                 setClinicSaved(true)
+    //                 alert("Clinic Saved")
+    //             } else {
+    //                 alert("There was an error and clinic was not saved")
+    //             }
+    //         })
+    // }
     
     return (
         <button
@@ -48,13 +48,14 @@ const ClinicList = ({clinic, handleClick, index, user}) => {
                     <p id={index}>{`${clinic.city}, ${clinic.state} ${clinic.zip}`}</p>
                     <p id={index}>{clinic.phone}</p>
                 </section>
-                <section className="check">
+                {/* Code for saving a clinic to the backend */}
+                {/* <section className="check">
                     <label>Save?</label>
                     <input
                         type="checkbox"
                         onChange={saveClinic}
                     />
-                </section>
+                </section> */}
             </div>
         </button>
     )

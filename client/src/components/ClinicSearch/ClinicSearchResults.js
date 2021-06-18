@@ -1,5 +1,5 @@
 /**
- *  Container component to list the results of the search for a dental clinic
+ *  Component to list the results of the search for a dental clinic
  *  This has two inner components: ClinicList and Map
  *  ClinicList: The actual list of returned dental offices
  *  Map: Display the location of the selected dental office on a map
@@ -8,7 +8,7 @@
 import React, { useEffect, useState } from 'react'
 import "../../css/clinicSearchResults.css"
 import Map from './Map'
-import ClinicList from '../../Containers/ClinicList'
+import ClinicList from './ClinicList'
 import { useHistory } from 'react-router'
 
 const ClinicSearchResults = ({clinicSearch}) => {

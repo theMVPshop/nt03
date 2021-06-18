@@ -94,21 +94,21 @@ const saveResume = (req, res) => {
 module.exports = { saveResume }
 
 // const buildResumeObject = () => {
-//     let resume = {
-//           "resume_head": {
-//               "name": name,
-//               "address": address,
-//               "city": city,
-//               "state": state,
-//               "zip": zip,
-//               "phone": phone,
-//               "email": email,
-//               "summary": summary
-//           },
-//           "experience": [ ...proData ],
-//           "education": [ ...eduData ],
-//           "skills": addSkillsData.map( skill => Object.values(skill)).flat(2)
-//       };
+    // let resume = {
+    //       "resume_head": {
+    //           "name": name,
+    //           "address": address,
+    //           "city": city,
+    //           "state": state,
+    //           "zip": zip,
+    //           "phone": phone,
+    //           "email": email,
+    //           "summary": summary
+    //       },
+    //       "experience": [ ...proData ],
+    //       "education": [ ...eduData ],
+    //       "skills": addSkillsData.map( skill => Object.values(skill)).flat(2)
+    //   };
 
 //       console.log(resume);
 
