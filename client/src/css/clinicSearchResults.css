@@ -10,9 +10,12 @@
     flex-direction: column;
     width: 45vw;
     height: 80vh;
+    padding: .5rem;
+}
+
+.list {
     overflow-y: auto;
     background-color: var(--secondary-green-opacity);
-    padding: .5rem;
 }
 
 .map-area {
@@ -42,5 +45,11 @@ p {
 }
 
 .list-group-item {
-    margin: 0.2rem 0;
+    margin-bottom: 0.4rem;
+}
+
+@media screen and (max-width: 600px) {
+    .list-area {
+        width: 90vw;
+    }
 }
