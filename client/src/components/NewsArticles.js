@@ -6,130 +6,161 @@ import dentalOffice from '../images/dental-office.jpeg';
 const NewsArticles = (props) => {
   
   return (
-    <div className='carousel-container news-grid'>
-      <Carousel prevLabel={BsChevronLeft} nextLabel={BsChevronRight} interval={null} indicators={false}>
-        <Carousel.Item>
+    <section className="carousel" aria-label="Gallery">
+      <ol className="carousel__viewport">
+        <li id="carousel__slide1"
+            tabindex="0"
+            className="carousel__slide news-article">
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
-            <img
-              src={dentalOffice}
-              alt="dental office"
-            />
-            <Carousel.Caption>
-              <h3 className='news-title'>News Headline 1</h3>
+            <div>
+              <h4 className='news-title'>News Headline</h4>
               <p className='news-description'>News article descrption...</p>
-            </Carousel.Caption>
+            </div>
           </a>
-        </Carousel.Item>
-        <Carousel.Item>
+            <div className="carousel__snapper">
+              <a href="#carousel__slide4"
+                className="carousel__prev">Go to last slide</a>
+              <a href="#carousel__slide2"
+                className="carousel__next">Go to next slide</a>
+            </div>
+        </li>
+        <li id="carousel__slide2"
+            tabindex="0"
+            className="carousel__slide news-article">
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
-            <img
-              src={dentalOffice}
-              alt="dental office"
-            />
-            <Carousel.Caption>
-              <h3 className='news-title'>News Headline 2</h3>
+            <div>
+              <h4 className='news-title'>News Headline</h4>
               <p className='news-description'>News article descrption...</p>
-            </Carousel.Caption>
+            </div>
           </a>
-        </Carousel.Item>
-        <Carousel.Item>
+          <div className="carousel__snapper"></div>
+          <a href="#carousel__slide1"
+            className="carousel__prev">Go to previous slide</a>
+          <a href="#carousel__slide3"
+            className="carousel__next">Go to next slide</a>
+        </li>
+        <li id="carousel__slide3"
+            tabindex="0"
+            className="carousel__slide news-article">
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
-            <img
-              src={dentalOffice}
-              alt="dental office"
-            />
-            <Carousel.Caption>
-              <h3 className='news-title'>News Headline 3</h3>
+            <div>
+              <h4 className='news-title'>News Headline</h4>
               <p className='news-description'>News article descrption...</p>
-            </Carousel.Caption>
+            </div>
           </a>
-        </Carousel.Item>
-        <Carousel.Item>
+          <div className="carousel__snapper"></div>
+          <a href="#carousel__slide2"
+            className="carousel__prev">Go to previous slide</a>
+          <a href="#carousel__slide4"
+            className="carousel__next">Go to next slide</a>
+        </li>
+        <li id="carousel__slide4"
+            tabindex="0"
+            className="carousel__slide news-article">
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
-            <img
-              src={dentalOffice}
-              alt="dental office"
-            />
-            <Carousel.Caption>
-              <h3 className='news-title'>News Headline 4</h3>
+            <div>
+              <h4 className='news-title'>News Headline</h4>
               <p className='news-description'>News article descrption...</p>
-            </Carousel.Caption>
+            </div>
           </a>
-        </Carousel.Item>
-        <Carousel.Item>
+          <div className="carousel__snapper"></div>
+          <a href="#carousel__slide3"
+            className="carousel__prev">Go to previous slide</a>
+          <a href="#carousel__slide5"
+            className="carousel__next">Go to next slide</a>
+        </li>
+        <li id="carousel__slide5"
+            tabindex="0"
+            className="carousel__slide news-article">
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
-            <img
-              src={dentalOffice}
-              alt="dental office"
-            />
-            <Carousel.Caption>
-              <h3 className='news-title'>News Headline 5</h3>
+            <div>
+              <h4 className='news-title'>News Headline</h4>
               <p className='news-description'>News article descrption...</p>
-            </Carousel.Caption>
+            </div>
           </a>
-        </Carousel.Item>
-        <Carousel.Item>
+          <div className="carousel__snapper"></div>
+          <a href="#carousel__slide4"
+            className="carousel__prev">Go to previous slide</a>
+          <a href="#carousel__slide6"
+            className="carousel__next">Go to next slide</a>
+        </li>
+        <li id="carousel__slide6"
+            tabindex="0"
+            className="carousel__slide news-article">
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
-            <img
-              src={dentalOffice}
-              alt="dental office"
-            />
-            <Carousel.Caption>
-              <h3 className='news-title'>News Headline 6</h3>
+            <div>
+              <h4 className='news-title'>News Headline</h4>
               <p className='news-description'>News article descrption...</p>
-            </Carousel.Caption>
+            </div>
           </a>
-        </Carousel.Item>
-        <Carousel.Item>
+          <div className="carousel__snapper"></div>
+          <a href="#carousel__slide5"
+            className="carousel__prev">Go to previous slide</a>
+          <a href="#carousel__slide7"
+            className="carousel__next">Go to next slide</a>
+        </li>
+        <li id="carousel__slide7"
+            tabindex="0"
+            className="carousel__slide news-article">
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
-            <img
-              src={dentalOffice}
-              alt="dental office"
-            />
-            <Carousel.Caption>
-              <h3 className='news-title'>News Headline 7</h3>
+            <div>
+              <h4 className='news-title'>News Headline</h4>
               <p className='news-description'>News article descrption...</p>
-            </Carousel.Caption>
+            </div>
           </a>
-        </Carousel.Item>
-        <Carousel.Item>
+          <div className="carousel__snapper"></div>
+          <a href="#carousel__slide6"
+            className="carousel__prev">Go to previous slide</a>
+          <a href="#carousel__slide8"
+            className="carousel__next">Go to next slide</a>
+        </li>
+        <li id="carousel__slide8"
+            tabindex="0"
+            className="carousel__slide news-article">
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
-            <img
-              src={dentalOffice}
-              alt="dental office"
-            />
-            <Carousel.Caption>
-              <h3 className='news-title'>News Headline 8</h3>
+            <div>
+              <h4 className='news-title'>News Headline</h4>
               <p className='news-description'>News article descrption...</p>
-            </Carousel.Caption>
+            </div>
           </a>
-        </Carousel.Item>
-        <Carousel.Item>
+          <div className="carousel__snapper"></div>
+          <a href="#carousel__slide7"
+            className="carousel__prev">Go to previous slide</a>
+          <a href="#carousel__slide9"
+            className="carousel__next">Go to next slide</a>
+        </li>
+        <li id="carousel__slide9"
+            tabindex="0"
+            className="carousel__slide news-article">
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
-            <img
-              src={dentalOffice}
-              alt="dental office"
-            />
-            <Carousel.Caption>
-              <h3 className='news-title'>News Headline 9</h3>
+            <div>
+              <h4 className='news-title'>News Headline</h4>
               <p className='news-description'>News article descrption...</p>
-            </Carousel.Caption>
+            </div>
           </a>
-        </Carousel.Item>
-        <Carousel.Item>
+          <div className="carousel__snapper"></div>
+          <a href="#carousel__slide8"
+            className="carousel__prev">Go to previous slide</a>
+          <a href="#carousel__slide10"
+            className="carousel__next">Go to next slide</a>
+        </li>
+        <li id="carousel__slide10"
+            tabindex="0"
+            className="carousel__slide news-article">
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
-            <img
-              src={dentalOffice}
-              alt="dental office"
-            />
-            <Carousel.Caption>
-              <h3 className='news-title'>News Headline 10</h3>
+            <div>
+              <h4 className='news-title'>News Headline</h4>
               <p className='news-description'>News article descrption...</p>
-            </Carousel.Caption>
+            </div>
           </a>
-        </Carousel.Item>
-      </Carousel>
-    </div>
+          <div className="carousel__snapper"></div>
+          <a href="#carousel__slide9"
+            className="carousel__prev">Go to previous slide</a>
+          <a href="#carousel__slide1"
+            className="carousel__next">Go to first slide</a>
+        </li>
+      </ol>
+  </section>
   )
 
 }
