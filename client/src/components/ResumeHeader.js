@@ -1,57 +1,33 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
 const ResumeHeader = (props) => {
-  // useEffect(() => {
-  //   const nameData = localStorage.getItem('name');
-  //   const addressData = localStorage.getItem('address');
-  //   const cityData = localStorage.getItem('city');
-  //   const stateData = localStorage.getItem('state');
-  //   const zipData = localStorage.getItem('zip');
-  //   const phoneData = localStorage.getItem('phone');
-  //   const emailData = localStorage.getItem('email');
-  //   const summaryData = localStorage.getItem('summary');
-
-  //   if (
-  //     (nameData,
-  //     addressData,
-  //     cityData,
-  //     stateData,
-  //     zipData,
-  //     phoneData,
-  //     emailData,
-  //     summaryData)
-  //   ) {
-  //     props.updateName(JSON.parse(nameData));
-  //     props.updateAddress(JSON.parse(addressData));
-  //     props.updateCity(JSON.parse(cityData));
-  //     props.updateState(JSON.parse(stateData));
-  //     props.updateZip(JSON.parse(zipData));
-  //     props.updatePhone(JSON.parse(phoneData));
-  //     props.updateEmail(JSON.parse(emailData));
-  //     props.updateSummary(JSON.parse(summaryData));
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   localStorage.setItem('name', JSON.stringify(props.name));
-  //   localStorage.setItem('address', JSON.stringify(props.address));
-  //   localStorage.setItem('city', JSON.stringify(props.city));
-  //   localStorage.setItem('state', JSON.stringify(props.state));
-  //   localStorage.setItem('zip', JSON.stringify(props.zip));
-  //   localStorage.setItem('phone', JSON.stringify(props.phone));
-  //   localStorage.setItem('email', JSON.stringify(props.email));
-  //   localStorage.setItem('summary', JSON.stringify(props.summary));
-  // });
-
   // Stops page refresh
   const onSubmit = (e) => {
     e.preventDefault();
   };
 
   return (
-    <div className=''>
+    <div>
+      <div className='resume-clear-top'>
+        <Button
+          variant='contained'
+          style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+          onClick={props.clearHeader}
+        >
+          Clear
+        </Button>
+        <Button
+          variant='contained'
+          color='primary'
+          style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+          onClick={props.onClick}
+        >
+          Next
+        </Button>
+      </div>
+
       <h2>Create a header for your resume</h2>
       <p>The header is where you should add your contact information.</p>
 
@@ -143,14 +119,23 @@ const ResumeHeader = (props) => {
           }}
         />
       </form>
-      <Button
-        variant='contained'
-        color='primary'
-        style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
-        onClick={props.onClick}
-      >
-        Next
-      </Button>
+      <div className='resume-clear'>
+        <Button
+          variant='contained'
+          style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+          onClick={props.clearHeader}
+        >
+          Clear
+        </Button>
+        <Button
+          variant='contained'
+          color='primary'
+          style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+          onClick={props.onClick}
+        >
+          Next
+        </Button>
+      </div>
     </div>
   );
 };

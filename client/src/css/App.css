@@ -8,6 +8,7 @@
 @import url('./FlashCards.css');
 @import url('./AddressBook.css');
 @import url('./ResumeBuilder.css');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400&display=swap');
 
 :root {
   --primary-green: #28c47d;
@@ -30,6 +31,7 @@
   /* font-family: "Roboto", san-serf; */
   font-weight: 400;
   box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
 }
 
 body {

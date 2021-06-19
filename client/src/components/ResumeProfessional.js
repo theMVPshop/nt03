@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Button from '@material-ui/core/Button';
 
 import TextField from '@material-ui/core/TextField';
 
@@ -10,6 +11,24 @@ const ResumeProfessional = (props) => {
 
   return (
     <div className=''>
+      <div className='resume-navigation'>
+        <Button
+          variant='contained'
+          color='secondary'
+          style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+          onClick={props.goBack}
+        >
+          Back
+        </Button>
+        <Button
+          variant='contained'
+          color='primary'
+          style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+          onClick={props.onClick}
+        >
+          Next
+        </Button>
+      </div>
       <form onSubmit={onSubmit} className='form-style' autoComplete='off'>
         <h2>Add Current and Past Dental Work Experience</h2>
         <br />
@@ -254,6 +273,33 @@ const ResumeProfessional = (props) => {
 
         <hr />
       </form>
+      <div className='resume-clear'>
+        <Button
+          variant='contained'
+          style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+          onClick={props.clearWork}
+        >
+          Clear
+        </Button>
+        <div>
+          <Button
+            variant='contained'
+            color='secondary'
+            style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+            onClick={props.goBack}
+          >
+            Back
+          </Button>
+          <Button
+            variant='contained'
+            color='primary'
+            style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+            onClick={props.onClick}
+          >
+            Next
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };

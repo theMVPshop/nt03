@@ -5,13 +5,26 @@ import Button from '@material-ui/core/Button';
 const ResumeAdditionalSkills = (props) => {
   // Stops page refresh
   const onSubmit = (e) => {
+    var frm = document.getElementsByName('additional')[0];
     e.preventDefault();
+    frm.reset();
   };
 
   return (
     <div className=''>
-      <h2>Add any skills that are unique to you.</h2>
+      <div className='resume-navigation'>
+        <Button
+          variant='contained'
+          color='secondary'
+          style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+          onClick={props.goBack}
+        >
+          Back
+        </Button>
+      </div>
+      <h2>Add skills that are unique to you.</h2>
       <form
+        name='additional'
         onSubmit={onSubmit}
         className='form-style small-field-box'
         autoComplete='off'
@@ -26,12 +39,11 @@ const ResumeAdditionalSkills = (props) => {
         />{' '}
         <Button
           variant='contained'
-          color='secondary'
           type='submit'
           onClick={props.addSkills}
-          style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+          style={{ marginTop: 6, height: 60, fontSize: 18 }}
         >
-          ADD
+          add
         </Button>
       </form>
       <h3>Additional Skills:</h3>
@@ -56,6 +68,23 @@ const ResumeAdditionalSkills = (props) => {
             <span>{d.name}</span>
           </ul>
         ))}
+      </div>
+      <div className='resume-clear'>
+        <Button
+          variant='contained'
+          style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+          onClick={props.clearAdditional}
+        >
+          Clear
+        </Button>
+        <Button
+          variant='contained'
+          color='secondary'
+          style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+          onClick={props.goBack}
+        >
+          Back
+        </Button>
       </div>
     </div>
   );

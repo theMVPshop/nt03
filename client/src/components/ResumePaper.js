@@ -3,11 +3,21 @@ import Pdf from 'react-to-pdf';
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
 import Avatar from '@material-ui/core/Avatar';
 import Tooltip from '@material-ui/core/Tooltip';
-import ClearIcon from '@material-ui/icons/Clear';
+import { green } from '@material-ui/core/colors';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  green: {
+    color: '#fff',
+    backgroundColor: green[500],
+    margin: 10,
+  },
+}));
 
 const ref = React.createRef();
 
 function ResumePaper(props) {
+  const classes = useStyles();
   // Work Experience Title
   let proTitle;
   if (props.company.length < 1) {
@@ -56,15 +66,10 @@ function ResumePaper(props) {
 
   return (
     <div className='right'>
-      {/* <Tooltip title='Delete All Data' placement='right'>
-        <Avatar>
-          <ClearIcon onClick={props.delete} />
-        </Avatar>
-      </Tooltip> */}
       <Pdf targetRef={ref} filename='resume.pdf'>
         {({ toPdf }) => (
           <Tooltip title='Save to PDF' placement='right'>
-            <Avatar>
+            <Avatar className={classes.green}>
               <PictureAsPdfIcon onClick={toPdf} />
             </Avatar>
           </Tooltip>

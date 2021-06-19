@@ -36,6 +36,25 @@
   /* height: 20%; */
 }
 
+.resume-navigation {
+  display: flex;
+  justify-content: flex-end;
+  background-color: var(--secondary-green-opacity);
+  padding-bottom: 10px;
+}
+
+.resume-clear-top {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--secondary-green-opacity);
+  padding-bottom: 10px;
+}
+
+.resume-clear {
+  display: flex;
+  justify-content: space-between;
+}
+
 .right {
   width: 75vw;
   min-height: 100vh;

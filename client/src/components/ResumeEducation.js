@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 const ResumeEducation = (props) => {
   // Stops page refresh
@@ -9,6 +10,25 @@ const ResumeEducation = (props) => {
 
   return (
     <div className=''>
+      <div className='resume-navigation'>
+        {' '}
+        <Button
+          variant='contained'
+          color='secondary'
+          style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+          onClick={props.goBack}
+        >
+          Back
+        </Button>
+        <Button
+          variant='contained'
+          color='primary'
+          style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+          onClick={props.onClick}
+        >
+          Next
+        </Button>
+      </div>
       <h2>Add Current and Past Education</h2>
       <p>
         Add Highschool, College, or any relevant education you have completed.
@@ -157,6 +177,33 @@ const ResumeEducation = (props) => {
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
         />
       </form>
+      <div className='resume-clear'>
+        <Button
+          variant='contained'
+          style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+          onClick={props.clearEdu}
+        >
+          Clear
+        </Button>
+        <div>
+          <Button
+            variant='contained'
+            color='secondary'
+            style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+            onClick={props.goBack}
+          >
+            Back
+          </Button>
+          <Button
+            variant='contained'
+            color='primary'
+            style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+            onClick={props.onClick}
+          >
+            Next
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };
