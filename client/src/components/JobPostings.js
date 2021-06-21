@@ -21,7 +21,7 @@ const JobPostings = ({jobSearch, setJobSearch}) => {
   }, [jobSearch]);
   
   return (
-    <div className='container'>
+    <div className='jobs-page-container'>
       <JobSearchSm setJobSearch={setJobSearch} />
       <div className='grid-container'>
         <div className='job-postings-grid'>
@@ -41,9 +41,7 @@ const JobPostings = ({jobSearch, setJobSearch}) => {
           : <h3>No job postings found with your specifications.</h3>                           
           }
         </div>
-        {/* <div className='news-grid'> */}
-          <NewsArticles />
-        {/* </div> */}
+        <NewsArticles className='news-grid' />
         <div className='flashcards-grid'>
           <FlashCards />
         </div>
