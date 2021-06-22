@@ -5,7 +5,12 @@ import { BsChevronUp, BsChevronDown, BsBookmark, BsBookmarkFill } from 'react-ic
 const JobCard = (props) => { 
   const [collapse, setCollapse] = useState(true);
   // const [jobSaved, setJobSaved] = useState(false);
-  // const [isBookmarked, setIsBookmarked] = useState(false)
+  // const [isBookmarked, setIsBookmarked] = useState(false);
+
+  let regExp = /&nbsp;/g;
+  let description = props.description.replace(regExp,"");
+  let regExp2 = /(<([^>]+)>)/ig;
+  description = description.replace(regExp2, "");
 
   const collapseCard = () => {
     setCollapse(!collapse);
@@ -70,7 +75,7 @@ const JobCard = (props) => {
           </Accordion.Toggle>
           <Accordion.Collapse eventKey='0'>
             <Card.Body>
-              <p className='card-body'>{props.description}</p>
+              <p className='card-body'>{description}</p>
               <a href={props.link} target='blank' className='btn sm-btn'>MORE INFO</a>
             </Card.Body>
           </Accordion.Collapse>

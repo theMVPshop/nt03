@@ -1,7 +1,4 @@
 import React from 'react';
-import { Carousel } from 'react-bootstrap';
-import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
-import dentalOffice from '../images/dental-office.jpeg';
 
 const NewsArticles = (props) => {
   
