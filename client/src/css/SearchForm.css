@@ -8,6 +8,11 @@
   margin: 100px auto;
 }
 
+.lg-search-form-container h3 {
+  text-align: center;
+  font-size: 1.6rem;
+}
+
 .lg-search-form {
   display: flex;
   flex-direction: column;

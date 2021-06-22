@@ -1,10 +1,29 @@
 import React from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import logo from '../images/DentalWerk.png';
 import clinic from '../images/GREEN-clinic-search.png';
 import search from '../images/GREEN-search.png';
 import '../css/Navigation.css';
+
+// Code to logout user
+//   const { signOut, signInStatus, user } = props;
+//   const handleLogOut = () => {
+//     axios
+//       .post('/auth/logout')
+//       .then((response) => {
+//         console.log(response);
+//         const {
+//           data: { msg },
+//         } = response;
+//         if (msg == 'Logged Out') {
+//           signOut();
+//           console.log('you good');
+//         }
+//       })
+//       .catch((error) => console.log(error));
+//
 
 const Navigation = () => {
   return (
@@ -30,13 +49,23 @@ const Navigation = () => {
             <NavDropdown.Item href='/clinic-search'>
               Clinic Search
             </NavDropdown.Item>
-            <NavDropdown.Item href='/saved-jobs'>Saved Jobs</NavDropdown.Item>
-            <NavDropdown.Item href='/address-book'>
-              Address Book
+            <NavDropdown.Item href='/resume-builder'>
+              Resume Builder
             </NavDropdown.Item>
-            <NavDropdown.Item href='/profile'>Profile</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href='/'>Log Out</NavDropdown.Item>
+            {/* Code for conditional display of login in nav menu */}
+            {/* <NavDropdown.Item href='/saved-jobs'>Saved Jobs</NavDropdown.Item> */}
+            {/* <NavDropdown.Item href='/address-book'>
+              Address Book
+            </NavDropdown.Item> */}
+            {/* <NavDropdown.Item href='/profile'>Profile</NavDropdown.Item> */}
+            {/* <NavDropdown.Divider />
+            {signInStatus ? (
+              <NavDropdown.Item onClick={handleLogOut}>
+                Log Out
+              </NavDropdown.Item>
+            ) : (
+              <NavDropdown.Item href='/sign-in'>Sign In</NavDropdown.Item>
+            )} */}
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>

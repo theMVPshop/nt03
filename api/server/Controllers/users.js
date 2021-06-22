@@ -80,20 +80,19 @@ const clinicContacted = (req, res) => {
 //@POST
 // Create a new user
 //{TODO JEFF FIX ERROR HANDLING}
-const createUser = (req, res) => {
+const createUser = (req, res, err) => {
   const { username, password } = req.body;
 
   let sql = 'INSERT INTO users (username, password) values (?, ?)';
-  bcrypt.hash(password, saltRounds, async (error, hash) => {
+  bcrypt.hash(password, saltRounds, (err, hash) => {
     try {
       sql = mysql.format(sql, [username, hash]);
 
-      await db.query(sql, (result, error) => {
-        return res.send(`${username} successfully registered: ${result.data}`);
+      db.query(sql, (err, res) => {
+        res.send(res);
       });
-    } catch (error) {
-      if (error.code == 'ER_DUP_ENTRY')
-        return res.status(409).send('Username is taken');
+    } catch (err) {
+      return handleSQLError(err, res);
     }
   });
 };
@@ -114,7 +113,10 @@ const saveClinic = (req, res) => {
     if (error) return handleSQLError(res, error);
 
     console.log(result);
-    res.sendStatus(200);
+    res.json({
+      msg: 'clinic saved',
+      clinicID: result.insertId
+    });
   });
 };
 

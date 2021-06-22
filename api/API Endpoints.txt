@@ -1,0 +1,110 @@
+################ User Info
+
+GET /users - Get all users in DB
+
+GET /users/:username - Get specific user by username
+
+POST /users - Create a new user
+        Sample JSON
+            {
+                "username": "username",
+                "first_name: "John",
+                "last_name": "Doe"
+            }
+
+PUT /users/:username - Not fully implemented yet
+
+
+################ Saved clinic data for user
+
+GET /users/:userID/clinics - Get a list of saved clinics for the user
+
+POST /users/:userID/clinics - Save a clinic to the user
+        Sample JSON
+            {
+                "clinic_name": "clinic name",
+                "clinic_address": "address",
+                "clinic_phone": "123-456-7890",
+                "contacted": false
+            }
+
+PUT /users/:clinicID/contacted - Hit enpoint to swicth the saved clinic to contacted
+
+DELETE /users/:clinicID/clinics - Hit endpoint to unsave the clinic from the user
+
+
+################ Saved Job Info
+
+GET /jobs/jobs - Get all jobs in DB
+
+GET /jobs/jobs/:userID - List of saved jobs by user - id recieved from pulling users account info
+
+POST /jobs/jobs - Save a new job for user
+        Sample JSON
+            {
+                "user_id" : 1,
+                "job": {
+                    "company": "test company",
+                    "position": "test position",
+                    "location": "tampa, FL",
+                    "url": "test job url"
+                }
+            }
+
+DELETE /jobs/jobs/:jobID - Deletes a specific saved job from the database
+
+################ Saved Resume Info
+
+POST  /resume/:userID   -   Saves the resume information to the database
+        Sample JSON in body
+        {
+            "resume": {
+                "resume_head": {
+                    "name": "John Doe",
+                    "address": "123 Main ST",
+                    "city": "Austin",
+                    "state": "TX",
+                    "zip": "73301",
+                    "phone": "123-456-7890",
+                    "email": "johndoe@test.com",
+                    "summary": "I'm a good worker"
+                },
+                "experience": [
+                    {
+                        "company": "ACME Inc.",
+                        "location": "Toon Town, TX",
+                        "position": "Roadrunner trap maker",
+                        "start": "January 2000",
+                        "end": "current",
+                        "description1": "Design devious traps to catch a Roadrunner",
+                        "description2": "",
+                        "description3": ""
+                    },
+                    {
+                        "company": "ACME Inc. 2",
+                        "location": "Toon Town, TX 2",
+                        "position": "Roadrunner trap maker 2",
+                        "start": "January 2000 2",
+                        "end": "current 2",
+                        "description1": "Design devious traps to catch a Roadrunner 2",
+                        "description2": "",
+                        "description3": ""
+                    }
+                ],
+                "education": [
+                    {
+                        "school": "ACME University",
+                        "location": "Austin, TX",
+                        "major": "villany",
+                        "graduation": "1999",
+                        "info": "Studied how to be a toon villan"
+                    }
+                ],
+                "skills": [
+                    "trap making",
+                    "evil laughter"
+                ]
+            }
+        }
+
+

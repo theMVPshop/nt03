@@ -10,9 +10,12 @@
     flex-direction: column;
     width: 45vw;
     height: 80vh;
+    padding: .5rem;
+}
+
+.list {
     overflow-y: auto;
     background-color: var(--secondary-green-opacity);
-    padding: .5rem;
 }
 
 .map-area {
@@ -42,5 +45,38 @@ p {
 }
 
 .list-group-item {
-    margin: 0.2rem 0;
+    margin-bottom: 0.4rem;
+}
+
+.control {
+    width: 100%;
+    display: flex;
+}
+
+.control-title {
+    flex-grow: 1;
+}
+
+.control-btn {
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    background-color: var(--secondary-green);
+    text-transform: uppercase;
+    color: var(--primary-text-color);
+    min-height: 38px;
+    border-radius: 2px;
+    margin-bottom: 15px;
+    justify-self: end;
+    padding: 0.5rem;
+  }
+
+@media screen and (max-width: 750px) {
+    .list-area {
+        width: 90vw;
+    }
+
+    .control {
+        flex-direction: column;
+    }
 }
