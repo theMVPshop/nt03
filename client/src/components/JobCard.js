@@ -4,59 +4,61 @@ import { BsChevronUp, BsChevronDown, BsBookmark, BsBookmarkFill } from 'react-ic
 
 const JobCard = (props) => { 
   const [collapse, setCollapse] = useState(true);
-  const [jobSaved, setJobSaved] = useState(false);
-  const [isBookmarked, setIsBookmarked] = useState(false);
+
+  // const [jobSaved, setJobSaved] = useState(false);
+  // const [isBookmarked, setIsBookmarked] = useState(false);
+
+  let regExp = /&nbsp;/g;
+  let description = props.description.replace(regExp,"");
+  let regExp2 = /(<([^>]+)>)/ig;
+  description = description.replace(regExp2, "");
 
   const collapseCard = () => {
     setCollapse(!collapse);
   }
 
-  const toggleBookmark = () => {
-    setIsBookmarked(!isBookmarked);
-  }
+  // const toggleBookmark = () => {
+  //   setIsBookmarked(!isBookmarked);
+  // }
 
-  const saveJobPosting = () => {
-    if (jobSaved) {
-      return
-    }
+  // const saveJobPosting = () => {
+  //   if (jobSaved) {
+  //     return
+  //   }
 
-    toggleBookmark();
+  //   toggleBookmark();
 
-    let userJob = {
-      user_id: 1,
-      job: {
-      company: props.company,
-      position: props.title,
-      location: props.location,
-      url: props.link,
-    }}
+  //   let job = {
+  //     url: props.link,
+  //     user_id: "1"
+  //   }
 
-    fetch('/jobs/jobs', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(userJob)
-    })
-    .then(response => {
-      if (response.ok) {
-          setJobSaved(true)
-      } else {
-          alert('There was an error and job posting was not saved');
-      }
-  })
-  }
+  //   fetch('/jobs/jobs', {
+  //     method: 'POST',
+  //     headers: {
+  //         'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify(job)
+  //   })
+  //   .then(response => {
+  //     if (response.ok) {
+  //         setJobSaved(true)
+  //     } else {
+  //         alert('There was an error and job posting was not saved');
+  //     }
+  // })
+  // }
 
   return (
     <div className='job-card-container'>
       <Accordion>
         <Card>
-        <div className='bookmark-header'>
+        {/* <div className='bookmark-header'>
           {isBookmarked 
             ? <BsBookmarkFill onClick={toggleBookmark} />
             : <BsBookmark onClick={saveJobPosting} />
           }
-        </div>
+        </div> */}
           <Accordion.Toggle 
             as={Card.Header} 
             eventKey='0' 
@@ -74,7 +76,7 @@ const JobCard = (props) => {
           </Accordion.Toggle>
           <Accordion.Collapse eventKey='0'>
             <Card.Body>
-              <p className='card-body'>{props.description}</p>
+              <p className='card-body'>{description}</p>
               <a href={props.link} target='blank' className='btn sm-btn'>MORE INFO</a>
             </Card.Body>
           </Accordion.Collapse>
