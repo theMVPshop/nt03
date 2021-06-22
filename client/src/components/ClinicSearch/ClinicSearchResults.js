@@ -10,12 +10,11 @@ import "../../css/clinicSearchResults.css"
 import Map from './Map'
 import ClinicList from './ClinicList'
 import { useHistory } from 'react-router'
-import { useLocation } from 'react-router-dom'
 
 const ClinicSearchResults = ({clinicSearch}) => {
     // state and screen width to conditionally render map based on screen size
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-    const mapBreakpoint = 600
+    const mapBreakpoint = 750;
 
     // The list of results from the fetch call to the API
     const [clinicList, setClinicList] = useState([])
@@ -33,7 +32,7 @@ const ClinicSearchResults = ({clinicSearch}) => {
     // set the results into ClinicList state and a default office to display on the map
     useEffect(() => {
         // Check if dental list was already searched for and saved in session storage
-        const session = window.sessionStorage.getItem('clinicList')
+        const session = sessionStorage.getItem('clinicList')
 
         // if already in session storage use that data
         if (session) {
@@ -55,13 +54,17 @@ const ClinicSearchResults = ({clinicSearch}) => {
                     if (data.length > 0) {
                         setClinicList(data)
                         setSelectedOffice(data[0])
-                        window.sessionStorage.setItem('clinicList', JSON.stringify(data))
+                        sessionStorage.setItem('clinicList', JSON.stringify(data))
                     } else {
                         setResultsFound(false)
                     }
                 })
         }
     }, [])
+
+    useEffect(() => {
+        window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
+    }, []);
 
     // Pass store the selected office in state to pass to the Map Component
     const handleClick = (e) => {
@@ -71,10 +74,23 @@ const ClinicSearchResults = ({clinicSearch}) => {
         setSelectedOffice(office)
     }
 
+    const newSearch = () => {
+        sessionStorage.clear();
+        history.push('/clinic-search');
+    };
+
     return (
         <div className='main-container'>
             <div className='list-area'>
-                <h2>Dental Offices</h2>
+                <div className="control">
+                    <h2 className="control-title">Dental Offices</h2>
+                    <button
+                        className="control-btn"
+                        type="button"
+                        onClick={newSearch}>
+                            New Search
+                        </button>
+                </div>
                 <div className="list">
                     <div className="list-group">
                         {/* If nothing found display message and button to return to search page */}
@@ -84,7 +100,7 @@ const ClinicSearchResults = ({clinicSearch}) => {
                                 <button
                                     className="btn form-btn"
                                     type="button"
-                                    onClick={() => history.push('./clinic-search')}
+                                    onClick={() => history.push('/clinic-search')}
                                     >
                                     New Search
                                 </button>

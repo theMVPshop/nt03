@@ -48,8 +48,35 @@ p {
     margin-bottom: 0.4rem;
 }
 
-@media screen and (max-width: 600px) {
+.control {
+    width: 100%;
+    display: flex;
+}
+
+.control-title {
+    flex-grow: 1;
+}
+
+.control-btn {
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    background-color: var(--secondary-green);
+    text-transform: uppercase;
+    color: var(--primary-text-color);
+    min-height: 38px;
+    border-radius: 2px;
+    margin-bottom: 15px;
+    justify-self: end;
+    padding: 0.5rem;
+  }
+
+@media screen and (max-width: 750px) {
     .list-area {
         width: 90vw;
+    }
+
+    .control {
+        flex-direction: column;
     }
 }
