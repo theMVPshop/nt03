@@ -26,7 +26,6 @@ function ResumePaper(props) {
     proTitle = (
       <div>
         <h3 className='resume-titles'>Professional Experience</h3>
-        <hr className='divider' />
       </div>
     );
   }
@@ -39,7 +38,6 @@ function ResumePaper(props) {
     eduTitle = (
       <div>
         <h3 className='resume-titles'>Education</h3>
-        <hr className='divider' />
       </div>
     );
   }
@@ -52,7 +50,6 @@ function ResumePaper(props) {
     skillsTitle = (
       <div>
         <h3 className='resume-titles'>Additional Skills</h3>
-        <hr className='divider' />
       </div>
     );
   }
@@ -64,9 +61,20 @@ function ResumePaper(props) {
     headerDivider = '';
   }
 
+  let summaryDivider;
+  if (props.summary.length === 0) {
+    summaryDivider = '';
+  } else {
+    summaryDivider = (
+      <div>
+        <h3 className='resume-titles'>Professional Summary</h3>
+      </div>
+    );
+  }
+
   return (
     <div className='right'>
-      <Pdf targetRef={ref} filename='resume.pdf'>
+      <Pdf targetRef={ref} filename={`${props.name}.pdf`}>
         {({ toPdf }) => (
           <Tooltip title='Save to PDF' placement='right'>
             <Avatar className={classes.green}>
@@ -87,7 +95,8 @@ function ResumePaper(props) {
                 {props.phone} <br />
                 {props.email} <br />
               </p>
-              <p>{props.summary}</p>
+              {summaryDivider}
+              <p className='paper-summary'>{props.summary}</p>
 
               {headerDivider}
             </div>
@@ -101,7 +110,7 @@ function ResumePaper(props) {
               <div className='work-content'>
                 <div className='work-single'>
                   <p className='work-one'>
-                    {props.company}
+                    <strong>{props.company}</strong>
                     <br />
                     {props.location}
                     <br />
@@ -113,7 +122,7 @@ function ResumePaper(props) {
                     {props.desc3 === '' ? '' : <li>{props.desc3}</li>}
                   </p>
                   <p className='work-one'>
-                    {props.company2}
+                    <strong>{props.company2}</strong>
                     <br />
                     {props.location2}
                     <br />
@@ -125,7 +134,7 @@ function ResumePaper(props) {
                     {props.desc33 === '' ? '' : <li>{props.desc33}</li>}
                   </p>
                   <p className='work-one'>
-                    {props.company3}
+                    <strong>{props.company3}</strong>
                     <br />
                     {props.location3}
                     <br />
@@ -188,19 +197,24 @@ function ResumePaper(props) {
             <div className='additional'>
               {skillsTitle}
 
-              <div>
-                {props.skills.map((skill, id) => (
-                  <p key={id}>
-                    {skill.select === false ? '' : <li>{skill.name}</li>}
+              <div className='additional-content'>
+                {props.addSkillsData.map((add) => (
+                  <p className='additional-single' key={add.id}>
+                    <li className='list-item'>{add.skill1}</li>
                   </p>
                 ))}
-                <div className='additional-content'>
-                  {props.addSkillsData.map((add) => (
-                    <p className='additional-single' key={add.id}>
-                      <li>{add.skill1}</li>
-                    </p>
-                  ))}
-                </div>
+
+                {props.skills.map((skill, id) => (
+                  <p key={id}>
+                    {skill.select === false ? (
+                      ''
+                    ) : (
+                      <p className='additional-single'>
+                        <li className='list-item'>{skill.name}</li>
+                      </p>
+                    )}
+                  </p>
+                ))}
               </div>
             </div>
           </div>

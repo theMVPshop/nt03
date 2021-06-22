@@ -74,11 +74,15 @@
 }
 
 /* Resume Preview */
+.preview-container {
+}
+
 .resume-titles {
   text-transform: uppercase;
   letter-spacing: 3px;
   margin-top: 15px;
   font-size: 1.2em;
+  background-color: rgba(128, 128, 128, 0.338);
 }
 
 .resume-header {
@@ -91,6 +95,7 @@
 
 .content-header {
   width: 80%;
+  height: 10%;
 }
 
 .content {
@@ -102,6 +107,29 @@
   margin-top: 60px;
   text-transform: uppercase;
   font-size: 2em;
+  letter-spacing: 3px;
+}
+
+.header-h1,
+.content-header > p,
+.resume-titles,
+.work-one,
+.work-one > li,
+.edu-single,
+.list-item {
+  font-family: 'Lora', serif;
+}
+
+.content-header > p,
+.work-one,
+.work-one > li,
+.edu-single,
+.list-item {
+  font-size: 15.5px;
+}
+
+.edu-single {
+  padding-top: 10px;
 }
 
 .resume-divider {
@@ -118,6 +146,8 @@
 .additional {
   display: flex;
   flex-direction: column;
+  height: 30%;
+  padding-bottom: 2em;
 }
 
 .work-content,
@@ -128,7 +158,6 @@
   flex-wrap: wrap;
 }
 
-.work-single,
 .edu-single,
 .additional-single,
 .work-one {
@@ -138,4 +167,8 @@
 .work-single {
   display: flex;
   flex-direction: row;
+}
+
+.list-item {
+  /* padding-right: 10px; */
 }
