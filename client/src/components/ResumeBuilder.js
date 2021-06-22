@@ -2,11 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Button from '@material-ui/core/Button';
-import Avatar from '@material-ui/core/Avatar';
-import ClearIcon from '@material-ui/icons/Clear';
-import Tooltip from '@material-ui/core/Tooltip';
-import { green, pink } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 
 import ResumeHeader from './ResumeHeader';
@@ -16,16 +11,6 @@ import ResumeEducation from './ResumeEducation';
 import ResumeAdditionalSkills from './ResumeAdditionalSkills';
 
 const useStyles = makeStyles((theme) => ({
-  pink: {
-    color: theme.palette.getContrastText(pink[500]),
-    backgroundColor: pink[500],
-    margin: 10,
-  },
-  green: {
-    color: '#fff',
-    backgroundColor: green[500],
-    margin: 10,
-  },
   indicator: {
     backgroundColor: '#28c47d',
   },
@@ -676,14 +661,9 @@ export default function ResumeBuilder() {
         )}
       </div>
       <div>
-        <Tooltip title='Delete All Data' placement='right'>
-          <Avatar className={classes.pink}>
-            <ClearIcon onClick={handleDeleteData} />
-          </Avatar>
-        </Tooltip>
-
         {/* RESUME RENDER */}
         <ResumePaper
+          handleDeleteData={handleDeleteData}
           // HEADER
           name={name}
           address={address}

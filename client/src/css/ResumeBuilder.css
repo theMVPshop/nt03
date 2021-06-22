@@ -18,6 +18,17 @@
   flex-direction: column;
 }
 
+.work-form-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.job-desc {
+  font-size: 20px;
+  margin: 10px;
+  /* text-decoration: underline; */
+}
+
 .small-field-box {
   display: flex;
   flex-direction: row;
@@ -32,10 +43,13 @@
   width: 85%;
 }
 
-.checkbox-container {
-  /* height: 20%; */
+.form-box {
+  margin: 10px 5px 10px 5px;
 }
 
+.checkbox-container > ul {
+  font-size: 20px;
+}
 .resume-navigation {
   display: flex;
   justify-content: flex-end;
@@ -56,9 +70,8 @@
 }
 
 .right {
-  width: 75vw;
+  width: 60vw;
   min-height: 100vh;
-  font-family: 'Lora', serif;
   background-color: var(--background);
 }
 

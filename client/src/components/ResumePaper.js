@@ -3,13 +3,19 @@ import Pdf from 'react-to-pdf';
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
 import Avatar from '@material-ui/core/Avatar';
 import Tooltip from '@material-ui/core/Tooltip';
-import { green } from '@material-ui/core/colors';
+import ClearIcon from '@material-ui/icons/Clear';
+import { green, pink } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   green: {
     color: '#fff',
     backgroundColor: green[500],
+    margin: 10,
+  },
+  pink: {
+    color: theme.palette.getContrastText(pink[500]),
+    backgroundColor: pink[500],
     margin: 10,
   },
 }));
@@ -74,6 +80,11 @@ function ResumePaper(props) {
 
   return (
     <div className='right'>
+      <Tooltip title='Delete All Data' placement='right'>
+        <Avatar className={classes.pink}>
+          <ClearIcon onClick={props.handleDeleteData} />
+        </Avatar>
+      </Tooltip>
       <Pdf targetRef={ref} filename={`${props.name}.pdf`}>
         {({ toPdf }) => (
           <Tooltip title='Save to PDF' placement='right'>

@@ -11,65 +11,8 @@ const ResumeAdditionalSkills = (props) => {
   };
 
   return (
-    <div className=''>
-      <div className='resume-navigation'>
-        <Button
-          variant='contained'
-          color='secondary'
-          style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
-          onClick={props.goBack}
-        >
-          Back
-        </Button>
-      </div>
-      <h2>Add skills that are unique to you.</h2>
-      <form
-        name='additional'
-        onSubmit={onSubmit}
-        className='form-style small-field-box'
-        autoComplete='off'
-      >
-        <TextField
-          className='small-field-add'
-          id='outlined-basic'
-          label=''
-          onChange={(e) => props.updateSkill1(e.target.value)}
-          variant='outlined'
-          style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
-        />{' '}
-        <Button
-          variant='contained'
-          type='submit'
-          onClick={props.addSkills}
-          style={{ marginTop: 6, height: 60, fontSize: 18 }}
-        >
-          add
-        </Button>
-      </form>
-      <h3>Additional Skills:</h3>
-      <div className='checkbox-container'>
-        {props.skills.map((d, i) => (
-          <ul key={d.id}>
-            <input
-              onChange={(event) => {
-                let checked = event.target.checked;
-                props.setSkills(
-                  props.skills.map((data) => {
-                    if (d.id === data.id) {
-                      data.select = checked;
-                    }
-                    return data;
-                  })
-                );
-              }}
-              type='checkbox'
-              checked={d.select}
-            />
-            <span>{d.name}</span>
-          </ul>
-        ))}
-      </div>
-      <div className='resume-clear'>
+    <div className='additional-container'>
+      <div className='resume-navigation resume-clear'>
         <Button
           variant='contained'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
@@ -85,6 +28,72 @@ const ResumeAdditionalSkills = (props) => {
         >
           Back
         </Button>
+      </div>
+      <div className='form-box'>
+        <h2>Add skills that are unique to you.</h2>
+        <form
+          name='additional'
+          onSubmit={onSubmit}
+          className='form-style small-field-box'
+          autoComplete='off'
+        >
+          <TextField
+            className='small-field-add'
+            id='outlined-basic'
+            label=''
+            onChange={(e) => props.updateSkill1(e.target.value)}
+            variant='outlined'
+            style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+          />{' '}
+          <Button
+            variant='contained'
+            type='submit'
+            onClick={props.addSkills}
+            style={{ marginTop: 6, height: 60, fontSize: 18 }}
+          >
+            add
+          </Button>
+        </form>
+        <h3>Additional Skills:</h3>
+        <div className='checkbox-container'>
+          {props.skills.map((d, i) => (
+            <ul key={d.id}>
+              <input
+                onChange={(event) => {
+                  let checked = event.target.checked;
+                  props.setSkills(
+                    props.skills.map((data) => {
+                      if (d.id === data.id) {
+                        data.select = checked;
+                      }
+                      return data;
+                    })
+                  );
+                }}
+                type='checkbox'
+                checked={d.select}
+              />
+              <span>{d.name}</span>
+            </ul>
+          ))}
+        </div>
+        <div className='resume-clear'>
+          <Button
+            variant='contained'
+            style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+            onClick={props.clearAdditional}
+          >
+            Clear
+          </Button>
+          <Button
+            variant='contained'
+            color='secondary'
+            style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+            onClick={props.goBack}
+          >
+            Back
+          </Button>
+        </div>
       </div>
     </div>
   );
