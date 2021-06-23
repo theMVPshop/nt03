@@ -73,6 +73,12 @@ body {
 }
 
 
+@media (max-width: 740px) {
+  .lg-btn {
+    width: 90%;
+  }
+}
+
 @media (max-width: 575px) {
   .sm-btn {
     width: 90%;

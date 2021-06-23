@@ -39,7 +39,7 @@ const JobSearch = ({setJobSearch}) => {
               onChange={handleTextChange}
           />
           <button className='btn lg-btn' type='submit'>
-            SEARCH
+            SEARCH FOR JOBS
           </button>
         </form>
       </div>
