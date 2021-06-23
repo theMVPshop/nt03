@@ -660,73 +660,72 @@ export default function ResumeBuilder() {
           </div>
         )}
       </div>
-      <div>
-        {/* RESUME RENDER */}
-        <ResumePaper
-          handleDeleteData={handleDeleteData}
-          // HEADER
-          name={name}
-          address={address}
-          city={city}
-          state={state}
-          zip={zip}
-          phone={phone}
-          email={email}
-          summary={summary}
-          // PROFESSIONAL
-          // JOB 1
-          company={company}
-          location={location}
-          position={position}
-          start={start}
-          end={end}
-          desc1={desc1}
-          desc2={desc2}
-          desc3={desc3}
-          // JOB 2
-          company2={company2}
-          location2={location2}
-          position2={position2}
-          start2={start2}
-          end2={end2}
-          desc11={desc11}
-          desc22={desc22}
-          desc33={desc33}
-          // JOB 3
-          company3={company3}
-          location3={location3}
-          position3={position3}
-          start3={start3}
-          end3={end3}
-          desc111={desc111}
-          desc222={desc222}
-          desc333={desc333}
-          // EDUCATION
-          // EDU 1
-          institute={institute}
-          instLocation={instLocation}
-          major={major}
-          graduation={graduation}
-          info={info}
-          // EDU 2
-          institute2={institute2}
-          instLocation2={instLocation2}
-          major2={major2}
-          graduation2={graduation2}
-          info2={info2}
-          // EDU 3
-          institute3={institute3}
-          instLocation3={instLocation3}
-          major3={major3}
-          graduation3={graduation3}
-          info3={info3}
-          // ADDITIONAL SKILLS
-          addSkillsData={addSkillsData}
-          skill1={skill1}
-          skills={skills}
-          setSkills={setSkills}
-        />
-      </div>
+
+      {/* RESUME RENDER */}
+      <ResumePaper
+        handleDeleteData={handleDeleteData}
+        // HEADER
+        name={name}
+        address={address}
+        city={city}
+        state={state}
+        zip={zip}
+        phone={phone}
+        email={email}
+        summary={summary}
+        // PROFESSIONAL
+        // JOB 1
+        company={company}
+        location={location}
+        position={position}
+        start={start}
+        end={end}
+        desc1={desc1}
+        desc2={desc2}
+        desc3={desc3}
+        // JOB 2
+        company2={company2}
+        location2={location2}
+        position2={position2}
+        start2={start2}
+        end2={end2}
+        desc11={desc11}
+        desc22={desc22}
+        desc33={desc33}
+        // JOB 3
+        company3={company3}
+        location3={location3}
+        position3={position3}
+        start3={start3}
+        end3={end3}
+        desc111={desc111}
+        desc222={desc222}
+        desc333={desc333}
+        // EDUCATION
+        // EDU 1
+        institute={institute}
+        instLocation={instLocation}
+        major={major}
+        graduation={graduation}
+        info={info}
+        // EDU 2
+        institute2={institute2}
+        instLocation2={instLocation2}
+        major2={major2}
+        graduation2={graduation2}
+        info2={info2}
+        // EDU 3
+        institute3={institute3}
+        instLocation3={instLocation3}
+        major3={major3}
+        graduation3={graduation3}
+        info3={info3}
+        // ADDITIONAL SKILLS
+        addSkillsData={addSkillsData}
+        skill1={skill1}
+        skills={skills}
+        setSkills={setSkills}
+      />
     </div>
   );
 }

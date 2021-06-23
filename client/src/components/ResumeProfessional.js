@@ -63,7 +63,7 @@ const ResumeProfessional = (props) => {
           </Button>
           <Button
             variant='contained'
-            color='primary'
+            className='next-btn'
             style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
             onClick={props.onClick}
           >
@@ -354,7 +354,7 @@ const ResumeProfessional = (props) => {
             </Button>
             <Button
               variant='contained'
-              color='primary'
+              className='next-btn'
               style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
               onClick={props.onClick}
             >

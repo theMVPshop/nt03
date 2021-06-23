@@ -6,6 +6,13 @@
 .resume-container {
   width: 40%;
   background-color: white;
+  box-shadow: 0 0 0.5cm #7b7d7d;
+  z-index: 1;
+}
+
+/* Tab titles */
+.MuiTab-wrapper {
+  font-size: large;
 }
 
 .tab-bar {
@@ -26,7 +33,6 @@
 .job-desc {
   font-size: 20px;
   margin: 10px;
-  /* text-decoration: underline; */
 }
 
 .small-field-box {
@@ -45,6 +51,10 @@
 
 .form-box {
   margin: 10px 5px 10px 5px;
+}
+
+.form-box > h3 {
+  margin-top: 10px;
 }
 
 .checkbox-container > ul {
@@ -69,6 +79,10 @@
   justify-content: space-between;
 }
 
+.next-btn > .MuiButton-root {
+  background-color: red;
+}
+
 .right {
   width: 60vw;
   min-height: 100vh;
@@ -86,10 +100,11 @@
   height: 29.7cm;
 }
 
-/* Resume Preview */
-.preview-container {
+.save-clear {
+  position: absolute;
+  margin: 0;
 }
-
+/* Resume Preview */
 .resume-titles {
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -174,7 +189,7 @@
 .edu-single,
 .additional-single,
 .work-one {
-  padding-right: 50px;
+  padding-right: 20px;
 }
 
 .work-single {
@@ -182,6 +197,29 @@
   flex-direction: row;
 }
 
-.list-item {
-  /* padding-right: 10px; */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .resume-box {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .resume-container {
+    width: 100vw;
+
+    box-shadow: 0 0 0.5cm #7b7d7d;
+    background-color: white;
+  }
+
+  .save-clear {
+    visibility: visible;
+    width: 100vw;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .right {
+    height: 10vh;
+  }
 }

@@ -22,8 +22,8 @@ const ResumeHeader = (props) => {
           Clear
         </Button>
         <Button
+          className='next-btn'
           variant='contained'
-          color='primary'
           style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
           onClick={props.onClick}
         >
