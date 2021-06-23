@@ -71,3 +71,10 @@ body {
   border-radius: 2px;
   margin: 0 0 15px;
 }
+
+
+@media (max-width: 575px) {
+  .sm-btn {
+    width: 90%;
+  }
+}
