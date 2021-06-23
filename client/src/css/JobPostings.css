@@ -33,3 +33,15 @@
 .flashcards-grid {
   grid-area: flashcards;
 }
+
+@media (max-width: 575px) {
+  .grid-container {
+    grid-template-columns: 3fr;
+    grid-template-rows: 3fr;  
+    grid-template-areas: 
+    "jobs";
+  }
+  .flashcards-grid, .news-grid {
+    display: none;
+  }
+}
