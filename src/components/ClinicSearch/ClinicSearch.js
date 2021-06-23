@@ -20,7 +20,6 @@ const ClinicSearch = ({setClinicSearch}) => {
 
   return (
     <div className='lg-search-form-container'>
-      <h3>Search for dental clinics in your area</h3>
       <div className='lg-search-form'>
         <img className='lg-search-form-icon' src={clinic} alt='clinic search icon' />
         <form className='lg-search-form' onSubmit={handleSubmit}>
@@ -31,7 +30,7 @@ const ClinicSearch = ({setClinicSearch}) => {
             onChange={handleTextChange}
           />
           <button className='btn lg-btn' type='submit'>
-            SEARCH
+            SEARCH FOR CLINICS
           </button>
         </form>
       </div>
