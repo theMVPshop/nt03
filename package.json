@@ -21,9 +21,9 @@
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-to-pdf": "^0.0.14",
     "redux": "^4.1.0",
     "redux-thunk": "^2.3.0",
-    "react-to-pdf": "^0.0.14",
     "uuid": "^8.3.2",
     "web-vitals": "^1.1.1"
   },
