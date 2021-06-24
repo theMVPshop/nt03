@@ -40,6 +40,29 @@ const Navigation = () => {
           <Link className='nav-link' to='/job-search'>
             <img src={search} alt='job search icon' />
           </Link>
+          <div className='responsive-drop'>
+            <Link
+              style={{ textDecoration: 'none' }}
+              className='drop'
+              to='/job-search'
+            >
+              Job Search
+            </Link>
+            <Link
+              style={{ textDecoration: 'none' }}
+              className='drop'
+              to='/clinic-search'
+            >
+              Clinic Search
+            </Link>
+            <Link
+              style={{ textDecoration: 'none' }}
+              className='drop'
+              to='/resume-builder'
+            >
+              Resume Builder
+            </Link>
+          </div>
           <NavDropdown
             className='menu-button'
             title='Menu'

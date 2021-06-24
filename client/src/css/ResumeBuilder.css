@@ -223,3 +223,33 @@
     height: 10vh;
   }
 }
+
+@media (max-width: 992px) {
+  .nav-link > img,
+  .menu-button {
+    display: none;
+  }
+
+  .responsive-drop {
+    display: flex;
+    flex-direction: column;
+    font-size: 27px;
+    letter-spacing: 0.5px;
+  }
+
+  .navbar-nav {
+    align-items: flex-end;
+    text-align: right;
+    margin-right: -1.5em;
+  }
+
+  .drop {
+    color: var(--secondary-green);
+  }
+}
+
+@media (min-width: 992px) {
+  .responsive-drop {
+    display: none;
+  }
+}
