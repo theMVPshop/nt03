@@ -45,30 +45,16 @@ const ResumeProfessional = (props) => {
   return (
     <div className=''>
       <div className='resume-navigation resume-clear'>
-        <Button
-          variant='contained'
-          style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
-          onClick={props.clearWork}
-        >
+        <button className='sm-btn resume-btn clear' onClick={props.clearWork}>
           Clear
-        </Button>
+        </button>
         <div>
-          <Button
-            variant='contained'
-            color='secondary'
-            style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
-            onClick={props.goBack}
-          >
+          <button className='sm-btn resume-btn back' onClick={props.goBack}>
             Back
-          </Button>
-          <Button
-            variant='contained'
-            className='next-btn'
-            style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
-            onClick={props.onClick}
-          >
+          </button>
+          <button className='sm-btn resume-btn next' onClick={props.onClick}>
             Next
-          </Button>
+          </button>
         </div>
       </div>
 
@@ -336,30 +322,16 @@ const ResumeProfessional = (props) => {
           <hr />
         </form>
         <div className='resume-clear'>
-          <Button
-            variant='contained'
-            style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
-            onClick={props.clearWork}
-          >
+          <button className='sm-btn resume-btn clear' onClick={props.clearWork}>
             Clear
-          </Button>
+          </button>
           <div>
-            <Button
-              variant='contained'
-              color='secondary'
-              style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
-              onClick={props.goBack}
-            >
+            <button className='sm-btn resume-btn back' onClick={props.goBack}>
               Back
-            </Button>
-            <Button
-              variant='contained'
-              className='next-btn'
-              style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
-              onClick={props.onClick}
-            >
+            </button>
+            <button className='sm-btn resume-btn next' onClick={props.onClick}>
               Next
-            </Button>
+            </button>
           </div>
         </div>
       </div>

@@ -13,21 +13,15 @@ const ResumeAdditionalSkills = (props) => {
   return (
     <div className='additional-container'>
       <div className='resume-navigation resume-clear'>
-        <Button
-          variant='contained'
-          style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+        <button
+          className='sm-btn resume-btn clear'
           onClick={props.clearAdditional}
         >
           Clear
-        </Button>
-        <Button
-          variant='contained'
-          color='secondary'
-          style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
-          onClick={props.goBack}
-        >
+        </button>
+        <button className='sm-btn resume-btn back' onClick={props.goBack}>
           Back
-        </Button>
+        </button>
       </div>
       <div className='form-box'>
         <h2>Add skills that are unique to you.</h2>
@@ -78,21 +72,15 @@ const ResumeAdditionalSkills = (props) => {
           ))}
         </div>
         <div className='resume-clear'>
-          <Button
-            variant='contained'
-            style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+          <button
+            className='sm-btn resume-btn clear'
             onClick={props.clearAdditional}
           >
             Clear
-          </Button>
-          <Button
-            variant='contained'
-            color='secondary'
-            style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
-            onClick={props.goBack}
-          >
+          </button>
+          <button className='sm-btn resume-btn back' onClick={props.goBack}>
             Back
-          </Button>
+          </button>
         </div>
       </div>
     </div>

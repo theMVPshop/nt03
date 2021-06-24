@@ -14,21 +14,12 @@ const ResumeHeader = (props) => {
   return (
     <div>
       <div className='resume-clear-top'>
-        <Button
-          variant='contained'
-          style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
-          onClick={props.clearHeader}
-        >
+        <button className='sm-btn resume-btn clear' onClick={props.clearHeader}>
           Clear
-        </Button>
-        <Button
-          className='next-btn'
-          variant='contained'
-          style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
-          onClick={props.onClick}
-        >
+        </button>
+        <button className='sm-btn resume-btn next' onClick={props.onClick}>
           Next
-        </Button>
+        </button>
       </div>
 
       <div className='form-box'>
@@ -127,21 +118,15 @@ const ResumeHeader = (props) => {
           />
         </form>
         <div className='resume-clear'>
-          <Button
-            variant='contained'
-            style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
+          <button
+            className='sm-btn resume-btn clear'
             onClick={props.clearHeader}
           >
             Clear
-          </Button>
-          <Button
-            variant='contained'
-            color='primary'
-            style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
-            onClick={props.onClick}
-          >
+          </button>
+          <button className='sm-btn resume-btn next' onClick={props.onClick}>
             Next
-          </Button>
+          </button>
         </div>
       </div>
     </div>
