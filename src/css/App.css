@@ -8,6 +8,7 @@
 @import url('./FlashCards.css');
 @import url('./AddressBook.css');
 @import url('./ResumeBuilder.css');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400&display=swap');
 
 :root {
   --primary-green: #28c47d;
@@ -30,6 +31,7 @@
   /* font-family: "Roboto", san-serf; */
   font-weight: 400;
   box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
 }
 
 body {
@@ -56,6 +58,31 @@ body {
   margin: 10px;
 }
 
+.resume-btn {
+  border-radius: 3px;
+  margin-top: 18px;
+  margin-left: 8px;
+  margin-right: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.back {
+  background-color: #e91e62;
+  color: var(--primary-text-color);
+}
+
+.next {
+  background-color: var(--secondary-green);
+  color: var(--primary-text-color);
+}
+
+.clear {
+  background-color: var(--background);
+  color: var(--secondary-text-color);
+}
+
 .lg-btn:hover {
   background-color: var(--primary-green);
 }
@@ -70,4 +97,17 @@ body {
   min-height: 38px;
   border-radius: 2px;
   margin: 0 0 15px;
+}
+
+
+@media (max-width: 740px) {
+  .lg-btn {
+    width: 90%;
+  }
+}
+
+@media (max-width: 575px) {
+  .sm-btn {
+    width: 90%;
+  }
 }

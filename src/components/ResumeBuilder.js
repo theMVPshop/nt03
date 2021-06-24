@@ -2,17 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Button from '@material-ui/core/Button';
-import Avatar from '@material-ui/core/Avatar';
-import ClearIcon from '@material-ui/icons/Clear';
-import Tooltip from '@material-ui/core/Tooltip';
+import { makeStyles } from '@material-ui/core/styles';
+
 import ResumeHeader from './ResumeHeader';
 import ResumePaper from './ResumePaper';
 import ResumeProfessional from './ResumeProfessional';
 import ResumeEducation from './ResumeEducation';
 import ResumeAdditionalSkills from './ResumeAdditionalSkills';
 
+const useStyles = makeStyles((theme) => ({
+  indicator: {
+    backgroundColor: '#28c47d',
+  },
+}));
+
 export default function ResumeBuilder() {
+  const classes = useStyles();
+
   useEffect(() => {
     const nameData = localStorage.getItem('name');
     const addressData = localStorage.getItem('address');
@@ -301,11 +307,77 @@ export default function ResumeBuilder() {
     );
   };
 
-  //   const classes = useStyles();
-  const [tab, setTab] = React.useState(0);
-  console.log(tab);
+  const clearHeader = () => {
+    setName('');
+    setAddress('');
+    setCity('');
+    setState('');
+    setZip('');
+    setPhone('');
+    setEmail('');
+    setSummary('');
+  };
+
+  const clearWork = () => {
+    setCompany('');
+    setLocation('');
+    setPosition('');
+    setStart('');
+    setEnd('');
+    setDesc1('');
+    setDesc2('');
+    setDesc3('');
+
+    setCompany2('');
+    setLocation2('');
+    setPosition2('');
+    setStart2('');
+    setEnd2('');
+    setDesc11('');
+    setDesc22('');
+    setDesc33('');
+
+    setCompany3('');
+    setLocation3('');
+    setPosition3('');
+    setStart3('');
+    setEnd3('');
+    setDesc111('');
+    setDesc222('');
+    setDesc333('');
+  };
+
+  const clearEdu = () => {
+    setInstitute('');
+    setInstLocation('');
+    setMajor('');
+    setGraduation('');
+    setInfo('');
+
+    setInstitute2('');
+    setInstLocation2('');
+    setMajor2('');
+    setGraduation2('');
+    setInfo2('');
+
+    setInstitute3('');
+    setInstLocation3('');
+    setMajor3('');
+    setGraduation3('');
+    setInfo3('');
+  };
+
+  const clearAdditional = () => {
+    setAddSkillsData([]);
+    setSkills(
+      skills.map((d) => {
+        return { select: false, id: d.id, name: d.name };
+      })
+    );
+  };
 
   // Tab State
+  const [tab, setTab] = React.useState(0);
   const handleChange = (event, newValue) => {
     setTab(newValue);
   };
@@ -359,9 +431,6 @@ export default function ResumeBuilder() {
   const [desc333, setDesc333] = useState('');
 
   // --------EDUCATION STATE VARIABLES AND FUNCTIONS--------
-  // Array that holds each chunk of Education info
-  const [eduData, setEduData] = useState([]);
-
   const [institute, setInstitute] = useState('');
   const [institute2, setInstitute2] = useState('');
   const [institute3, setInstitute3] = useState('');
@@ -379,7 +448,6 @@ export default function ResumeBuilder() {
   const [info3, setInfo3] = useState('');
 
   // --------SKILLS STATE VARIABLES AND FUNCTIONS--------
-
   // Array that holds all additional skills
   const [addSkillsData, setAddSkillsData] = useState([]);
   const [skill1, setSkill1] = useState('');
@@ -421,7 +489,6 @@ export default function ResumeBuilder() {
     );
   }, []);
 
-  console.log(skills);
   // function that adds current list of skills to array
   const addSkills = () => {
     const id = uuidv4();
@@ -440,7 +507,14 @@ export default function ResumeBuilder() {
     <div className='resume-box'>
       <div className='resume-container'>
         <div className='tab-bar' position='static'>
-          <Tabs value={tab} onChange={handleChange}>
+          <Tabs
+            classes={{
+              indicator: classes.indicator,
+            }}
+            // {/* indicatorColor={{ background: '#28c47d' }} */}
+            value={tab}
+            onChange={handleChange}
+          >
             <Tab label='Header' />
             <Tab label='Work Experience' />
             <Tab label='Education' />
@@ -467,6 +541,7 @@ export default function ResumeBuilder() {
               summary={summary}
               updateSummary={setSummary}
               onClick={nextButton}
+              clearHeader={clearHeader}
             />
           </div>
         )}
@@ -521,23 +596,10 @@ export default function ResumeBuilder() {
               updateDesc3={setDesc3}
               updateDesc33={setDesc33}
               updateDesc333={setDesc333}
-            />
-            <Button
-              variant='contained'
-              color='secondary '
-              style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
-              onClick={prevButton}
-            >
-              Back
-            </Button>
-            <Button
-              variant='contained'
-              color='primary'
-              style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
               onClick={nextButton}
-            >
-              Next
-            </Button>
+              goBack={prevButton}
+              clearWork={clearWork}
+            />
           </div>
         )}
         {tab === 2 && (
@@ -576,24 +638,10 @@ export default function ResumeBuilder() {
               updateGraduation3={setGraduation3}
               info3={info3}
               updateInfo3={setInfo3}
-            />
-
-            <Button
-              variant='contained'
-              color='secondary'
-              style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
-              onClick={prevButton}
-            >
-              Back
-            </Button>
-            <Button
-              variant='contained'
-              color='primary'
-              style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
               onClick={nextButton}
-            >
-              Next
-            </Button>
+              goBack={prevButton}
+              clearEdu={clearEdu}
+            />
           </div>
         )}
         {tab === 3 && (
@@ -606,100 +654,78 @@ export default function ResumeBuilder() {
               setSkills={setSkills}
               skill1={skill1}
               updateSkill1={setSkill1}
+              goBack={prevButton}
+              clearAdditional={clearAdditional}
             />
-            {/* <Button
-              variant='contained'
-              color='secondary'
-              type='submit'
-              onClick={addSkills}
-              style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
-            >
-              ADD
-            </Button> */}
-            <Button
-              variant='contained'
-              color='secondary'
-              style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
-              onClick={prevButton}
-            >
-              Back
-            </Button>
           </div>
         )}
       </div>
-      <div>
-        <Tooltip title='Delete All Data' placement='right'>
-          <Avatar>
-            <ClearIcon onClick={handleDeleteData} />
-          </Avatar>
-        </Tooltip>
 
-        {/* RESUME RENDER */}
-        <ResumePaper
-          // HEADER
-          name={name}
-          address={address}
-          city={city}
-          state={state}
-          zip={zip}
-          phone={phone}
-          email={email}
-          summary={summary}
-          // PROFESSIONAL
-          // JOB 1
-          company={company}
-          location={location}
-          position={position}
-          start={start}
-          end={end}
-          desc1={desc1}
-          desc2={desc2}
-          desc3={desc3}
-          // JOB 2
-          company2={company2}
-          location2={location2}
-          position2={position2}
-          start2={start2}
-          end2={end2}
-          desc11={desc11}
-          desc22={desc22}
-          desc33={desc33}
-          // JOB 3
-          company3={company3}
-          location3={location3}
-          position3={position3}
-          start3={start3}
-          end3={end3}
-          desc111={desc111}
-          desc222={desc222}
-          desc333={desc333}
-          // EDUCATION
-          // EDU 1
-          eduData={eduData}
-          institute={institute}
-          instLocation={instLocation}
-          major={major}
-          graduation={graduation}
-          info={info}
-          // EDU 2
-          institute2={institute2}
-          instLocation2={instLocation2}
-          major2={major2}
-          graduation2={graduation2}
-          info2={info2}
-          // EDU 3
-          institute3={institute3}
-          instLocation3={instLocation3}
-          major3={major3}
-          graduation3={graduation3}
-          info3={info3}
-          // ADDITIONAL SKILLS
-          addSkillsData={addSkillsData}
-          skill1={skill1}
-          skills={skills}
-          setSkills={setSkills}
-        />
-      </div>
+      {/* RESUME RENDER */}
+      <ResumePaper
+        handleDeleteData={handleDeleteData}
+        // HEADER
+        name={name}
+        address={address}
+        city={city}
+        state={state}
+        zip={zip}
+        phone={phone}
+        email={email}
+        summary={summary}
+        // PROFESSIONAL
+        // JOB 1
+        company={company}
+        location={location}
+        position={position}
+        start={start}
+        end={end}
+        desc1={desc1}
+        desc2={desc2}
+        desc3={desc3}
+        // JOB 2
+        company2={company2}
+        location2={location2}
+        position2={position2}
+        start2={start2}
+        end2={end2}
+        desc11={desc11}
+        desc22={desc22}
+        desc33={desc33}
+        // JOB 3
+        company3={company3}
+        location3={location3}
+        position3={position3}
+        start3={start3}
+        end3={end3}
+        desc111={desc111}
+        desc222={desc222}
+        desc333={desc333}
+        // EDUCATION
+        // EDU 1
+        institute={institute}
+        instLocation={instLocation}
+        major={major}
+        graduation={graduation}
+        info={info}
+        // EDU 2
+        institute2={institute2}
+        instLocation2={instLocation2}
+        major2={major2}
+        graduation2={graduation2}
+        info2={info2}
+        // EDU 3
+        institute3={institute3}
+        instLocation3={instLocation3}
+        major3={major3}
+        graduation3={graduation3}
+        info3={info3}
+        // ADDITIONAL SKILLS
+        addSkillsData={addSkillsData}
+        skill1={skill1}
+        skills={skills}
+        setSkills={setSkills}
+      />
     </div>
   );
 }
