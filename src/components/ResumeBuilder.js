@@ -3,7 +3,6 @@ import { v4 as uuidv4 } from 'uuid';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import { makeStyles } from '@material-ui/core/styles';
-
 import ResumeHeader from './ResumeHeader';
 import ResumePaper from './ResumePaper';
 import ResumeProfessional from './ResumeProfessional';
@@ -511,7 +510,6 @@ export default function ResumeBuilder() {
             classes={{
               indicator: classes.indicator,
             }}
-            // {/* indicatorColor={{ background: '#28c47d' }} */}
             value={tab}
             onChange={handleChange}
           >
