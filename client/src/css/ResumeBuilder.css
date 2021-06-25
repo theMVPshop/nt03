@@ -197,6 +197,7 @@
   flex-direction: row;
 }
 
+/* Resume Builder Media Queries */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   .resume-box {
     display: flex;
@@ -224,6 +225,7 @@
   }
 }
 
+/* NavBar Media Queries */
 @media (max-width: 992px) {
   .nav-link > img,
   .menu-button {
@@ -233,7 +235,7 @@
   .responsive-drop {
     display: flex;
     flex-direction: column;
-    font-size: 27px;
+    font-size: 25px;
     letter-spacing: 0.5px;
   }
 
@@ -251,5 +253,35 @@
 @media (min-width: 992px) {
   .responsive-drop {
     display: none;
+  }
+}
+
+/* Landing page media queries */
+@media (max-width: 992px) {
+  .main-info {
+    display: flex;
+    flex-direction: column;
+    margin-top: -4em;
+  }
+
+  .main-link {
+    font-size: 180%;
+    margin: 5px;
+  }
+
+  .search-button > img {
+    height: 50%;
+    margin: 15px;
+  }
+
+  .search-button {
+    height: 35%;
+  }
+}
+
+/* Search forms media queries */
+@media (max-width: 992px) {
+  .lg-search-form-container {
+    margin-top: 60px;
   }
 }

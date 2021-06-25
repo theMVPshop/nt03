@@ -17,6 +17,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .lg-search-form-icon {
@@ -26,10 +27,9 @@
 
 .lg-search-input {
   padding: 10px;
-  width: 350px;
+  width: 85%;
   margin: 15px;
 }
-
 
 .sm-search-form-container {
   background: var(--primary-green);

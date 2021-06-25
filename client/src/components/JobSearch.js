@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 import searchIcon from '../images/GREEN-search.png';
 
-const JobSearch = ({setJobSearch}) => {
+const JobSearch = ({ setJobSearch }) => {
   const [search, setSearch] = useState({});
 
   const history = useHistory();
@@ -16,11 +16,15 @@ const JobSearch = ({setJobSearch}) => {
     setJobSearch(search);
     history.push('/job-postings');
   };
-  return(
-
+  return (
     <div className='lg-search-form-container'>
+      <h3>Search for dental jobs in your area</h3>
       <div className='lg-search-form'>
-        <img className='lg-search-form-icon' src={searchIcon} alt='job search icon' />
+        <img
+          className='lg-search-form-icon'
+          src={searchIcon}
+          alt='job search icon'
+        />
         <form className='lg-search-form' onSubmit={handleSubmit}>
           <input
             className='lg-search-input'
@@ -31,12 +35,12 @@ const JobSearch = ({setJobSearch}) => {
             onChange={handleTextChange}
           />
           <input
-              className='lg-search-input'
-              type='text'
-              name='location'
-              value={search.location}
-              placeholder='Enter location'
-              onChange={handleTextChange}
+            className='lg-search-input'
+            type='text'
+            name='location'
+            value={search.location}
+            placeholder='Enter location'
+            onChange={handleTextChange}
           />
           <button className='btn lg-btn' type='submit'>
             SEARCH
@@ -44,9 +48,8 @@ const JobSearch = ({setJobSearch}) => {
         </form>
       </div>
     </div>
-  )
+  );
 };
-
 
 // const JobSearch = () => {
 //   return (
