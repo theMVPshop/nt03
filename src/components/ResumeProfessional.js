@@ -45,10 +45,10 @@ const ResumeProfessional = (props) => {
   return (
     <div className=''>
       <div className='resume-navigation resume-clear'>
-        <button className='sm-btn resume-btn clear' onClick={props.clearWork}>
+        <button className='clear sm-btn  resume-btn ' onClick={props.clearWork}>
           Clear
         </button>
-        <div>
+        <div className='next-back'>
           <button className='sm-btn resume-btn back' onClick={props.goBack}>
             Back
           </button>
@@ -325,7 +325,7 @@ const ResumeProfessional = (props) => {
           <button className='sm-btn resume-btn clear' onClick={props.clearWork}>
             Clear
           </button>
-          <div>
+          <div className='next-back'>
             <button className='sm-btn resume-btn back' onClick={props.goBack}>
               Back
             </button>

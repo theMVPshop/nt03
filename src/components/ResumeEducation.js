@@ -37,7 +37,7 @@ const ResumeEducation = (props) => {
         <button className='sm-btn resume-btn clear' onClick={props.clearEdu}>
           Clear
         </button>
-        <div>
+        <div className='next-back'>
           <button className='sm-btn resume-btn back' onClick={props.goBack}>
             Back
           </button>
@@ -208,7 +208,7 @@ const ResumeEducation = (props) => {
           <button className='sm-btn resume-btn clear' onClick={props.clearEdu}>
             Clear
           </button>
-          <div>
+          <div className='next-back'>
             <button className='sm-btn resume-btn back' onClick={props.goBack}>
               Back
             </button>
