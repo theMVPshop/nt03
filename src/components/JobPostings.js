@@ -4,13 +4,19 @@ import JobSearchSm from './JobSearchSm';
 import JobCard from './JobCard';
 // import NewsArticles from './NewsArticles';
 import FlashCards from './FlashCards';
-import dentalImg from '../images/Dental-image.jpg';
+import dentalImg from '../images/Dental-image.png';
 
 const JobPostings = ({jobSearch, setJobSearch}) => {
   const [jobList, setJobList] = useState([]);
   const [resultsFound, setResultsFound] = useState(true);
 
   useEffect(() => {
+    const session = sessionStorage.getItem('jobList')
+
+    if(session){
+      setJobList(JSON.parse(session))
+    }
+
     axios.post('https://jooble.org/api/2f68c697-0b9e-420b-ac07-3522403e50ae', {
       keywords: jobSearch.position,
       location: jobSearch.location
@@ -20,6 +26,7 @@ const JobPostings = ({jobSearch, setJobSearch}) => {
         let jobs = data.jobs;
         if(jobs.length > 0){
           setJobList(jobs);
+          sessionStorage.setItem('jobList', JSON.stringify(jobs))
         } else {
           setResultsFound(false);
         }
@@ -32,9 +39,9 @@ const JobPostings = ({jobSearch, setJobSearch}) => {
       <div className='grid-container'>
         <div className='job-postings-grid'>
           {!resultsFound && 
-              <div>
-                <h3>No job postings found with your specifications.</h3>
-                <img src={dentalImg} alt='dentist illustration' className='no-results-img'/> 
+              <div className='noresults-searching-container'>
+                <img src={dentalImg} alt='dentist illustration' className='noresults-searching-img'/> 
+                <h3>No job postings found...try again!</h3>
               </div> 
           } 
 
@@ -51,7 +58,11 @@ const JobPostings = ({jobSearch, setJobSearch}) => {
                 />
               )
             })
-            : resultsFound && <h3>Searching.....</h3> 
+            : resultsFound && 
+                <div className='noresults-searching-container'>
+                  <img src={dentalImg} alt='dentist illustration' className='noresults-searching-img'/>
+                  <h3>Searching.....</h3> 
+                </div>
           }                     
         </div>
         {/* <NewsArticles className='news-grid' /> */}
