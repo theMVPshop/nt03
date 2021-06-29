@@ -26,16 +26,13 @@
   border-radius: 5px;
 }
 
-.dropdown-menu {
-  min-width: 50px;
-}
-
 .dropdown-menu.show {
   background-color: var(--secondary-green);
 }
 
 a.dropdown-item {
   color: var(--primary-text-color);
+  margin-left: -10px;
 }
 
 .navbar-light .navbar-nav .nav-link,
@@ -44,10 +41,6 @@ a.dropdown-item {
   color: var(--primary-text-color);
   font-size: 24px;
   text-shadow: 0.05px 2px rgba(0, 0, 0, 0.558);
-}
-
-.basic-nav-dropdown {
-  text-shadow: 1px 2px rgba(0, 0, 0, 0.558);
 }
 
 @media (max-width: 992px) {
