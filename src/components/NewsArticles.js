@@ -6,7 +6,6 @@ const NewsArticles = (props) => {
     <section className="carousel" aria-label="Gallery">
       <ol className="carousel__viewport">
         <li id="carousel__slide1"
-            tabindex="0"
             className="carousel__slide news-article">
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
             <div>
@@ -22,7 +21,6 @@ const NewsArticles = (props) => {
             </div>
         </li>
         <li id="carousel__slide2"
-            tabindex="0"
             className="carousel__slide news-article">
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
             <div>
@@ -37,7 +35,6 @@ const NewsArticles = (props) => {
             className="carousel__next">Go to next slide</a>
         </li>
         <li id="carousel__slide3"
-            tabindex="0"
             className="carousel__slide news-article">
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
             <div>
@@ -52,7 +49,6 @@ const NewsArticles = (props) => {
             className="carousel__next">Go to next slide</a>
         </li>
         <li id="carousel__slide4"
-            tabindex="0"
             className="carousel__slide news-article">
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
             <div>
@@ -67,7 +63,6 @@ const NewsArticles = (props) => {
             className="carousel__next">Go to next slide</a>
         </li>
         <li id="carousel__slide5"
-            tabindex="0"
             className="carousel__slide news-article">
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
             <div>
@@ -82,7 +77,6 @@ const NewsArticles = (props) => {
             className="carousel__next">Go to next slide</a>
         </li>
         <li id="carousel__slide6"
-            tabindex="0"
             className="carousel__slide news-article">
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
             <div>
@@ -97,7 +91,6 @@ const NewsArticles = (props) => {
             className="carousel__next">Go to next slide</a>
         </li>
         <li id="carousel__slide7"
-            tabindex="0"
             className="carousel__slide news-article">
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
             <div>
@@ -112,7 +105,6 @@ const NewsArticles = (props) => {
             className="carousel__next">Go to next slide</a>
         </li>
         <li id="carousel__slide8"
-            tabindex="0"
             className="carousel__slide news-article">
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
             <div>
@@ -127,7 +119,6 @@ const NewsArticles = (props) => {
             className="carousel__next">Go to next slide</a>
         </li>
         <li id="carousel__slide9"
-            tabindex="0"
             className="carousel__slide news-article">
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
             <div>
@@ -142,7 +133,6 @@ const NewsArticles = (props) => {
             className="carousel__next">Go to next slide</a>
         </li>
         <li id="carousel__slide10"
-            tabindex="0"
             className="carousel__slide news-article">
           <a className='news-link' href='https://newsarticlelink.com' target='blank'>
             <div>

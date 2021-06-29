@@ -10,6 +10,10 @@ const JobSearchSm = ({setJobSearch}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setJobSearch(search);
+    setSearch({
+      position: '',
+      location: ''
+    });
   };
 
   return (
