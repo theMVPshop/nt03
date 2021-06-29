@@ -26,8 +26,9 @@ const JobPostings = ({jobSearch, setJobSearch}) => {
         let jobs = data.jobs;
         if(jobs.length > 0){
           setJobList(jobs);
-          sessionStorage.setItem('jobList', JSON.stringify(jobs));
           setResultsFound(true);
+          sessionStorage.setItem('jobList', JSON.stringify(jobs));
+
         } else {
           setResultsFound(false);
         }
