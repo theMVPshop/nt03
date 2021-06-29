@@ -43,9 +43,9 @@ const ClinicSearchResults = ({clinicSearch}) => {
             let url = ''
 
             if (/^[0-9,-]+$/.test(clinicSearch)) {
-                url = `https://dental-werk.herokuapp.com/offices/zip/${clinicSearch}`
+                url = `https://dentalapi.herokuapp.com/offices/zip/${clinicSearch}`
             } else {
-                url = `https://dental-werk.herokuapp.com/offices/state/${clinicSearch}`
+                url = `https://dentalapi.herokuapp.com/offices/state/${clinicSearch}`
             }
     
             fetch(url)
@@ -95,16 +95,7 @@ const ClinicSearchResults = ({clinicSearch}) => {
                     <div className="list-group">
                         {/* If nothing found display message and button to return to search page */}
                         {!resultsFound &&
-                            <>
-                                <h3>Sorry, no dental clinics found....</h3>
-                                <button
-                                    className="btn form-btn"
-                                    type="button"
-                                    onClick={() => history.push('/clinic-search')}
-                                    >
-                                    New Search
-                                </button>
-                            </>
+                            <h3>Sorry, no dental clinics found....</h3>
                         }
             </div>
                     {/* If results found, display searching message till results are returned */}
