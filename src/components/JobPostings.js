@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import JobSearchSm from './JobSearchSm';
 import JobCard from './JobCard';
-import NewsArticles from './NewsArticles';
+// import NewsArticles from './NewsArticles';
 import FlashCards from './FlashCards';
 
 const JobPostings = ({jobSearch, setJobSearch}) => {
   const [jobList, setJobList] = useState([]);
+  const [resultsFound, setResultsFound] = useState(true);
 
   useEffect(() => {
     axios.post('https://jooble.org/api/2f68c697-0b9e-420b-ac07-3522403e50ae', {
@@ -16,7 +17,11 @@ const JobPostings = ({jobSearch, setJobSearch}) => {
       .then(res => res.data)
       .then(data => {
         let jobs = data.jobs;
-        setJobList(jobs);
+        if(jobs.length > 0){
+          setJobList(jobs);
+        } else {
+          setResultsFound(false);
+        }
       })
   }, [jobSearch]);
   
@@ -25,7 +30,11 @@ const JobPostings = ({jobSearch, setJobSearch}) => {
       <JobSearchSm setJobSearch={setJobSearch} />
       <div className='grid-container'>
         <div className='job-postings-grid'>
-          {jobList.length > 0 ?
+          {!resultsFound && 
+              <h3>No job postings found with your specifications.</h3>   
+          } 
+
+          {resultsFound && jobList.length > 0 ?
             jobList.map(job => {
               return (
                 <JobCard 
@@ -38,10 +47,10 @@ const JobPostings = ({jobSearch, setJobSearch}) => {
                 />
               )
             })
-          : <h3>No job postings found with your specifications.</h3>                           
-          }
+            : resultsFound && <h3>Searching.....</h3> 
+          }                     
         </div>
-        <NewsArticles className='news-grid' />
+        {/* <NewsArticles className='news-grid' /> */}
         <div className='flashcards-grid'>
           <FlashCards />
         </div>
