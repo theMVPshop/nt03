@@ -4,6 +4,7 @@ import JobSearchSm from './JobSearchSm';
 import JobCard from './JobCard';
 // import NewsArticles from './NewsArticles';
 import FlashCards from './FlashCards';
+import dentalImg from '../images/Dental-image.jpg';
 
 const JobPostings = ({jobSearch, setJobSearch}) => {
   const [jobList, setJobList] = useState([]);
@@ -31,7 +32,10 @@ const JobPostings = ({jobSearch, setJobSearch}) => {
       <div className='grid-container'>
         <div className='job-postings-grid'>
           {!resultsFound && 
-              <h3>No job postings found with your specifications.</h3>   
+              <div>
+                <h3>No job postings found with your specifications.</h3>
+                <img src={dentalImg} alt='dentist illustration' className='no-results-img'/> 
+              </div> 
           } 
 
           {resultsFound && jobList.length > 0 ?

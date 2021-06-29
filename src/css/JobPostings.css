@@ -37,6 +37,10 @@
   grid-area: flashcards;
 }
 
+.no-results-img {
+  width: 80%;
+}
+
 @media (max-width: 575px) {
   .grid-container {
     grid-template-columns: 3fr;
