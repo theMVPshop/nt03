@@ -26,7 +26,7 @@ const ClinicSearch = ({setClinicSearch}) => {
           <input
             className='lg-search-input'
             type='text'
-            placeholder='Enter a state or zip code'
+            placeholder='Enter a state (i.e. TX) or zip code'
             onChange={handleTextChange}
           />
           <button className='btn lg-btn' type='submit'>

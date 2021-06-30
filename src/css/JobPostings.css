@@ -9,14 +9,17 @@
 .grid-container {
   display: inline-grid;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr;
+  /* grid-template-rows: 1fr 1fr; */
   gap: 10px 10px;
   margin: 10px 0;
   height: 80vh;
   width: 100%;
   grid-template-areas: 
-  "jobs news"
   "jobs flashcards";
+  /* grid-template-areas: 
+  "jobs news"
+  "jobs flashcards"; */
 }
 
 .job-postings-grid {
@@ -26,12 +29,26 @@
   grid-area: jobs;
 }
 
-.news-grid {
+/* .news-grid {
   grid-area: news;
-}
+} */
 
 .flashcards-grid {
   grid-area: flashcards;
+}
+
+.noresults-searching-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.noresults-searching-container > h3 {
+  text-align: center;
+} 
+
+.noresults-searching-img {
+  width: 80%;
 }
 
 @media (max-width: 575px) {

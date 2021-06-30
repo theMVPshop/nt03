@@ -10,6 +10,7 @@ import "../../css/clinicSearchResults.css"
 import Map from './Map'
 import ClinicList from './ClinicList'
 import { useHistory } from 'react-router'
+import dentalImg from '../../images/Dental-image.png';
 
 const ClinicSearchResults = ({clinicSearch}) => {
     // state and screen width to conditionally render map based on screen size
@@ -43,9 +44,9 @@ const ClinicSearchResults = ({clinicSearch}) => {
             let url = ''
 
             if (/^[0-9,-]+$/.test(clinicSearch)) {
-                url = `https://dental-werk.herokuapp.com/offices/zip/${clinicSearch}`
+                url = `https://dentalapi.herokuapp.com/offices/zip/${clinicSearch}`
             } else {
-                url = `https://dental-werk.herokuapp.com/offices/state/${clinicSearch}`
+                url = `https://dentalapi.herokuapp.com/offices/state/${clinicSearch}`
             }
     
             fetch(url)
@@ -95,16 +96,11 @@ const ClinicSearchResults = ({clinicSearch}) => {
                     <div className="list-group">
                         {/* If nothing found display message and button to return to search page */}
                         {!resultsFound &&
-                            <>
+                            // <h3>Sorry, no dental clinics found....</h3>
+                            <div className='noresults-searching-container'>
+                                <img src={dentalImg} alt='dentist illustration' className='noresults-searching-img'/> 
                                 <h3>Sorry, no dental clinics found....</h3>
-                                <button
-                                    className="btn form-btn"
-                                    type="button"
-                                    onClick={() => history.push('/clinic-search')}
-                                    >
-                                    New Search
-                                </button>
-                            </>
+                            </div>
                         }
             </div>
                     {/* If results found, display searching message till results are returned */}
@@ -124,7 +120,7 @@ const ClinicSearchResults = ({clinicSearch}) => {
                 </div>
             </div>
             {/* Don't display map untill ClinicList is loaded with data */}
-            {windowWidth > mapBreakpoint ? <div className='map-area'>
+            {resultsFound && windowWidth > mapBreakpoint ? <div className='map-area'>
                 <h2>Dental Office Map</h2>
                 {clinicList.length > 0 && <Map selectedOffice={selectedOffice} />}
             </div> : ''
