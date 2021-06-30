@@ -10,6 +10,7 @@ const ClinicSearch = ({setClinicSearch}) => {
   const handleTextChange = (e) => {
     let txt = e.target.value
     setSearch(txt)
+    sessionStorage.clear();
   };
 
   const handleSubmit = (e) => {
