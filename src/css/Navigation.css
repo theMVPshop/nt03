@@ -32,7 +32,13 @@
 
 a.dropdown-item {
   color: var(--primary-text-color);
+  width: 80%;
   margin-left: -10px;
+}
+
+.dropdown-item:hover {
+  background-color: transparent;
+  color: var(--primary-green);
 }
 
 .navbar-light .navbar-nav .nav-link,
