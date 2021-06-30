@@ -156,6 +156,10 @@
   font-size: 15.5px;
 }
 
+.list-item {
+  list-style-type: disc;
+}
+
 .edu-single {
   padding-top: 10px;
 }
